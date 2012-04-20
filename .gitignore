@@ -1,0 +1,13 @@
+.bundle
+log/*
+tmp/*
+config/database.yml
+public/system/
+assets/*
+log/*.pid
+log/*.lck
+binlog.*
+.com.apple.timemachine.supported
+devise/*
+fixtures/*
+config/initializers/secret_token.rb

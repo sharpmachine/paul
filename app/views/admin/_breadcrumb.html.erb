@@ -1,0 +1,12 @@
+<div class="breadcrumbs">
+	<ul class="breadcrumb">
+		<li><%= link_to content_tag(:span, "Home", :class => "home"), admin_home_path %></li>
+		<%- if parent_text and parent_url -%>
+			<li><%= link_to parent_text, parent_url %></li>
+		<%- end -%>
+		<%- if sub_parent_text and sub_parent_url -%>
+			<li><%= link_to sub_parent_text, sub_parent_url %></li>
+		<%- end -%>	
+		<li><%= @title %></li>
+	</ul>
+</div>

@@ -1,0 +1,14 @@
+<% title "Edit Content" %>
+<% selected_nav "pages" %>
+
+<%= show_breadcrumbs(:parent_url => admin_pages_path, :parent_text => "Page Content Blocks", :child_text => @title) %>
+
+<div id="section_head" class="index"><div class="pad">
+	<h1><%= @title %></h1>
+</div></div>
+
+<div id="content"><div class="pad">
+	
+	<%= render 'form' %>
+
+</div></div>

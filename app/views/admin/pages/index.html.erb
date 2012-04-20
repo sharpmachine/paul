@@ -1,0 +1,50 @@
+<% title "Page Content Blocks" %>
+<% selected_nav "pages" %>
+
+<%= show_breadcrumbs(:child_text => @title) %>
+<div id="section_head" class="index"><div class="pad">
+	<%= image_tag ("icon-contentblocks.jpg"), :class => "photo" %>
+	
+	<div class="actionbar">
+		<% if can? :create, Page %>
+		  <%= link_to 'Add Content', new_admin_page_path, :class => 'btn add' %>
+		<% end %>
+	</div>
+	
+	<h1><%= @title %></h1>
+
+</div></div>
+
+<div id="content"><div class="pad">
+	
+	<div class="results_info">
+		<p class="results_total">
+			<%= pluralize(@pages.count, 'page') %>
+		</p>
+	</div>
+
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Permalink</th>
+	    <th></th>
+	  </tr>
+
+	<% @pages.each do |page| %>
+	  <tr>
+	    <td class="bold"><%= link_to page.name, edit_admin_page_path(page) %></td>
+	    <td><%= page.permalink %></td>
+	    <td>
+	      <% if can? :update, Page %>
+	        <%= link_to 'Edit', edit_admin_page_path(page), :class => "btn small" %>
+	      <% end %>
+
+	      <% if can? :destroy, Page %>
+	        <%= link_to 'Delete', [:admin, page], :confirm => 'Are you sure?', :method => :delete, :class => "btn grey small" %>
+	      <% end %>
+	    </td>
+	  </tr>
+	<% end %>
+	</table>
+	
+</div></div>
