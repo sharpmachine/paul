@@ -13,3 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_directory .
+//= require chosen/chosen.jquery
+
+$(".chzn-select").chosen();

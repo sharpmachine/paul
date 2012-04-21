@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require superfish
 //= require_directory .
+//= require chosen/chosen.jquery
 
 jQuery.ajaxSetup({
 	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
@@ -15,5 +16,7 @@ jQuery( function($) {
 	    speed:     'fast',            // animation speed
 		autoArrows: false
 	});
+	
+	$(".chzn-select").chosen();	
 
 });	

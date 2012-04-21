@@ -1,0 +1,52 @@
+<% title "Site Users" %>
+<% selected_nav "people" %>
+
+<%= show_breadcrumbs() %>
+
+<div id="section_head"><div class="pad">
+	<%= image_tag ("icon-searches.jpg"), :class => "photo" %>
+	
+	<h1><%= @title %></h1>
+
+</div></div>
+
+<div id="content"><div class="pad">
+	
+	<div class="results_info">
+		
+		<%= form_tag(admin_users_path, :method => "get", :id => 'results_search') do %>
+		<%= text_field_tag(:q, params[:q], :class => 'searchinput') %>
+		<%= submit_tag("Search", :name => nil, :class => 'btn small') %>
+		<% end %>
+		
+		
+		<div class="results_total">
+
+			<%= pluralize(@users.count, 'person') %> matching "<%= params[:q] %>"
+
+		</div>
+	</div>
+
+	<table id="searchresults">
+	  <tr>
+	    <th class="nowrap" width="2%"></th>
+		<th width="3%"></th>
+	    <th class="nowrap"><%= sortable "firstname" %></th>
+	    <th class="nowrap"><%= sortable "lastname" %></th>
+	    <% if can? :manage, :roles %><th class="nowrap"><%= sortable "role" %></th><% end %>
+	  </tr>
+	<% @users.each do |user| %>
+	  <tr>
+		<td></td>
+	    <td></td>
+	    <td class="bold"><%= link_to user.firstname, [:admin, user] %></td>
+	    <td class="bold"><%= link_to user.lastname, [:admin, user] %></td>	
+	    <% if can? :manage, :roles %><td><%= user.role %></td><% end %>
+	  </tr>
+	<% end %>
+	</table>
+
+
+	<%#= paginate @users %>
+
+</div></div>

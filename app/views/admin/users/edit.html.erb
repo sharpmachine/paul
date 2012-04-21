@@ -1,0 +1,10 @@
+<% title "Edit User" %>
+<% selected_nav "people" %>
+
+<%= show_breadcrumbs(:parent_url => admin_users_path, :parent_text => "People", :sub_parent_url => admin_user_path(@user), :sub_parent_text => "#{@user.firstname} #{@user.lastname}") %>
+
+<div id="content"><div class="pad">
+	
+	<%= render 'form' %>
+
+</div></div>

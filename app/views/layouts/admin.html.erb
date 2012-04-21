@@ -44,14 +44,13 @@
 				<li<%= @selected_nav == "pages" ? " class='selected'" : "" %>><%= link_to "Web Content", admin_pages_path %>
 					<ul>						
 						<% if can? :update, Page %><li><%= link_to 'Page Content Blocks', admin_pages_path %></li><% end %>					
-						<li><%= link_to 'Testing...', "#" %></li>						
 					</ul>
 				</li>
-				<li><%= link_to "Testing", admin_pages_path %>
+				<li<%= @selected_nav == "people" ? " class='selected'" : "" %>><%= link_to "Site Users", admin_users_path %>
 					<ul>						
-						<li><%= link_to 'Testing...', "#" %></li>
+						<li><%= link_to 'Site Users', admin_users_path %></li>					
 					</ul>
-				</li>				
+				</li>
 			</ul>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Clean::Application.initialize!
+Paulmanwaring::Application.initialize!
 
 # Overide the default handling of form errors:
 ActionView::Base.field_error_proc = Proc.new do |html_tag, instance_tag|

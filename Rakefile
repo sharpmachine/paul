@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Clean::Application.load_tasks
+Paulmanwaring::Application.load_tasks

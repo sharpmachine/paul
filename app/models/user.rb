@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :role, :as => :superuser  
   
   # ADMIN_ROLES are any ROLE that has access to the /admin/ namespace. So the ROLES list may be longer than the ADMIN_ROLES list.
   ADMIN_ROLES = %w[superuser manager]

@@ -1,0 +1,50 @@
+<% title @user.firstname + " " + @user.lastname %>
+<% selected_nav "people" %>
+
+<%= show_breadcrumbs(:parent_url => admin_users_path, :parent_text => "People") %>
+
+<div id="section_head"><div class="pad">
+	
+	<h1><%= @title %></h1>
+	
+
+	<span class="status role"><%= @user.role %></span>
+
+</div></div>
+	
+	
+	
+<div id="content" class="tab-container">
+	
+	<div id="tab1" class="tab-content pad">
+		
+		<div class="leftcol">
+			<div class="actions">
+				<% if can? :update, @user %><%= link_to 'Edit', edit_admin_user_path(@user), :class => 'btn' %><% end %> <% if (can? :destroy, @user) %><%= link_to 'Delete', admin_user_path(@user), :confirm => 'Are you sure?', :method => :delete, :class => 'btn grey small' %><% end %>
+			</div>
+			
+			<dl>
+				<dt>Email</dt>
+				<dd>
+					<%= @user.email %>
+				</dd>
+			</dl>
+
+		</div>
+
+
+
+
+
+		<div class="rightcol">								
+			
+
+			
+			
+			
+		</div>
+	</div>
+	
+	
+	
+</div>

@@ -1,0 +1,38 @@
+<%= form_for([:admin, @user]) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div class="field">
+	  <%= f.label :firstname %>
+	  <%= f.text_field :firstname %>
+	</div>
+	<div class="field">
+	  <%= f.label :lastname %>
+	  <%= f.text_field :lastname %>
+	</div>
+
+	<% if can? :manage, :roles %>
+		<div class="field">
+			<%= f.label :role %>
+			<%= f.collection_select :role, User::ROLES, :to_s, :humanize, {}, { :class => "chzn-select", :style => "width:300px" } %>
+		</div>
+	<% end %>	
+
+	<div class="field">
+	  <%= f.label :email %>
+	  <%= f.text_field :email %>
+	</div>
+
+  <div class="actions">
+    <%= f.submit 'Save', :class => "btn" %>
+  </div>
+
+<% end %>
