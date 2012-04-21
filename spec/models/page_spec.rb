@@ -35,7 +35,8 @@ describe Page do
     @page.should be_valid
   end
 
-end# == Schema Information
+end
+# == Schema Information
 #
 # Table name: pages
 #

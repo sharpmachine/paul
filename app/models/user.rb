@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname
   attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :role, :as => :superuser  
   
+  has_many :posts
+  
   # ADMIN_ROLES are any ROLE that has access to the /admin/ namespace. So the ROLES list may be longer than the ADMIN_ROLES list.
   ADMIN_ROLES = %w[superuser manager]
   # All User roles are defined here... And set up in the ability.rb class...
