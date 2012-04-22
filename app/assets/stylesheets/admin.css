@@ -287,8 +287,8 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 	width: 100%;
 	background: #3A105C;
 	float: left;
-	}
-#nav { border-top: 1px solid #9C85AE; border-bottom: 1px solid #9C85AE}
+ 	border-top: 1px solid #333333; 
+}
 #nav .sf-menu li:hover ul, #nav .sf-menu li ul, #nav .sf-menu li.sf-hover ul {
 	top: 56px;
 	border-radius: 0px 0px 4px 4px;

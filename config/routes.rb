@@ -6,7 +6,7 @@ Paulmanwaring::Application.routes.draw do
   # Namespace for Admin Section
   namespace :admin do
     # Admin 'Home' page
-    match '/' => "home#index", :as => :home    
+    match '/' => "posts#index", :as => :home    
     resources :posts
     resources :pages
     resources :users, :except => [:create, :new]    

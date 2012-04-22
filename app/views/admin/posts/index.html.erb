@@ -1,27 +1,47 @@
-<h1>Listing posts</h1>
+<% title "Blog Posts" %>
+<% selected_nav "pages" %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= show_breadcrumbs() %>
+<div id="section_head" class="index"><div class="pad">
+	
+	<div class="actionbar">
+		<% if can? :create, Post %>
+		  <%= link_to 'New Post', new_admin_post_path, :class => 'btn add' %>
+		<% end %>
+	</div>
+	
+	<h1><%= @title %></h1>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
-    <td><%= post.user_id %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+</div></div>
 
-<br />
+<div id="content"><div class="pad">
+	
+	<div class="results_info">
+		<p class="results_total">
+			<%= pluralize(@posts.count, 'post') %>
+		</p>
+	</div>
 
-<%= link_to 'New Post', new_post_path %>
+	<table>
+	  <tr>
+	    <th>Title</th>
+	    <th></th>
+	  </tr>
+
+	<% @posts.each do |post| %>
+	  <tr>
+	    <td class="bold"><%= link_to post.title, post_path(post), :target => "_blank" %></td>
+	    <td>
+	      <% if can? :update, post %>
+	        <%= link_to 'Edit', edit_admin_post_path(post), :class => "btn small" %>
+	      <% end %>
+
+	      <% if can? :destroy, post %>
+	        <%= link_to 'Delete', [:admin, post], :confirm => 'Are you sure?', :method => :delete, :class => "btn grey small" %>
+	      <% end %>
+	    </td>
+	  </tr>
+	<% end %>
+	</table>
+	
+</div></div>

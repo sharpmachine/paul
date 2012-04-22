@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Site Title - <%= @title || "Admin" %></title>
+	<title>PaulManwaring.com - <%= @title || "Admin" %></title>
 	<%= javascript_include_tag "admin/admin" %>	
 	<%= stylesheet_link_tag "admin", :media => "all" %>	
 	
@@ -41,14 +41,15 @@
 	<div id="nav">
 		<div class="nav">
 			<ul class="sf-menu sf-horizontal">
-				<li<%= @selected_nav == "pages" ? " class='selected'" : "" %>><%= link_to "Web Content", admin_pages_path %>
+				<li<%= @selected_nav == "pages" ? " class='selected'" : "" %>><%= link_to "Content", admin_posts_path %>
 					<ul>						
-						<% if can? :update, Page %><li><%= link_to 'Page Content Blocks', admin_pages_path %></li><% end %>					
+						<% if can? :update, Post %><li><%= link_to "Blog", admin_posts_path %></li><% end %>					
+						<% if can? :update, Page %><li><%= link_to "Page Blocks", admin_pages_path %></li><% end %>					
 					</ul>
 				</li>
-				<li<%= @selected_nav == "people" ? " class='selected'" : "" %>><%= link_to "Site Users", admin_users_path %>
+				<li<%= @selected_nav == "people" ? " class='selected'" : "" %>><%= link_to "Users", admin_users_path %>
 					<ul>						
-						<li><%= link_to 'Site Users', admin_users_path %></li>					
+						<% if can? :update, User %><li><%= link_to "Users", admin_users_path %></li><% end %>					
 					</ul>
 				</li>
 			</ul>

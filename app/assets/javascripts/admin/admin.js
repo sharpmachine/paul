@@ -18,5 +18,8 @@ jQuery( function($) {
 	});
 	
 	$(".chzn-select").chosen();	
+	
+	$('#flash_notice').delay(3000).slideUp(500);
+	$('#flash_alert').delay(6000).slideUp(500);	
 
 });	
