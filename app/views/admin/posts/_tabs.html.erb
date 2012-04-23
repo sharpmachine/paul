@@ -1,0 +1,20 @@
+<% title "Blog" %>
+<% selected_nav "pages" %>
+
+<%= show_breadcrumbs() %>
+<div id="section_head"><div class="pad">
+	
+	<div class="actionbar">
+		<% if can? :create, Post %>
+		  <%= link_to 'New Post', new_admin_post_path, :class => 'btn add' %>
+		<% end %>
+	</div>
+
+	<h1><%= @title %></h1>
+	
+	<ul class="tabs">
+		<li <% if tab == "posts" %>class="active"<% end %>><%= link_to admin_posts_path do %><span>Posts</span><% end %></li>
+		<li <% if tab == "categories" %>class="active"<% end %>><%= link_to "#" do %><span>Categories</span><% end %></li>						
+	</ul>
+
+</div></div>

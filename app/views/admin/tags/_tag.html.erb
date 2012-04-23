@@ -1,0 +1,9 @@
+<li class="note" id="tag_<%= tag.id %>">
+<% if can? :destroy, tag %>
+	<%= link_to([:admin, tag], :method => :delete, :remote => true, :class => "deletenote") do %>
+		<%= tag.tagstring %>
+	<% end %>
+<% else %>
+	<%= tag.tagstring %>
+<% end %>
+</li>

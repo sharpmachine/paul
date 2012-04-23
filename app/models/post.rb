@@ -1,7 +1,13 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  has_many :tagships, :dependent => :destroy
+  has_many :tags, :through => :tagships  
   
   validates_presence_of :title, :content
+  
+  def to_param
+    "#{id}-#{title}".downcase.gsub(/\W+/, "-").gsub(/^[-]+|[-]$/,"").strip
+  end  
 end
 # == Schema Information
 #

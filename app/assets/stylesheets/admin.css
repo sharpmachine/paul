@@ -975,7 +975,7 @@ dd .book .left , dd .download .left {
 	background-repeat: no-repeat;
 }
 .box.notes a.deletenote:hover, .box.notes a.deletepost:hover {
-	background-position: 0px 10px;
+	background-position: 0px 5px;
 	background-color: #DDD;
 	cursor: not-allowed;
 }

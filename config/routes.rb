@@ -9,7 +9,8 @@ Paulmanwaring::Application.routes.draw do
     match '/' => "posts#index", :as => :home    
     resources :posts
     resources :pages
-    resources :users, :except => [:create, :new]    
+    resources :tags, :only => [:create, :new, :destroy]        
+    resources :users, :only => [:create, :new, :destroy]    
   end    
   
   match '/errors/test' => 'errors#test'

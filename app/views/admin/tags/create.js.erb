@@ -1,0 +1,4 @@
+$("#tags").prepend("<%= escape_javascript(render @tag) %>");
+$("#tags .none").hide();
+$("#new_tag")[0].reset();
+$("#tag_<%= @tag.id %>").hide().slideDown();
