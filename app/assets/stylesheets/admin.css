@@ -1221,7 +1221,7 @@ form { width:100%; margin: 0 auto;}
 	}
 .field label {
 	display: block;
-	font-weight: 400;
+	font-weight: bold;
 	}
 .field ul li label {
 	display: inline-block;

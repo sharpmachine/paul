@@ -27,6 +27,14 @@
 		<%= f.select(:tag_ids, @tags.collect {|t| [t.tagstring, t.id]}, { :include_blank => true }, { :title => "Tags...", :class => "chzn-select", :style => "width:350px; ", :multiple => "multiple" }) %>
 	</div>
 	
+	<div class="field">
+		<%= f.label :published %>
+		<ul>		
+		<li><%= f.radio_button :published, "true" %> <%= f.label :published_true, "Yes - Show post in website" %></li>
+		<li><%= f.radio_button :published, "false" %> <%= f.label :published_false, "No - Hide post" %></li>
+		</ul>
+	</div>	
+	
 	<div class="actions">
     	<%= link_to "Cancel", admin_posts_path, :class => "btn small grey" %> <%= f.submit %>
 	</div>

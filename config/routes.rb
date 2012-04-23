@@ -9,7 +9,11 @@ Paulmanwaring::Application.routes.draw do
   namespace :admin do
     # Admin 'Home' page
     match '/' => "posts#index", :as => :home    
-    resources :posts
+    resources :posts do
+      member do
+        get :publish
+      end
+    end
     resources :categories    
     resources :pages
     resources :tags, :only => [:create, :new, :destroy]        

@@ -21,5 +21,6 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #  category_id :integer(4)
+#  published   :boolean(1)      default(FALSE)
 #
 

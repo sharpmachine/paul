@@ -35,6 +35,13 @@ class Admin::PostsController < Admin::BaseController
     @post = Post.find(params[:id])
 
   end
+  
+  def publish
+    @post = Post.find(params[:id])
+    @post.published = true
+    @post.save
+    redirect_to admin_posts_path, notice: 'Post published.'
+  end  
 
   def create
     @post = Post.new(params[:post])

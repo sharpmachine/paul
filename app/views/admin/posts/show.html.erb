@@ -1,20 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%= render :partial => "tabs", :locals => { tab: "posts" } %>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<div id="content" class="tab-container"><div class="tab-content pad">
+	
 
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+	
+		<div class="breadcrumbs">
+			<ul class="breadcrumb">				
+				<li><%= link_to "Posts", admin_posts_path %></li>
+				<li>Preview</li>				
+			</ul>
+		</div>
+		
+		<div class="actions into_breadcrumb">
+			<%= link_to "Edit Post", edit_admin_post_path(@post), :class => "btn" %>
+			<%= link_to "Publish Now", publish_admin_post_path(@post), :class => "btn grey" %>			
+		</div>		
+		
+		<h2><%= @post.title %></h2>
+		
+		<p><strong>Category:</strong> <%= link_to @post.category.name, category_path(@post.category) %></p>
+		<p><strong>Tags:</strong> <%= @post.tags.collect {|t| t.tagstring }.join(", ") %></p>
+		<p>&nbsp;</p>
+		<%= raw(@post.content) %>	
+	
+	
+</div></div>

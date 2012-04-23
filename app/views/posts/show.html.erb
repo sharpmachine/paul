@@ -1,9 +1,22 @@
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<%= content_for(:head) do %>
+	<%= javascript_tag do %>
+		var disqus_title = '<%= @post.title %>'; 
+		var disqus_developer = <% if Rails.env == "development" %>1<% else %>0<% end %>;
+		var disqus_shortname = 'paulmanwaring';		
+		var disqus_identifier = '<%= @post.id %>';	
+		
+		(function() {
+		        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		    })();	
+	<% end %>
+<% end %>
 
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
+<h1><%= @post.title %></h2>
+
+
+<%= raw(@post.content) %>
+
+
+<div id="disqus_thread"></div>
