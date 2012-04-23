@@ -1,0 +1,21 @@
+<%= form_for([:admin, @picture], :html => { :multipart => true, :class => "upload_form" }) do |f| %>
+  <% if @picture.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @picture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :image, "Image File" %><br />
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= render "layouts/uploading" %>

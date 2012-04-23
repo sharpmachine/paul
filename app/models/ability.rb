@@ -20,7 +20,10 @@ class Ability
   def manager
     user # Inherit user permissions, and add more:
     can :manage, User
-    can :manage, Page    
+    can :manage, Page
+    can :manage, Tag
+    can :manage, Category  
+    can :manage, Picture                
   end
   
   def superuser

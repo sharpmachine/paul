@@ -1,14 +1,35 @@
 <%= render :partial => "tabs", :locals => { tab: "posts" } %>
 
 <div id="content"><div class="pad">
-
+	
 	<div class="breadcrumbs">
 		<ul class="breadcrumb">				
 			<li><%= link_to "Posts", admin_posts_path %></li>
 			<li>New</li>				
 		</ul>
-	</div>
-		
+	</div>	
+	
+	<div class="leftcol">
+	
 	<%= render 'form' %>
 
+	</div>
+	
+	<div class="rightcol">
+
+		<div class="box notes">
+			<h2>Tags</h2>
+			
+			<%= render partial: "admin/tags/form", object: @tag %>
+
+			<ul id="tags" class="note">		
+				<% if @tags.present? %>
+					<%= render @tags %>
+				<% else %>
+					<li class="note none">- no tags -</li>
+				<% end  %>										
+			</ul>
+
+		</div>
+	</div>	
 </div></div>

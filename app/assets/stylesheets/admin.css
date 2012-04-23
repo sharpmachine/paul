@@ -1213,10 +1213,10 @@ img.thumb {
 /**
  * Forms and Fields
  */
-form { width: 70%; margin: 0 auto;}
+form { width:100%; margin: 0 auto;}
 .box form { width: auto; }
 .field {
-	padding: 0 0px 20px 60px; 
+	padding: 0 30px 20px 30px; 
 	width: auto;
 	}
 .field label {
@@ -1262,7 +1262,7 @@ fieldset {
 fieldset .confirm { padding-left: 20px; font-weight: bold; }
 legend { text-align:right; }
 textarea {
-	width: 60%;
+	width: 100%;
 	height: 100px;
 	}
 form .actions {

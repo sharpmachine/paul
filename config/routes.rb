@@ -1,4 +1,6 @@
 Paulmanwaring::Application.routes.draw do
+  resources :categories, :only => [:index, :show]
+
   resources :posts, :only => [:index, :show]
 
   devise_for :users
@@ -8,9 +10,11 @@ Paulmanwaring::Application.routes.draw do
     # Admin 'Home' page
     match '/' => "posts#index", :as => :home    
     resources :posts
+    resources :categories    
     resources :pages
     resources :tags, :only => [:create, :new, :destroy]        
     resources :users, :only => [:create, :new, :destroy]    
+    resources :pictures, :except => [:edit, :update]   
   end    
   
   match '/errors/test' => 'errors#test'

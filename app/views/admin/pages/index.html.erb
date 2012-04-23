@@ -1,10 +1,8 @@
-<% title "Page Content Blocks" %>
+<% title "Page Blocks" %>
 <% selected_nav "pages" %>
 
-<%= show_breadcrumbs(:child_text => @title) %>
+<%= show_breadcrumbs() %>
 <div id="section_head" class="index"><div class="pad">
-	<%= image_tag ("icon-contentblocks.jpg"), :class => "photo" %>
-	
 	<div class="actionbar">
 		<% if can? :create, Page %>
 		  <%= link_to 'Add Content', new_admin_page_path, :class => 'btn add' %>

@@ -6,3 +6,12 @@ FactoryGirl.define do
       tag_id 1
     end
 end
+# == Schema Information
+#
+# Table name: tagships
+#
+#  id      :integer(4)      not null, primary key
+#  post_id :integer(4)
+#  tag_id  :integer(4)
+#
+

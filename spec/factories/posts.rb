@@ -18,3 +18,94 @@ end# == Schema Information
 #  updated_at :datetime        not null
 #
 
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  content     :text
+#  user_id     :integer(4)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  category_id :integer(4)
+#
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  content     :text
+#  user_id     :integer(4)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  category_id :integer(4)
+#
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  content     :text
+#  user_id     :integer(4)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  category_id :integer(4)
+#
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  content     :text
+#  user_id     :integer(4)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  category_id :integer(4)
+#
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  content     :text
+#  user_id     :integer(4)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  category_id :integer(4)
+#
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  content     :text
+#  user_id     :integer(4)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  category_id :integer(4)
+#
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  content     :text
+#  user_id     :integer(4)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  category_id :integer(4)
+#
+

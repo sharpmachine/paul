@@ -1,1 +1,3 @@
 $("#tag_<%= @tag.id %>").slideUp();
+$('#post_tag_ids option[value="<%= @tag.id %>"]').remove();
+$("#post_tag_ids").trigger("liszt:updated");

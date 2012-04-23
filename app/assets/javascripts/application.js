@@ -21,4 +21,10 @@ jQuery( function($) {
 	$('#flash_notice').delay(3000).slideUp(500);
 	$('#flash_alert').delay(6000).slideUp(500);
 
+  	$(".upload_form").submit(function() { 
+
+		$(".upload_form").hide();		
+		$("#uploading").show();
+	
+	});
 });

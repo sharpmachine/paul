@@ -2,7 +2,8 @@
 log/*
 tmp/*
 config/database.yml
-public/system/
+public/system/*
+public/assets/*
 assets/*
 log/*.pid
 log/*.lck

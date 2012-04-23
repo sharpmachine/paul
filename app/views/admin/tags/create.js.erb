@@ -2,3 +2,5 @@ $("#tags").prepend("<%= escape_javascript(render @tag) %>");
 $("#tags .none").hide();
 $("#new_tag")[0].reset();
 $("#tag_<%= @tag.id %>").hide().slideDown();
+$("#post_tag_ids").append("<option value=\"<%= @tag.id %>\"><%= @tag.tagstring %></option>");
+$("#post_tag_ids").trigger("liszt:updated");

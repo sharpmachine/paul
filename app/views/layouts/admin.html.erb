@@ -44,7 +44,8 @@
 				<li<%= @selected_nav == "pages" ? " class='selected'" : "" %>><%= link_to "Content", admin_posts_path %>
 					<ul>						
 						<% if can? :update, Post %><li><%= link_to "Blog", admin_posts_path %></li><% end %>					
-						<% if can? :update, Page %><li><%= link_to "Page Blocks", admin_pages_path %></li><% end %>					
+						<% if can? :update, Page %><li><%= link_to "Page Blocks", admin_pages_path %></li><% end %>
+						<% if can? :update, Picture %><li><%= link_to "Pictures", admin_pictures_path %></li><% end %>											
 					</ul>
 				</li>
 				<li<%= @selected_nav == "people" ? " class='selected'" : "" %>><%= link_to "Users", admin_users_path %>

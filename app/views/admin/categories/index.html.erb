@@ -1,0 +1,41 @@
+<%= render :partial => "admin/posts/tabs", :locals => { tab: "categories" } %>
+
+<div id="content"><div class="pad">
+	
+	<div class="actions">	
+	      <% if can? :create, Category %>
+	        <%= link_to 'Add Category', new_admin_category_path, :class => "btn add" %>
+	      <% end %>		
+	</div>
+	
+	<div class="results_info">
+		<p class="results_total">
+			<%= pluralize(@categories.count, 'category') %>
+		</p>
+	</div>
+
+	<table>
+	  <tr>
+	    <th>Category Name</th>
+	    <th>Posts</th>
+	    <th></th>
+	  </tr>
+
+	<% @categories.each do |category| %>
+	  <tr>
+	    <td class="bold"><%= link_to category.name, category_path(category), :target => "_blank" %></td>
+		<td><%= category.posts.count %></td>
+	    <td>
+	      <% if can? :update, category %>
+	        <%= link_to 'Edit', edit_admin_category_path(category), :class => "btn small" %>
+	      <% end %>
+
+	      <% if can? :destroy, category %>
+	        <%= link_to 'Delete', [:admin, category], :confirm => 'Are you sure?', :method => :delete, :class => "btn grey small" %>
+	      <% end %>
+	    </td>
+	  </tr>
+	<% end %>
+	</table>	
+	
+</div></div>

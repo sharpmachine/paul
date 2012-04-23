@@ -1,0 +1,31 @@
+<% title @picture.image_file_name %>
+<% selected_nav "pages" %>
+
+<%= show_breadcrumbs(parent_text: "Pictures", parent_url: admin_pictures_path) %>
+<div id="section_head" class="index"><div class="pad">
+	
+	<div class="actionbar">
+		<% if can? :destory, @picture %>
+		  <%= link_to 'Delete these images', [:admin, @picture], :confirm => 'Are you sure?', :method => :delete, :class => "btn grey small" %>
+		<% end %>
+	</div>
+	
+	<h1><%= @title %></h1>
+
+</div></div>
+
+<div id="content"><div class="pad">
+		
+	<p><strong>Large - 640 x 480 pixels max</strong>
+		<br /><%= image_tag @picture.image.url(:large) %></p>	
+		
+	<p><strong>Medium - 480 x 360 pixels max</strong>
+		<br /><%= image_tag @picture.image.url(:medium) %></p>
+
+	<p><strong>Small - 320 x 240 pixels max</strong>
+		<br /><%= image_tag @picture.image.url(:small) %></p>		
+		
+	<p><strong>Thumb - 100 x 75 pixels max</strong>
+		<br /><%= image_tag @picture.image.url(:thumb) %></p>
+	
+</div></div>

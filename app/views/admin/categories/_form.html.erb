@@ -1,0 +1,19 @@
+<%= form_for([:admin, @category]) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= link_to "Cancel", admin_categories_path, :class=> "btn small grey" %> <%= f.submit %>
+  </div>
+<% end %>

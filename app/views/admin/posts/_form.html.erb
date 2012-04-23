@@ -10,20 +10,24 @@
 	</div>
 	<% end %>
 
-	<div class="field">
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-	</div>
-	<div class="field">
-		<%= f.label :content %>
-		<%= f.text_area :content %>
+	<div class="field">	
+		<%= f.label :category %>			
+		<%= f.select(:category_id, Category.order("name").collect {|c| [c.name, c.id]}, { :include_blank => true }, { :title => "Please select...", :class => "chzn-select", :style => "width:350px; " }) %>
 	</div>
 
 	<div class="field">
-		<%= f.select(:tag_ids, @tags.collect {|t| [t.tagstring, t.id]}, { :include_blank => true }, { :title => "Select tags...", :class => "chzn-select", :style => "width:350px; ", :multiple => "multiple" }) %>
+		<%= f.label :title, "Post Title" %>
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.text_area :content, style: "height:300px; " %>
+	</div>
+
+	<div class="field">
+		<%= f.select(:tag_ids, @tags.collect {|t| [t.tagstring, t.id]}, { :include_blank => true }, { :title => "Tags...", :class => "chzn-select", :style => "width:350px; ", :multiple => "multiple" }) %>
 	</div>
 	
 	<div class="actions">
-    	<%= f.submit %>
+    	<%= link_to "Cancel", admin_posts_path, :class => "btn small grey" %> <%= f.submit %>
 	</div>
 <% end %>

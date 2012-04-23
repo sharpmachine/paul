@@ -2,10 +2,11 @@ class Admin::PostsController < Admin::BaseController
 
   authorize_resource :class => "Post"
   
+  before_filter :get_tags
+  
   def index
     @posts = Post.all
-    @tags = Tag.order("tagstring")
-    @tag = Tag.new
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -14,9 +15,6 @@ class Admin::PostsController < Admin::BaseController
 
   def show
     @post = Post.find(params[:id])
-
-    @tags = Tag.order("tagstring")
-    @tag = Tag.new
     
     respond_to do |format|
       format.html # show.html.erb
@@ -26,9 +24,6 @@ class Admin::PostsController < Admin::BaseController
 
   def new
     @post = Post.new
-
-    @tags = Tag.order("tagstring")
-    @tag = Tag.new
     
     respond_to do |format|
       format.html # new.html.erb
@@ -38,9 +33,7 @@ class Admin::PostsController < Admin::BaseController
 
   def edit
     @post = Post.find(params[:id])
-    
-    @tags = Tag.order("tagstring")
-    @tag = Tag.new    
+
   end
 
   def create
@@ -80,5 +73,12 @@ class Admin::PostsController < Admin::BaseController
       format.html { redirect_to admin_posts_path, notice: 'Post deleted.' }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  
+  def get_tags
+    @tags = Tag.order("tagstring")
+    @tag = Tag.new
   end
 end
