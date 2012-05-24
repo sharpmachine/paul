@@ -2,7 +2,7 @@ class Admin::PostsController < Admin::BaseController
 
   authorize_resource :class => "Post"
   
-  before_filter :get_tags
+  before_filter :get_tags, :set_active_nav
   
   def index
     @posts = Post.all
@@ -88,4 +88,9 @@ class Admin::PostsController < Admin::BaseController
     @tags = Tag.order("tagstring")
     @tag = Tag.new
   end
+  
+  def set_active_nav
+    @selected_nav = "blog"
+    @selected_page = "posts"    
+  end  
 end

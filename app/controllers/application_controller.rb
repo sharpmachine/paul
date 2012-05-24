@@ -20,6 +20,8 @@ class ApplicationController < ActionController::Base
     rescue_from ActiveRecord::RecordInvalid, :with => :render_error
   end
   
+  rescue_from CanCan::AccessDenied, :with => :cancan_error  
+  
   private
 
   def after_sign_in_path_for(resource)
@@ -50,7 +52,7 @@ class ApplicationController < ActionController::Base
         # redirect_to(root_url, :alert => "#{exception.subject} - #{exception.message}" )
     else
       session[:url_back] = request.url
-      redirect_to(root_path, :alert => "Please sign in.")
+      redirect_to(new_user_session_path, :alert => "Please sign in.")
     end
   end  
   

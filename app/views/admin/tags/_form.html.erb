@@ -1,20 +1,7 @@
-<%= form_for([:admin, @tag], remote: true, id: "new_tag") do |f| %>
-  <% if @tag.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-      <% @tag.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for([:admin, @tag], remote: true, id: "new_tag", :html => { :class => 'form-inline' }) do |f| %>
 
-  <div class="noteinput">
-    <%= f.text_field :tagstring %>
-  </div>
-  <div class="noteprivate">
-  <div class="actions">
-    <%= f.submit "Add Tag", class: "btn small" %>
-  </div>
-</div>
+    <%= f.text_field :tagstring, :class => 'input-medium' %>
+
+    <%= f.submit "Add", :class => "btn btn-primary" %>
+
 <% end %>

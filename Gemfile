@@ -13,6 +13,9 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  
+  gem 'bootstrap-sass'  
+  gem 'font-awesome-sass-rails'  
 end
 
 gem 'jquery-rails'
@@ -23,6 +26,7 @@ gem 'paperclip'
 gem 'kaminari'
 gem 'devise'
 gem 'cancan'
+gem 'simple_form'
 
 group :development, :test do
   gem 'thin'

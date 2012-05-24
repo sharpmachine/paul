@@ -1,63 +1,56 @@
-<%= render :partial => "tabs", :locals => { tab: "posts" } %>
+<% title "Blog" %>
 
-<div id="content" class="tab-container"><div class="tab-content pad">
-	
-	<div class="leftcol">	
-	
-	<div class="results_info">
-		<p class="results_total">
-			<%= pluralize(@posts.count, 'post') %>
-		</p>
-	</div>
+<h1><%= @title %></h1>
 
-	<table>
+<table class="table table-striped">
+  <thead>
 	  <tr>
 	    <th>Title</th>
-	    <th>Published?</th>
 	    <th></th>
 	    <th></th>
 	  </tr>
-
-	<% @posts.each do |post| %>
-	  <tr>
-	    <td><% if post.published %>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><% if post.published %>
 			<%= link_to post.title, post_path(post) %>
 			<% else %>
 			<%= link_to post.title, admin_post_path(post) %>			
 			<% end %></td>
-	    <td><span class="status <% if post.published %>active<% end %>"><%= post.published ? "Published" : "Unpublished" %></td>	
-	    <td>
-	      <% if can? :update, post %>
-	        <%= link_to 'Edit', edit_admin_post_path(post), :class => "btn small" %>
-	      <% end %>
-		</td>
-		<td>
-	      <% if can? :destroy, post %>
-	        <%= link_to 'Delete', [:admin, post], :confirm => 'Are you sure?', :method => :delete, :class => "btn grey small" %>
-	      <% end %>
-	    </td>
-	  </tr>
-	<% end %>
-	</table>
-	
-	</div>
-	
-	<div class="rightcol">
+		<td><% if post.published? %><span class="label label-success">Published</span><% else %><span class="label">Unpublished</span><% end %></td>	
+        <td>
+          <%= link_to "Edit", edit_admin_post_path(post), :class => 'btn btn-mini' %>
+          <%= link_to "Delete",
+                      admin_post_path(post),
+                      :method => :delete,
+                      :confirm => 'Are you sure?',
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-			<div class="box notes">
-				<h2>Tags</h2>
-				
-				<%= render partial: "admin/tags/form", object: @tag %>
+<%= link_to "New Post",
+            new_admin_post_path,
+            :class => 'btn btn-primary' %>
 
-				<ul id="tags" class="note">		
-					<% if @tags.present? %>
-						<%= render @tags %>
-					<% else %>
-						<li class="note none">- no tags -</li>
-					<% end  %>										
-				</ul>
 
-			</div>
-		</div>	
-	
-</div></div>
+<%= content_for(:side) do %>
+
+<div class="well">
+<h3>Tags</h3>
+<p>
+<%= render partial: "admin/tags/form", object: @tag %>
+</p>
+<ul id="tags" class="unstyled">		
+	<% if @tags.present? %>
+		<%= render @tags %>
+	<% else %>
+		<li class="note none">- no tags -</li>
+	<% end  %>										
+</ul>
+</div>
+
+<% end %>
