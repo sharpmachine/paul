@@ -1,52 +1,35 @@
-<% title "Site Users" %>
-<% selected_nav "people" %>
+<% title "Users" %>
 
-<%= show_breadcrumbs() %>
+<h1><%= @title %></h1>
 
-<div id="section_head"><div class="pad">
-	<%= image_tag ("icon-searches.jpg"), :class => "photo" %>
-	
-	<h1><%= @title %></h1>
-
-</div></div>
-
-<div id="content"><div class="pad">
-	
-	<div class="results_info">
-		
-		<%= form_tag(admin_users_path, :method => "get", :id => 'results_search') do %>
-		<%= text_field_tag(:q, params[:q], :class => 'searchinput') %>
-		<%= submit_tag("Search", :name => nil, :class => 'btn small') %>
-		<% end %>
-		
-		
-		<div class="results_total">
-
-			<%= pluralize(@users.count, 'person') %> matching "<%= params[:q] %>"
-
-		</div>
-	</div>
-
-	<table id="searchresults">
+<table class="table table-striped">
+  <thead>
 	  <tr>
-	    <th class="nowrap" width="2%"></th>
-		<th width="3%"></th>
-	    <th class="nowrap"><%= sortable "firstname" %></th>
-	    <th class="nowrap"><%= sortable "lastname" %></th>
-	    <% if can? :manage, :roles %><th class="nowrap"><%= sortable "role" %></th><% end %>
+	    <th><%= sortable "firstname" %></th>
+	    <th><%= sortable "lastname" %></th>	
+	    <% if can? :manage, :roles %><th><%= sortable "role" %></th><% end %>
+	    <th></th>
 	  </tr>
+  </thead>
+  <tbody>
 	<% @users.each do |user| %>
 	  <tr>
-		<td></td>
-	    <td></td>
-	    <td class="bold"><%= link_to user.firstname, [:admin, user] %></td>
-	    <td class="bold"><%= link_to user.lastname, [:admin, user] %></td>	
-	    <% if can? :manage, :roles %><td><%= user.role %></td><% end %>
-	  </tr>
-	<% end %>
-	</table>
+	    <td><%= link_to user.firstname, [:admin, user] %></td>
+	    <td><%= link_to user.lastname, [:admin, user] %></td>	
+	    <% if can? :manage, :roles %><td><span class="label label-info"><%= user.role %></span></td><% end %>
+		<td><%= link_to "Edit", edit_admin_user_path(user), :class => 'btn btn-mini' %>
+	    <% if can? :manage, :roles %>			
+          <%= link_to "Delete",
+                      admin_user_path(user),
+                      :method => :delete,
+                      :confirm => 'Are you sure? This will delete this user and all their posts.',
+                      :class => 'btn btn-mini btn-danger' %>
+		<% end %>			
+	  </tr>	
+    <% end %>
+  </tbody>
+</table>
 
+<%= content_for(:side) do %>
 
-	<%#= paginate @users %>
-
-</div></div>
+<% end %>

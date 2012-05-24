@@ -5,7 +5,9 @@ class Admin::PostsController < Admin::BaseController
   before_filter :get_tags, :set_active_nav
   
   def index
-    @posts = Post.all
+    params[:sort] ||= "posts.created_at"  
+    params[:direction] ||= "desc"        
+    @posts = Post.where("posts.title like ?", "%#{params[:q]}%").includes(:user, :category).order(sort_column + " " + sort_direction).page(params[:page])  
     
     respond_to do |format|
       format.html # index.html.erb

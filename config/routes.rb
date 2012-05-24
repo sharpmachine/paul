@@ -17,7 +17,7 @@ Paulmanwaring::Application.routes.draw do
     resources :categories    
     resources :pages
     resources :tags, :only => [:create, :new, :destroy]        
-    resources :users, :only => [:create, :new, :destroy]    
+    resources :users, :except => [:create, :new]    
     resources :pictures, :except => [:edit, :update]   
   end    
   

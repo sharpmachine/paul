@@ -27,3 +27,16 @@ body { padding-top: 60px; }
 // @linkColor: #ff0000;
 
 textarea { width:500px; height:150px; }
+
+th .current {
+  padding-right: 24px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+th .asc { 
+  background-image: image-url("sort_asc.png"); 
+}
+
+th .desc { 
+  background-image: image-url("sort_desc.png"); 
+}

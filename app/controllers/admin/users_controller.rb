@@ -2,6 +2,8 @@ class Admin::UsersController < Admin::BaseController
   
   authorize_resource :class => "User" 
   
+  before_filter :set_active_nav  
+  
   def index
     params[:sort] ||= "lastname"
     split = params[:q] ? params[:q].split(' ', 2) : []    
@@ -40,5 +42,12 @@ class Admin::UsersController < Admin::BaseController
       redirect_to(admin_users_path, :notice => 'User has been permanently deleted')
     end  
   end
+  
+  private
+  
+  def set_active_nav
+    @selected_nav = "users"
+    @selected_page = "users"    
+  end  
 
 end

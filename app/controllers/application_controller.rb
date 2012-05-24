@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
   
   def sort_column
-    %w[firstname lastname].include?(params[:sort]) ? params[:sort] : "name"    
+    params[:sort]
   end
 
   def sort_direction

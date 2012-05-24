@@ -5,9 +5,10 @@
 <table class="table table-striped">
   <thead>
 	  <tr>
-	    <th>Title</th>
-	    <th>Category</th>	
-	    <th>Created at</th>			
+	    <th><%= sortable "posts.title", "Title" %></th>
+	    <th><%= sortable "categories.name", "Category" %></th>
+	    <th><%= sortable "users.firstname", "Author" %></th>		
+	    <th><%= sortable "posts.created_at", "Created at" %></th>			
 	    <th></th>
 	    <th></th>
 	  </tr>
@@ -20,7 +21,8 @@
 			<% else %>
 			<%= link_to post.title, admin_post_path(post) %>			
 			<% end %></td>
-		<td><%= post.category.name %></td>	
+		<td><%= post.category.name %></td>
+		<td><%= post.user.firstname %> <%= post.user.lastname %></td>	
 		<td><%= post.created_at.strftime("%A %B %-d, %Y")%></td>			
 		<td><% if post.published? %><span class="label label-success">Published</span><% else %><span class="label">Unpublished</span><% end %></td>	
         <td>
