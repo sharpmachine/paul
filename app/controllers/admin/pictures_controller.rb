@@ -1,6 +1,8 @@
 class Admin::PicturesController < Admin::BaseController
 
   authorize_resource :class => "Picture"  
+  
+  before_filter :set_active_nav    
   # GET /pictures
   # GET /pictures.json
   def index
@@ -58,9 +60,13 @@ class Admin::PicturesController < Admin::BaseController
     @picture = Picture.find(params[:id])
     @picture.destroy
 
-    respond_to do |format|
-      format.html { redirect_to admin_pictures_path }
-      format.json { head :no_content }
-    end
+    redirect_to admin_pictures_path, notice: 'Picture was successfully deleted.'
   end
+  
+  private
+  
+  def set_active_nav
+    @selected_nav = "pages"
+    @selected_page = "pictures"    
+  end  
 end

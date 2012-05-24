@@ -1,41 +1,36 @@
-<%= render :partial => "admin/posts/tabs", :locals => { tab: "categories" } %>
+<% title "Categories" %>
 
-<div id="content"><div class="pad">
-	
-	<div class="actions">	
-	      <% if can? :create, Category %>
-	        <%= link_to 'Add Category', new_admin_category_path, :class => "btn add" %>
-	      <% end %>		
-	</div>
-	
-	<div class="results_info">
-		<p class="results_total">
-			<%= pluralize(@categories.count, 'category') %>
-		</p>
-	</div>
+<h1><%= @title %></h1>
 
-	<table>
-	  <tr>
-	    <th>Category Name</th>
-	    <th>Posts</th>
-	    <th></th>
-	  </tr>
-
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>	    
+	  <th>Posts</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
 	<% @categories.each do |category| %>
-	  <tr>
-	    <td class="bold"><%= link_to category.name, category_path(category), :target => "_blank" %></td>
-		<td><%= category.posts.count %></td>
-	    <td>
-	      <% if can? :update, category %>
-	        <%= link_to 'Edit', edit_admin_category_path(category), :class => "btn small" %>
-	      <% end %>
+      <tr>
+        <td class="bold"><%= link_to category.name, category_path(category), :target => "_blank" %></td>
+		<td><%= category.posts.size %></td>
+        <td>
+          <%= link_to "Edit",
+                      edit_admin_category_path(category), :class => 'btn btn-mini' %>
+          <%= link_to "Delete", admin_category_path(category),
+                      :method => :delete,
+                      :confirm => 'Are you sure? This will delete all posts within this category',
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-	      <% if can? :destroy, category %>
-	        <%= link_to 'Delete', [:admin, category], :confirm => 'Are you sure?', :method => :delete, :class => "btn grey small" %>
-	      <% end %>
-	    </td>
-	  </tr>
-	<% end %>
-	</table>	
-	
-</div></div>
+<%= link_to "New Category", new_admin_category_path, :class => 'btn btn-primary' %>
+
+
+<%= content_for(:side) do %>
+
+<% end %>

@@ -45,21 +45,21 @@
 				    </a>
 				    <ul class="dropdown-menu">
 						<% if can? :update, Post %><li class="<% if @selected_page == "posts" %>active<% end %>"><%= link_to "Posts", admin_posts_path %></li><% end %>
-						<% if can? :update, Category %><li class="<% if @selected_page == "category" %>active<% end %>"><%= link_to "Categories", admin_pages_path %></li><% end %>
+						<% if can? :update, Category %><li class="<% if @selected_page == "categories" %>active<% end %>"><%= link_to "Categories", admin_categories_path %></li><% end %>
 				    </ul>
-				  </li>				
-			  <li class="dropdown<% if @selected_nav == "content" %> active<% end %>">
-			    <a href="#"
-			          class="dropdown-toggle"
-			          data-toggle="dropdown">
-			          Pages
-			          <b class="caret"></b>
-			    </a>
-			    <ul class="dropdown-menu">
-					<% if can? :update, Page %><li class="<% if @selected_page == "page" %>active<% end %>"><%= link_to "Page Blocks", admin_pages_path %></li><% end %>
-					<% if can? :update, Picture %><li class="<% if @selected_page == "pictures" %>active<% end %>"><%= link_to "Pictures", admin_pictures_path %></li><% end %>				
-			    </ul>
+				  </li>
+			
+			<% if can? :update, Page %>
+			  <li class="<% if @selected_page == "blocks" %>active<% end %>">
+			     <%= link_to "Page Blocks", admin_pages_path %></li>
 			  </li>
+			<% end %>
+			
+			<% if can? :update, Picture %>
+			  <li class="<% if @selected_page == "pictures" %>active<% end %>">
+			     <%= link_to "Pictures", admin_pictures_path %>
+			  </li>
+			<% end %>			
 			
 			<% if can? :update, User %>
 			  <li class="<% if @selected_page == "users" %>active<% end %>">

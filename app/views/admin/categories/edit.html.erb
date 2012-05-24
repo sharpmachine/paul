@@ -1,18 +1,9 @@
-<%= render :partial => "admin/posts/tabs", :locals => { tab: "categories" } %>
+<%- title "Categories" -%>
 
-<div id="content"><div class="pad">
-	
-	<div class="breadcrumbs">
-		<ul class="breadcrumb">				
-			<li><%= link_to "Categories", admin_categories_path %></li>
-			<li>Edit</li>				
-		</ul>
-	</div>	
-	
-	<div class="leftcol">
-	
-	<%= render 'form' %>
+<h1><%= @title %></h1>
 
-	</div>
-	
-</div></div>
+<%= render 'form' %>
+
+<%= content_for(:side) do %>
+
+<% end %>

@@ -1,21 +1,15 @@
-<%= form_for([:admin, @picture], :html => { :multipart => true, :class => "upload_form" }) do |f| %>
-  <% if @picture.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-      <% @picture.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for [:admin, @picture], :html => { :multipart => true, :class => 'form-horizontal upload_form' } do |f| %>
+  
+<fieldset>
+<legend><%= controller.action_name.capitalize %> Picture</legend>
 
-  <div class="field">
-    <%= f.label :image, "Image File" %><br />
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<%= f.input :image %>
+	
+</fieldset>
+
+<div class="form-actions">
+	<%= link_to "Cancel", admin_pictures_path, :class => "btn" %> <%= f.button :submit, :class => 'btn btn-primary' %>
+</div>
 <% end %>
 
 <%= render "layouts/uploading" %>

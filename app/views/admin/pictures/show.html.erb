@@ -1,31 +1,28 @@
 <% title @picture.image_file_name %>
-<% selected_nav "pages" %>
 
-<%= show_breadcrumbs(parent_text: "Pictures", parent_url: admin_pictures_path) %>
-<div id="section_head" class="index"><div class="pad">
-	
-	<div class="actionbar">
-		<% if can? :destory, @picture %>
-		  <%= link_to 'Delete these images', [:admin, @picture], :confirm => 'Are you sure?', :method => :delete, :class => "btn grey small" %>
-		<% end %>
-	</div>
-	
-	<h1><%= @title %></h1>
+<h1><%= @title %></h1>
 
-</div></div>
+<dl class="dl-horizontal">
+  <dt><strong>Large 640 x 480</strong></dt>
+  <dd><div class="well"><%= image_tag @picture.image.url(:large) %></div></dd>
+  <dt><strong>Medium 480 x 360</strong></dt>
+  <dd><div class="well"><%= image_tag @picture.image.url(:medium) %></div></dd>
+  <dt><strong>Small 320 x 240</strong></dt>
+  <dd><div class="well"><%= image_tag @picture.image.url(:small) %></div></dd>
+  <dt><strong>Thumb 100 x 75</strong></dt>
+  <dd><div class="well"><%= image_tag @picture.image.url(:thumb) %></div></dd>
+</dl>
 
-<div id="content"><div class="pad">
-		
-	<p><strong>Large - 640 x 480 pixels max</strong>
-		<br /><%= image_tag @picture.image.url(:large) %></p>	
-		
-	<p><strong>Medium - 480 x 360 pixels max</strong>
-		<br /><%= image_tag @picture.image.url(:medium) %></p>
+<div class="form-actions">
+  <%= link_to "Back", admin_pictures_path, :class => 'btn'  %>
+<%- if can? :destroy, @picture -%>
+  <%= link_to "Delete", admin_picture_path(@picture),
+              :method => 'delete',
+              :confirm => 'Are you sure?',
+              :class => 'btn btn-danger' %>
+<%- end -%>
+</div>
 
-	<p><strong>Small - 320 x 240 pixels max</strong>
-		<br /><%= image_tag @picture.image.url(:small) %></p>		
-		
-	<p><strong>Thumb - 100 x 75 pixels max</strong>
-		<br /><%= image_tag @picture.image.url(:thumb) %></p>
-	
-</div></div>
+<%= content_for(:side) do %>
+
+<% end %>

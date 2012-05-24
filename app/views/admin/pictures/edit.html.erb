@@ -1,6 +1,9 @@
-<h1>Editing picture</h1>
+<%- title "Pictures" -%>
+
+<h1><%= @title %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @picture %> |
-<%= link_to 'Back', pictures_path %>
+<%= content_for(:side) do %>
+
+<% end %>

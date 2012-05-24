@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  belongs_to :category  
+  belongs_to :category, :counter_cache => true  
   has_many :tagships, :dependent => :destroy
   has_many :tags, :through => :tagships  
   
@@ -8,7 +8,8 @@ class Post < ActiveRecord::Base
   
   def to_param
     "#{id}-#{title}".downcase.gsub(/\W+/, "-").gsub(/^[-]+|[-]$/,"").strip
-  end  
+  end 
+    
 end
 # == Schema Information
 #

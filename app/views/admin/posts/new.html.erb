@@ -6,18 +6,6 @@
 
 <%= content_for(:side) do %>
 
-<div class="well">
-<h3>Tags</h3>
-<p>
-<%= render partial: "admin/tags/form", object: @tag %>
-</p>
-<ul id="tags" class="unstyled">		
-	<% if @tags.present? %>
-		<%= render @tags %>
-	<% else %>
-		<li class="note none">- no tags -</li>
-	<% end  %>										
-</ul>
-</div>
+	<%= render 'admin/tags/tags' %>
 
 <% end %>

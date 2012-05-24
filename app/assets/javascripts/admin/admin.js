@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_directory .
 //= require chosen/chosen.jquery
 //= require tiny_mce/tiny_mce
 //= require_directory .

@@ -4,6 +4,7 @@ class Tag < ActiveRecord::Base
   
   validates_presence_of :tagstring
   validates_uniqueness_of :tagstring  
+
 end
 # == Schema Information
 #

@@ -1,14 +1,9 @@
-<% title "New Picture" %>
-<% selected_nav "pages" %>
+<%- title "Pictures" -%>
 
-<%= show_breadcrumbs(:parent_url => admin_pictures_path, :parent_text => "Pictures") %>
+<h1><%= @title %></h1>
 
-<div id="section_head" class="index"><div class="pad">
-	<h1><%= @title %></h1>
-</div></div>
+<%= render 'form' %>
 
-<div id="content"><div class="pad">
-	
-	<%= render 'form' %>
+<%= content_for(:side) do %>
 
-</div></div>
+<% end %>

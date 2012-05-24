@@ -1,8 +1,8 @@
 var tinyMCEImageList = new Array(
         <% @pictures.each do |picture| %>
-			["<%= picture.image_file_name %> Large", "<%= picture.image.url(:large) %>"],
-			["<%= picture.image_file_name %> Medium", "<%= picture.image.url(:medium) %>"],			
-			["<%= picture.image_file_name %> Small", "<%= picture.image.url(:small) %>"],						
-			["<%= picture.image_file_name %> Thumb", "<%= picture.image.url(:thumb) %>"]<% unless picture == @pictures.last %>,<% end %>									
+			["<%= picture.image_file_name %> (Large - 640 x 480px)", "<%= picture.image.url(:large) %>"],
+			["<%= picture.image_file_name %> (Medium - 480 x 360px)", "<%= picture.image.url(:medium) %>"],			
+			["<%= picture.image_file_name %> (Small - 320 x 240px)", "<%= picture.image.url(:small) %>"],						
+			["<%= picture.image_file_name %> (Thumb - 100 x 75px)", "<%= picture.image.url(:thumb) %>"]<% unless picture == @pictures.last %>,<% end %>									
         <% end %>
 );

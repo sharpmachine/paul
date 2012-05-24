@@ -1,10 +1,11 @@
 class Admin::CategoriesController < Admin::BaseController
   
   authorize_resource :class => "Category"  
-  # GET /categories
-  # GET /categories.json
+
+  before_filter :set_active_nav
+
   def index
-    @categories = Category.all
+    @categories = Category.order("name")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,4 +83,11 @@ class Admin::CategoriesController < Admin::BaseController
       format.json { head :no_content }
     end
   end
+  
+  private
+  
+  def set_active_nav
+    @selected_nav = "blog"
+    @selected_page = "categories"    
+  end  
 end

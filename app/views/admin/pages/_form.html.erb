@@ -1,28 +1,16 @@
-<%= form_for([:admin, @page]) do |f| %>
-  <% if @page.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-      <% @page.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for [:admin, @page], :html => { :class => 'form-horizontal' } do |f| %>
+  
+<fieldset>
+<legend><%= controller.action_name.capitalize %> Page Block</legend>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :permalink %>
-    <%= f.text_field :permalink %>
-  </div>
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content, style: "height:300px; " %>
-  </div>
+	<%= f.input :title %>
+	<%= f.input :permalink %>
+	<%= f.input :content %>		
+	
+</fieldset>
 
-  <div class="actions">
-    <%= f.submit "Save Content" %>
-  </div>
+<div class="form-actions">
+
+    	<%= link_to "Cancel", admin_pages_path, :class => "btn small grey" %> <%= f.button :submit, :class => 'btn btn-primary' %>
+</div>
 <% end %>

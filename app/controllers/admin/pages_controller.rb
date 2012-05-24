@@ -2,6 +2,8 @@ class Admin::PagesController < Admin::BaseController
 
   authorize_resource :class => "Page"
   
+  before_filter :set_active_nav  
+  
   # GET admin/pages
   def index
     @pages = Page.order("title")
@@ -48,4 +50,11 @@ class Admin::PagesController < Admin::BaseController
     @page.destroy
     redirect_to(admin_pages_path)
   end
+  
+  private
+  
+  def set_active_nav
+    @selected_nav = "pages"
+    @selected_page = "blocks"    
+  end  
 end

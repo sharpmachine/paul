@@ -1,14 +1,9 @@
-<% title "Edit Content" %>
-<% selected_nav "pages" %>
+<%- title "Page Blocks" -%>
 
-<%= show_breadcrumbs(:parent_url => admin_pages_path, :parent_text => "Page Blocks") %>
+<h1><%= @title %></h1>
 
-<div id="section_head" class="index"><div class="pad">
-	<h1><%= @title %></h1>
-</div></div>
+<%= render 'form' %>
 
-<div id="content"><div class="pad">
-	
-	<%= render 'form' %>
+<%= content_for(:side) do %>
 
-</div></div>
+<% end %>
