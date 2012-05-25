@@ -1,0 +1,21 @@
+<%= simple_form_for [:admin, @product], :html => { :multipart => true, :class => 'form-horizontal upload_form' } do |f| %>
+  
+<fieldset>
+<legend><%= controller.action_name.capitalize %> Product</legend>
+
+  <%= f.input :product_type, :collection => Product::PRODUCT_TYPES.collect {|t| [t.titleize, t]}, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Choose a type...' } %>
+  <%= f.input :title %>
+  <%= f.input :author %>
+  <%= f.input :description %>
+  <%= f.input :url %>
+  <%= f.input :image %>		
+
+</fieldset>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => "btn btn-primary" %>
+    <%= link_to "Cancel", admin_products_path, :class => "btn" %>
+  </div>
+<% end %>
+
+<%= render "layouts/uploading" %>

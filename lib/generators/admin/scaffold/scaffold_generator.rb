@@ -141,6 +141,12 @@ module Admin
         scaffold_name.underscore.pluralize
       end
 
+      def table_name
+        if scaffold_name.include?('::')
+          plural_name.gsub('/', '_')
+        end
+      end
+      
       def class_name
         scaffold_name.split('::').last.camelize
       end

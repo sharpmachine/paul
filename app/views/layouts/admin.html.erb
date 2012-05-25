@@ -55,6 +55,12 @@
 			  </li>
 			<% end %>
 			
+			<% if can? :update, Product %>
+			  <li class="<% if @selected_page == "products" %>active<% end %>">
+			     <%= link_to "Store", admin_products_path %></li>
+			  </li>
+			<% end %>			
+			
 			<% if can? :update, Picture %>
 			  <li class="<% if @selected_page == "pictures" %>active<% end %>">
 			     <%= link_to "Pictures", admin_pictures_path %>

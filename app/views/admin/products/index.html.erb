@@ -1,0 +1,35 @@
+<% title "Products" %>
+
+<h1><%= @title %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	    <th><%= sortable "title" %></th>
+	    <th><%= sortable "author" %></th>
+	    <th><%= sortable "product_type" %></th>	
+		<th></th>
+	 </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+	      <td><%= product.title %></td>
+	      <td><%= product.author %></td>
+	      <td><%= product.product_type.titleize %></td>
+        <td>
+		    <%= link_to "View", admin_product_path(product), :class => "btn btn-mini" %>
+		    <%= link_to "Edit", edit_admin_product_path(product), :class => "btn btn-mini" %>
+		
+            <%= link_to "Delete", admin_product_path(product), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New Product", new_admin_product_path, :class => "btn btn-primary" %>
+
+<%= content_for(:side) do %>
+
+<% end %>

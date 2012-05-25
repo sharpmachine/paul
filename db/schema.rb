@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423180127) do
+ActiveRecord::Schema.define(:version => 20120525181245) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "posts_count", :default => 0
   end
 
   add_index "categories", ["id"], :name => "index_categories_on_id", :unique => true
@@ -49,6 +50,20 @@ ActiveRecord::Schema.define(:version => 20120423180127) do
   end
 
   add_index "posts", ["id"], :name => "index_posts_on_id", :unique => true
+
+  create_table "products", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "product_type"
+  end
 
   create_table "tags", :force => true do |t|
     t.string   "tagstring"

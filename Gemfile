@@ -27,6 +27,7 @@ gem 'kaminari'
 gem 'devise'
 gem 'cancan'
 gem 'simple_form'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'thin'
