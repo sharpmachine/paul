@@ -1,0 +1,24 @@
+<%% title "<%= singular_name.titleize %>" %>
+
+<h1><%%= @title %></h1>
+
+<dl class="dl-horizontal">
+<%- for attribute in model_attributes -%>
+  <dt><strong><%= attribute.human_name.titleize %>:</strong></dt>
+  <dd><%%= @<%= instance_name %>.<%= attribute.name %> %></dd>
+<%- end -%>	
+</dl>	
+
+<%- if action? :index -%>
+  <%%= link_to "Back", <%= items_path %>, :class => "btn" %>
+<%- end -%>
+<%- if action? :edit -%>
+  <%%= link_to "Edit", <%= item_path :action => :edit, :instance_variable => true %>, :class => "btn" %>
+<%- end -%>
+<%- if action? :destroy -%>
+  <%%= link_to "Destroy", <%= item_path :instance_variable => true %>, :confirm => "Are you sure?", :method => :delete, :class => "btn btn-danger" %>
+<%- end -%>
+
+<%%= content_for(:side) do %>
+
+<%% end %>

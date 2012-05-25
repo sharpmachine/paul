@@ -1,0 +1,42 @@
+<%% title "<%= plural_name.titleize %>" %>
+
+<h1><%%= @title %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	  <%- for attribute in model_attributes -%>
+	    <th><%%= sortable "<%= attribute.name %>" %></th>
+	  <%- end -%>
+		<th></th>
+	 </tr>
+  </thead>
+  <tbody>
+    <%% @<%= instances_name %>.each do |<%= instance_name %>| %>
+      <tr>
+	    <%- for attribute in model_attributes -%>
+	      <td><%%= <%= instance_name %>.<%= attribute.name %> %></td>
+	    <%- end -%>
+        <td>
+          <%- if action? :show -%>
+		    <%%= link_to "View", <%= item_path %>, :class => "btn btn-mini" %>
+          <%- end -%>
+          <%- if action? :edit -%>
+		    <%%= link_to "Edit", <%= item_path :action => :edit %>, :class => "btn btn-mini" %>
+		  <%- end -%>
+          <%- if action? :destroy -%>		
+            <%%= link_to "Delete", <%= item_path %>, :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger" %>
+		  <%- end -%>
+        </td>
+      </tr>
+    <%% end %>
+  </tbody>
+</table>
+
+<%- if action? :new -%>
+<%%= link_to "New <%= singular_name.titleize %>", <%= item_path :action => :new %>, :class => "btn btn-primary" %>
+<%- end -%>
+
+<%%= content_for(:side) do %>
+
+<%% end %>

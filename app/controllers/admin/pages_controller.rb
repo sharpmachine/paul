@@ -6,7 +6,8 @@ class Admin::PagesController < Admin::BaseController
   
   # GET admin/pages
   def index
-    @pages = Page.order("title")
+    params[:sort] ||= "title"    
+    @pages = Page.order(sort_column + " " + sort_direction).page(params[:page])
   end
 
   # GET admin/pages/new

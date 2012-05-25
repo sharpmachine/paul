@@ -28,6 +28,10 @@ body { padding-top: 60px; }
 
 textarea { width:500px; height:150px; }
 
+th a, th a:hover {
+	color:#000000;
+}
+
 th .current {
   padding-right: 24px;
   background-repeat: no-repeat;
