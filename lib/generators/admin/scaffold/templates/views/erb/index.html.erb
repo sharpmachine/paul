@@ -33,6 +33,8 @@
   </tbody>
 </table>
 
+<%%= paginate @<%= instances_name %> %>
+
 <%- if action? :new -%>
 <%%= link_to "New <%= singular_name.titleize %>", <%= item_path :action => :new %>, :class => "btn btn-primary" %>
 <%- end -%>

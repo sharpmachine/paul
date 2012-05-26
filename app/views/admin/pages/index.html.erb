@@ -27,6 +27,9 @@
 	<% end %>
   </tbody>
 </table>
+
+<%= paginate @pages %>
+
 <% if can? :create, Page %>
 <%= link_to "New Page Block",
             new_admin_page_path,
