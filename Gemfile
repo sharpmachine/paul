@@ -25,6 +25,10 @@ gem 'simple_form'
 gem 'redcarpet'
 gem 'thin'
 
+group :production do
+  gem 'newrelic_rpm'  
+end
+
 group :development, :test do
 
 	gem 'rspec-rails'
