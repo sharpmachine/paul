@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  content     :text
+#  user_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  category_id :integer
+#  published   :boolean          default(FALSE)
+#
+
 # Read about factories at http://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
@@ -17,21 +31,6 @@ end# == Schema Information
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
-
-# == Schema Information
-#
-# Table name: posts
-#
-#  id          :integer(4)      not null, primary key
-#  title       :string(255)
-#  content     :text
-#  user_id     :integer(4)
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
-#  category_id :integer(4)
-#  published   :boolean(1)      default(FALSE)
-#
-
 # == Schema Information
 #
 # Table name: posts

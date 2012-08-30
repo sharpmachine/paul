@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: paulmanwaring_development
+  pool: 5
+  username: richardl
+  password: 
+
+test:
+    adapter: postgresql
+    encoding: unicode
+    database: paulmanwaring_test
+    pool: 5
+    username: richardl
+    password:

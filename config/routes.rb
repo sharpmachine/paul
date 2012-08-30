@@ -1,9 +1,9 @@
 Paulmanwaring::Application.routes.draw do
+  
+  devise_for :users
   resources :categories, :only => [:index, :show]
 
   resources :posts, :only => [:index, :show]
-
-  devise_for :users
   
   # Namespace for Admin Section
   namespace :admin do

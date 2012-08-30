@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: pages
+#
+#  id         :integer          not null, primary key
+#  title      :string(255)
+#  permalink  :string(255)
+#  content    :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Read about factories at http://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do

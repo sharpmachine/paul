@@ -1,19 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.2'
-gem 'mysql2'
+gem 'rails', '3.2.8'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
-
   gem 'uglifier', '>= 1.0.3'
-  
   gem 'bootstrap-sass'  
   gem 'font-awesome-sass-rails'  
 end
@@ -33,7 +28,7 @@ group :development, :test do
   gem 'thin'
 	gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'rb-fsevent'#, :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'rb-fsevent', '~> 0.9.1'
   gem 'rb-readline'
 	gem 'growl'#, :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard', '>= 0.4.0'
@@ -44,8 +39,8 @@ group :development, :test do
   gem 'guard-annotate'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'capybara-webkit'  
   gem 'database_cleaner'
-  gem 'launchy', '>= 0.4.0'
   gem 'spork', '~> 0.9.0.rc'  
   gem 'mocha'
   gem 'email_spec'
@@ -56,8 +51,6 @@ end
 
 group :development do
 	gem 'rails3-generators'
-	#gem 'capistrano'
-	#gem 'capistrano-ext'
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
   gem 'libnotify', :require => false
   gem 'rb-inotify', :require => false

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  posts_count :integer          default(0)
+#
+
 require 'spec_helper'
 
 describe Category do
@@ -21,14 +32,3 @@ describe Category do
     it { should validate_uniqueness_of(:name) }    
   end
 end
-# == Schema Information
-#
-# Table name: categories
-#
-#  id          :integer(4)      not null, primary key
-#  name        :string(255)
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
-#  posts_count :integer(4)      default(0)
-#
-

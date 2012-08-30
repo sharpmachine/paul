@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id                 :integer          not null, primary key
+#  title              :string(255)
+#  author             :string(255)
+#  description        :text
+#  url                :string(255)
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  product_type       :string(255)
+#
+
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Product do
@@ -31,21 +49,3 @@ describe Product do
   end
   
 end  
-# == Schema Information
-#
-# Table name: products
-#
-#  id                 :integer(4)      not null, primary key
-#  title              :string(255)
-#  author             :string(255)
-#  description        :text
-#  url                :string(255)
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  image_file_name    :string(255)
-#  image_content_type :string(255)
-#  image_file_size    :integer(4)
-#  image_updated_at   :datetime
-#  product_type       :string(255)
-#
-

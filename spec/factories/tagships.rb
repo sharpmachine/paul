@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: tagships
+#
+#  id      :integer          not null, primary key
+#  post_id :integer
+#  tag_id  :integer
+#
+
 # Read about factories at http://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
@@ -6,12 +15,3 @@ FactoryGirl.define do
       tag_id 1
     end
 end
-# == Schema Information
-#
-# Table name: tagships
-#
-#  id      :integer(4)      not null, primary key
-#  post_id :integer(4)
-#  tag_id  :integer(4)
-#
-
