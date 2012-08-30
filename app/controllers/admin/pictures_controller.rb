@@ -6,7 +6,11 @@ class Admin::PicturesController < Admin::BaseController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.order("created_at desc")
+    
+    params[:sort] ||= "updated_at"  
+    params[:direction] ||= "desc"    
+    
+    @pictures = Picture.order(sort_column + " " + sort_direction).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -52,6 +56,22 @@ class Admin::PicturesController < Admin::BaseController
       end
     end
   end
+  
+  def edit
+    @picture = Picture.find(params[:id])
+  end
+
+  def update
+    @picture = Picture.find(params[:id])
+
+    respond_to do |format|
+      if @picture.update_attributes(params[:picture])
+        format.html { redirect_to admin_picture_path(@picture), notice: 'Picture was successfully updated.' }
+      else
+        format.html { render action: "edit" }
+      end
+    end
+  end  
 
 
   # DELETE /pictures/1
@@ -67,6 +87,6 @@ class Admin::PicturesController < Admin::BaseController
   
   def set_active_nav
     @selected_nav = "pages"
-    @selected_page = "pictures"    
+    @selected_page = "photos"    
   end  
 end

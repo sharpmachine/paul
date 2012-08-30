@@ -22,6 +22,7 @@
 #  role                   :string(255)      default("user")
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  slug                   :string(255)
 #
 
 # Read about factories at http://github.com/thoughtbot/factory_girl

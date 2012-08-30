@@ -1,10 +1,14 @@
-<% title @picture.image_file_name %>
+<% title @picture.title %>
 
 <h1><%= @title %></h1>
 
 <dl class="dl-horizontal">
+  <dt><strong>Description</strong></dt>
+  <dd><%= @picture.description %></dd>
   <dt><strong>Large 640 x 480</strong></dt>
   <dd><div class="well"><%= image_tag @picture.image.url(:large) %></div></dd>
+  <dt><strong>Square 360 x 360</strong></dt>
+  <dd><div class="well"><%= image_tag @picture.image.url(:square) %></div></dd>
   <dt><strong>Medium 480 x 360</strong></dt>
   <dd><div class="well"><%= image_tag @picture.image.url(:medium) %></div></dd>
   <dt><strong>Small 320 x 240</strong></dt>

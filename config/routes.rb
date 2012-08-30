@@ -20,7 +20,7 @@ Paulmanwaring::Application.routes.draw do
     resources :pages
     resources :tags, :only => [:create, :new, :destroy]        
     resources :users, :except => [:create, :new]    
-    resources :pictures, :except => [:edit, :update]   
+    resources :pictures
   end    
   
   match '/errors/test' => 'errors#test'

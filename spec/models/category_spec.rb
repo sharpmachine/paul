@@ -7,6 +7,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  posts_count :integer          default(0)
+#  slug        :string(255)
 #
 
 require 'spec_helper'

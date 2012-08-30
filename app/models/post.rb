@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #  category_id :integer
 #  published   :boolean          default(FALSE)
+#  slug        :string(255)
 #
 
 class Post < ActiveRecord::Base
@@ -20,8 +21,8 @@ class Post < ActiveRecord::Base
   
   validates_presence_of :title, :content, :category_id
   
-  def to_param
-    "#{id}-#{title}".downcase.gsub(/\W+/, "-").gsub(/^[-]+|[-]$/,"").strip
-  end 
-    
+  attr_accessible :title, :content, :tag_ids, :category_id, :published
+  
+  extend FriendlyId
+  friendly_id :title, use: :slugged    
 end

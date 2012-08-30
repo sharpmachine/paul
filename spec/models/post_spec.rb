@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #  category_id :integer
 #  published   :boolean          default(FALSE)
+#  slug        :string(255)
 #
 
 require 'spec_helper'

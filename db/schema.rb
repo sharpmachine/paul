@@ -11,16 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830204527) do
+ActiveRecord::Schema.define(:version => 20120830232925) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.integer  "posts_count", :default => 0
+    t.string   "slug"
   end
 
   add_index "categories", ["id"], :name => "index_categories_on_id", :unique => true
+  add_index "categories", ["slug"], :name => "index_categories_on_slug", :unique => true
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -31,13 +33,19 @@ ActiveRecord::Schema.define(:version => 20120830204527) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "published",          :default => false
+    t.string   "slug"
   end
+
+  add_index "pictures", ["slug"], :name => "index_pictures_on_slug", :unique => true
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -47,9 +55,11 @@ ActiveRecord::Schema.define(:version => 20120830204527) do
     t.datetime "updated_at",                     :null => false
     t.integer  "category_id"
     t.boolean  "published",   :default => false
+    t.string   "slug"
   end
 
   add_index "posts", ["id"], :name => "index_posts_on_id", :unique => true
+  add_index "posts", ["slug"], :name => "index_posts_on_slug", :unique => true
 
   create_table "products", :force => true do |t|
     t.string   "title"
@@ -63,7 +73,10 @@ ActiveRecord::Schema.define(:version => 20120830204527) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "product_type"
+    t.string   "slug"
   end
+
+  add_index "products", ["slug"], :name => "index_products_on_slug", :unique => true
 
   create_table "tags", :force => true do |t|
     t.string   "tagstring"
@@ -101,10 +114,12 @@ ActiveRecord::Schema.define(:version => 20120830204527) do
     t.string   "role",                   :default => "user"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
+    t.string   "slug"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
 end

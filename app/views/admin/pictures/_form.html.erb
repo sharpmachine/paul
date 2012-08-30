@@ -5,6 +5,11 @@
 
 	<%= f.input :image %>
 	
+	<%= f.input :title %>	
+	<%= f.input :description %>		
+	
+	<%= f.input :published, :collection => [['Yes - Show photo in website', true] ,['No - Hide photo', false]], :as => :radio %>	
+	
 </fieldset>
 
 <div class="form-actions">

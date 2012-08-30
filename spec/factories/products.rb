@@ -14,6 +14,7 @@
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #  product_type       :string(255)
+#  slug               :string(255)
 #
 
 FactoryGirl.define do 

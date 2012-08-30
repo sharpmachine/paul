@@ -24,6 +24,7 @@ gem 'cancan'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'thin'
+gem "friendly_id", "~> 4.0.1"
 
 group :production do
   gem 'newrelic_rpm'  

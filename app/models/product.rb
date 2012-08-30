@@ -14,6 +14,7 @@
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #  product_type       :string(255)
+#  slug               :string(255)
 #
 
 class Product < ActiveRecord::Base
@@ -30,4 +31,7 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"   
   
   PRODUCT_TYPES = %w[book teaching_series toolkit]  
+  
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 end

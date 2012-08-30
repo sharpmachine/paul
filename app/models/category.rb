@@ -7,6 +7,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  posts_count :integer          default(0)
+#  slug        :string(255)
 #
 
 class Category < ActiveRecord::Base
@@ -16,7 +17,15 @@ class Category < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name 
   
-  def to_param
-    "#{id}-#{name}".downcase.gsub(/\W+/, "-").gsub(/^[-]+|[-]$/,"").strip
-  end   
+  attr_accessible :name, :post_ids  
 end
+# == Schema Information
+#
+# Table name: categories
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  posts_count :integer          default(0)
+#
