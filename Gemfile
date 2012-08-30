@@ -23,9 +23,10 @@ gem 'devise'
 gem 'cancan'
 gem 'simple_form'
 gem 'redcarpet'
+gem 'thin'
 
 group :development, :test do
-  gem 'thin'
+
 	gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'rb-fsevent', '~> 0.9.1'
