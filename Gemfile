@@ -26,10 +26,10 @@ gem 'redcarpet'
 gem 'thin'
 gem "friendly_id", "~> 4.0.1"
 gem 'heroku'
-
+gem 'airbrake'
+  
 group :production do
   gem 'newrelic_rpm'  
-  gem 'airbrake'
 end
 
 group :development, :test do
