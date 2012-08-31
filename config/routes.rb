@@ -4,9 +4,13 @@ Paulmanwaring::Application.routes.draw do
   resources :categories, :only => [:index, :show]
 
   resources :posts, :only => [:index, :show]
-  
+
+  resources :events, :only => [:index, :new, :create]
+    
   # Namespace for Admin Section
   namespace :admin do
+    resources :events
+
     resources :products
 
     # Admin 'Home' page

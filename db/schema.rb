@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120831035913) do
+ActiveRecord::Schema.define(:version => 20120831212808) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,43 @@ ActiveRecord::Schema.define(:version => 20120831035913) do
 
   add_index "categories", ["id"], :name => "index_categories_on_id", :unique => true
   add_index "categories", ["slug"], :name => "index_categories_on_slug", :unique => true
+
+  create_table "events", :force => true do |t|
+    t.string   "organization"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "organization_address"
+    t.string   "organization_address2"
+    t.string   "organization_city"
+    t.string   "organization_state"
+    t.string   "organization_zip"
+    t.string   "organization_country"
+    t.string   "website"
+    t.string   "event_type"
+    t.text     "theme"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.integer  "estimated_attendance"
+    t.string   "other_speakers"
+    t.boolean  "budget_for_additional_traveller"
+    t.string   "housing"
+    t.boolean  "bethel_students"
+    t.integer  "bethel_students_total"
+    t.boolean  "bethel_student_housing"
+    t.string   "location_name"
+    t.string   "address"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.text     "information"
+    t.string   "airport"
+    t.string   "status",                          :default => "new"
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+  end
 
   create_table "pages", :force => true do |t|
     t.string   "title"

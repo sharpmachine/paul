@@ -92,7 +92,7 @@ module ::Guard
     def annotate
       return if !self.annotate?
       UI.info "Running annotation..."
-      system "bundle exec annotate --position after &"
+      system "annotate --position after"
     end
 
     def migrate

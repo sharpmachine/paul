@@ -1,0 +1,43 @@
+<% title "Events" %>
+
+<h1><%= @title %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	    <th><%= sortable "organization" %></th>
+	    <th><%= sortable "name" %></th>
+	    <th><%= sortable "city" %></th>
+	    <th><%= sortable "country" %></th>	
+	    <th><%= sortable "starts_at" %></th>
+	    <th><%= sortable "status" %></th>
+		<th></th>
+	 </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+	      <td><%= event.organization %></td>
+	      <td><%= event.name %></td>
+	      <td><%= event.city %></td>
+	      <td><%= event.country %></td>
+	      <td><%= event.starts_at %></td>	
+	      <td><%= event.status %></td>	
+        <td>
+		    <%= link_to "View", admin_event_path(event), :class => "btn btn-mini" %>
+		    <%= link_to "Edit", edit_admin_event_path(event), :class => "btn btn-mini" %>
+		
+            <%= link_to "Delete", admin_event_path(event), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @events %>
+
+<%= link_to "New Event", new_admin_event_path, :class => "btn btn-primary" %>
+
+<%= content_for(:side) do %>
+
+<% end %>

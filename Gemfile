@@ -28,6 +28,7 @@ gem "friendly_id", "~> 4.0.1"
 gem 'heroku'
 gem 'airbrake', "~> 3.1.2"
 gem 'pg_search'
+gem 'country_select'
   
 group :production do
   gem 'newrelic_rpm'  
@@ -60,7 +61,7 @@ end
 
 group :development do
 	gem 'rails3-generators'
-  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+  gem 'annotate', '2.4.1.beta1'
   gem 'libnotify', :require => false
   gem 'rb-inotify', :require => false
 end
