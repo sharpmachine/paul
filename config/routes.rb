@@ -26,4 +26,5 @@ Paulmanwaring::Application.routes.draw do
   match '/errors/test' => 'errors#test'
   
   root :to => 'home#index'
+  match '*a', :to => 'errors#routing', :format => false  
 end
