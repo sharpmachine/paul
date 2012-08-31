@@ -27,6 +27,7 @@ gem 'thin'
 gem "friendly_id", "~> 4.0.1"
 gem 'heroku'
 gem 'airbrake'
+gem 'pg_search'
   
 group :production do
   gem 'newrelic_rpm'  

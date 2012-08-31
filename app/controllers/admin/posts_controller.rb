@@ -7,7 +7,7 @@ class Admin::PostsController < Admin::BaseController
   def index
     params[:sort] ||= "posts.created_at"  
     params[:direction] ||= "desc"        
-    @posts = Post.where("posts.title like ?", "%#{params[:q]}%").includes(:user, :category).order(sort_column + " " + sort_direction).page(params[:page])  
+    @posts = Post.text_search(params[:q]).includes(:user, :category).order(sort_column + " " + sort_direction).page(params[:page])  
     
     respond_to do |format|
       format.html # index.html.erb

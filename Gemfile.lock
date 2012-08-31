@@ -161,6 +161,9 @@ GEM
       cocaine (>= 0.0.2)
       mime-types
     pg (0.14.0)
+    pg_search (0.5.1)
+      activerecord (>= 3)
+      activesupport (>= 3)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -289,6 +292,7 @@ DEPENDENCIES
   newrelic_rpm
   paperclip
   pg
+  pg_search
   rails (= 3.2.8)
   rails3-generators
   rb-fsevent (~> 0.9.1)

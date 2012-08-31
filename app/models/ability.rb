@@ -21,6 +21,7 @@ class Ability
     user # Inherit user permissions, and add more:
     can :manage, User
     can :manage, Page
+    can :manage, Post    
     can :manage, Tag
     can :manage, Category  
     can :manage, Picture                

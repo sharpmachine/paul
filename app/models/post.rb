@@ -24,5 +24,17 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :content, :tag_ids, :category_id, :published
   
   extend FriendlyId
-  friendly_id :title, use: :slugged    
+  friendly_id :title, use: :slugged   
+  
+  include PgSearch
+  pg_search_scope :search, against: [:title, :content],
+   using: {tsearch: { dictionary: "english" }} 
+  
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end   
 end
