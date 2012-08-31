@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   helper :all # Include all helpers all the time
   helper_method :sort_column, :sort_direction 
   
-  unless Rails.env == "development"
+  if Rails.env == "production"
     rescue_from Exception, :with => :render_error
-    rescue_from RuntimeError, :with => :oauth_error 
+    rescue_from RuntimeError, :with => :render_error 
     rescue_from AbstractController::ActionNotFound, :with => :render_not_found
     rescue_from AbstractController::DoubleRenderError, :with => :render_error
     rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
