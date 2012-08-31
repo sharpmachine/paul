@@ -6,6 +6,6 @@ class ErrorsController < ApplicationController
   end
   
   def test
-    raise "This is a test of the error reporting system"
+    raise "This is a test of the error reporting system".inspect
   end
 end
