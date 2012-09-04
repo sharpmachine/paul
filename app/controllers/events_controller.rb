@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     if @event.save
+      UserMailer.event_notification(@event).deliver
       redirect_to events_path, notice: "Thank you for inviting Paul to minister. We will be in touch with you soon."
     else
       render :new
