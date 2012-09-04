@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   default :to => "rjlarcombe@gmail.com",
-          :from => "info@paulmanwaring.com"
+          :from => "PaulManwaring.com <info@paulmanwaring.com>"
   
   helper :application
   
