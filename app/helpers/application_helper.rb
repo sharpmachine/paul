@@ -23,7 +23,7 @@ module ApplicationHelper
     title ||= column.titleize
     css_class = column == sort_column ? "current #{sort_direction}" : nil
     direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
-    link_to title, {:sort => column, :direction => direction, :search => params[:q]}, {:class => css_class}
+    link_to title, params.merge({:sort => column, :direction => direction}), {:class => css_class}
   end
 
   def resource_name
@@ -45,6 +45,12 @@ module ApplicationHelper
     else
       render :partial => 'layouts/breadcrumb', :locals => locals      
     end    
+  end
+  
+  def nice_date(date = nil)
+    if date
+      date.strftime("%B %-d, %Y")
+    end  
   end
   
 end

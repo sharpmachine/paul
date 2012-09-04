@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require chosen/chosen.jquery
+//= require jquery-ui
 //= require_directory .
 
 jQuery( function($) {
@@ -25,5 +26,27 @@ jQuery( function($) {
 		$(".upload_form").hide();		
 		$("#uploading").show();
 	
+	});
+
+	$(".datepicker").datepicker({ changeYear: true, dateFormat: "yy-mm-dd" });	
+	
+	// Event Stuff
+	$("#copy_org_true").click(function() {
+		$("#event_location_name").val( $("#event_organization").val() );
+		$("#event_address").val( $("#event_organization_address").val() );
+		$("#event_address2").val( $("#event_organization_address2").val() );		
+		$("#event_city").val( $("#event_organization_city").val() );				
+		$("#event_state").val( $("#event_organization_state").val() );						
+		$("#event_zip").val( $("#event_organization_zip").val() );
+		$("#event_country").val( $("#event_organization_country").val() );										
+	});
+	$("#copy_org_false").click(function() {
+		$("#event_location_name").val("");
+		$("#event_address").val("");		
+		$("#event_address2").val("");				
+		$("#event_city").val("");	
+		$("#event_state").val("");	
+		$("#event_zip").val("");
+		$("#event_country").val("");												
 	});
 });

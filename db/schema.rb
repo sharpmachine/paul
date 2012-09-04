@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120831212808) do
+ActiveRecord::Schema.define(:version => 20120904180032) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(:version => 20120831212808) do
     t.string   "organization_state"
     t.string   "organization_zip"
     t.string   "organization_country"
-    t.string   "website"
+    t.string   "url"
     t.string   "event_type"
     t.text     "theme"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
+    t.date     "starts_at"
+    t.date     "ends_at"
     t.integer  "estimated_attendance"
     t.string   "other_speakers"
     t.boolean  "budget_for_additional_traveller"

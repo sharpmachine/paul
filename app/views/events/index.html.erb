@@ -1,0 +1,34 @@
+<% title "Schedule" %>
+
+<h1><%= @title %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	    <th><%= sortable "organization" %></th>
+	    <th><%= sortable "name" %></th>
+	    <th><%= sortable "city" %></th>
+	    <th><%= sortable "country" %></th>	
+	    <th><%= sortable "starts_at" %></th>
+	 </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+	      <td><%= event.organization %></td>
+	      <td><%= event.name %></td>
+	      <td><%= event.city %></td>
+	      <td><%= event.country %></td>
+	      <td><%= nice_date(event.starts_at) %></td>		
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @events %>
+
+<%= link_to "Invite Paul", new_event_path, :class => "btn btn-primary" %>
+
+<%= content_for(:side) do %>
+
+<% end %>

@@ -7,8 +7,9 @@ class Admin::EventsController < Admin::BaseController
   def index
     
     params[:sort] ||= "created_at" 
+    params[:status] ||= "all"     
         
-    @events = Event.order(sort_column + " " + sort_direction).page(params[:page])
+    @events = Event.by_status(params[:status]).order(sort_column + " " + sort_direction).page(params[:page])
     
     respond_to do |format|
       format.html
@@ -62,6 +63,6 @@ class Admin::EventsController < Admin::BaseController
   
   def set_active_nav
     @selected_nav = ""
-    @selected_page = ""    
+    @selected_page = "events"    
   end
 end

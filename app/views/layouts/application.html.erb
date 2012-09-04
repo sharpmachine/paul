@@ -37,11 +37,11 @@
 			  </li>
 			
 			  <li class="<% if @selected_page == "schedule" %>active<% end %>">
-			     <%= link_to "Schedule", "" %>
+			     <%= link_to "Schedule", events_path %>
 			  </li>
 			
 			  <li class="<% if @selected_page == "invite" %>active<% end %>">
-			     <%= link_to "Invite", "" %>
+			     <%= link_to "Invite", new_event_path %>
 			  </li>
 			
 			  <li class="<% if @selected_page == "store" %>active<% end %>">

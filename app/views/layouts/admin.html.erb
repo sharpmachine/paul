@@ -66,7 +66,12 @@
 			     <%= link_to "Photos", admin_pictures_path %>
 			  </li>
 			<% end %>			
-			
+
+			  <li class="<% if @selected_page == "events" %>active<% end %>">
+			     <%= link_to "Schedule", admin_events_path %>
+			  </li>
+
+						
 			<% if can? :update, User %>
 			  <li class="<% if @selected_page == "users" %>active<% end %>">
 			     <%= link_to "Users", admin_users_path %>

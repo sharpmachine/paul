@@ -28,7 +28,6 @@ gem "friendly_id", "~> 4.0.1"
 gem 'heroku'
 gem 'airbrake', "~> 3.1.2"
 gem 'pg_search'
-gem 'country_select'
   
 group :production do
   gem 'newrelic_rpm'  

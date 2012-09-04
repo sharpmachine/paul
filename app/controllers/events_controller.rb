@@ -2,11 +2,11 @@ class EventsController < ApplicationController
   
   skip_authorization_check
 
+  before_filter :set_active_nav  
+  
   def index
-    
-    params[:sort] ||= "created_at" 
         
-    @events = Event.order(sort_column + " " + sort_direction).page(params[:page])
+    @events = Event.website_listing.page(params[:page])
     
     respond_to do |format|
       format.html
@@ -21,10 +21,16 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     if @event.save
-      redirect_to admin_events_path, notice: "Successfully created event."
+      redirect_to events_path, notice: "Thank you for inviting Paul to minister. We will be in touch with you soon."
     else
       render :new
     end
   end
   
+  private
+  
+  def set_active_nav
+    @selected_nav = ""
+    @selected_page = "schedule"    
+  end  
 end
