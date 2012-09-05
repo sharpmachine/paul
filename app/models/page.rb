@@ -1,21 +1,11 @@
-# == Schema Information
-#
-# Table name: pages
-#
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  permalink  :string(255)
-#  content    :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
 class Page < ActiveRecord::Base
-    validates_presence_of :title, :permalink
-    validates_uniqueness_of :title, :permalink  
-    validates_format_of :permalink, :with => /^([A-Za-z0-9]|(_|-))+$/, :message => "No spaces or /,&,*,$,etc. allowed"
+    validates_presence_of :title
+    validates_uniqueness_of :title
     
-    attr_accessible :title, :permalink, :content    
+    attr_accessible :title, :content    
+    
+    extend FriendlyId
+    friendly_id :title, use: :slugged    
 end
 
 # == Schema Information

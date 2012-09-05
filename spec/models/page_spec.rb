@@ -1,50 +1,19 @@
-# == Schema Information
-#
-# Table name: pages
-#
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  permalink  :string(255)
-#  content    :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
 require 'spec_helper'
 
 describe Page do
-
-  before(:each) do
-    @page = Factory.build(:page)
+  after(:each) do
+    ActiveRecord::Base.logger = nil
   end
 
-  it "should be valid" do
-    @page.should be_valid
-  end
-  
-  it "should not be valid without a title" do
-    @page.title = ""
-    @page.should_not be_valid
-  end
-  
-  it "should not be valid without a permalink" do
-    @page.permalink = ""
-    @page.should_not be_valid
+  let(:show_sql) { ActiveRecord::Base.logger = Logger.new(STDOUT) }
+
+  context "fields" do
+    it { should have_db_column(:title).of_type(:string) }
+    it { should have_db_column(:content).of_type(:text) }
   end
 
-  it "should not be valid with illegal spaces in a permalink" do
-    @page.permalink = "bad perma link"
-    @page.should_not be_valid
-  end
-  
-  it "should not be valid with illegal characters in a permalink" do
-    @page.permalink = "bad&perma/link"
-    @page.should_not be_valid
-  end
 
-  it "should be valid with blank content" do
-    @page.content = ""
-    @page.should be_valid
+  context "basic validations" do   
+    it { should validate_presence_of(:title) }
   end
-
-end
+end  
