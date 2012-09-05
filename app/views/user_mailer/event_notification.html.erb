@@ -1,10 +1,9 @@
     <h3>Invitation for Paul Manwaring</h3>
     <p>
-      The following person just filled in the ministry invitation form on the website:<br />
-<strong><%= @event.name %></strong></p>
-	<p><%= link_to "View the info online", admin_event_url(@event) %></p>
+      <strong><%= @event.name %></strong> just filled in the ministry invitation form on the website:<br />
+	  <strong><%= link_to "View Online >>", admin_event_url(@event) %></strong></p>
     <p>
-      <strong>Organization:</strong><br /><br />
+      <strong>Organization:</strong><br />
 		<%= @event.organization %><br />
 		<%= @event.address %><br />
 		<% if @event.address2.present? %>  <%= @event.address2 %><br /><% end %>
@@ -12,15 +11,13 @@
     </p>
 
     <p>
-      <strong>Dates:</strong><br /><br />
+      <strong>Dates:</strong><br />
 		<%= nice_date(@event.starts_at) %><% if @event.ends_at %> to <%= nice_date(@event.ends_at) %><% end %>
     </p>
 
     <p>
-      <strong>Phone:</strong><br /><br />
+      <strong>Contact:</strong><br />
 		<%= @event.phone %>
-    </p>
-    <p>
-      <strong>Email:</strong><br /><br />
 		<%= @event.email %>
+		<%= link_to @event.url, @event.url %>		
     </p>
