@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require chosen/chosen.jquery
-//= require tiny_mce/tiny_mce
+//= require tinymce
 //= require jquery-ui
 //= require_directory .
 
