@@ -12,10 +12,11 @@ end
 #
 # Table name: pages
 #
-#  id         :integer          not null, primary key
+#  id         :integer         not null, primary key
 #  title      :string(255)
-#  permalink  :string(255)
+#  slug       :string(255)
 #  content    :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
 #
+

@@ -1,3 +1,15 @@
+FactoryGirl.define do 
+  factory :product do
+    title "MyString"
+    author "MyString"
+    short_description "This is a short description"
+    description "MyText"
+    url "MyString"
+    featured false
+    product_type "book"
+    image { File.new "#{Rails.root}/spec/attachments/whenHeavenInvadesEarth_LG.jpg" }
+  end
+end
 # == Schema Information
 #
 # Table name: products
@@ -16,12 +28,3 @@
 #  product_type       :string(255)
 #  slug               :string(255)
 #
-
-FactoryGirl.define do 
-  factory :product do
-    title "MyString"
-    author "MyString"
-    description "MyText"
-    url "MyString"
-  end
-end

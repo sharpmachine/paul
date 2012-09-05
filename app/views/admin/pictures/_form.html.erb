@@ -6,7 +6,7 @@
 	<%= f.input :image %>
 	
 	<%= f.input :title %>	
-	<%= f.input :description %>		
+	<%= f.input :description, :input_html => { :rows => 4 } %>		
 	
 	<%= f.input :published, :collection => [['Yes - Show photo in website', true] ,['No - Hide photo', false]], :as => :radio %>	
 	

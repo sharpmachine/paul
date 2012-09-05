@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <%= link_to "PaulManwaring.com", root_path, :class => "brand" %>
+        <%= link_to "Paul Manwaring", root_path, :class => "brand" %>
 
 		<div class="btn-group pull-right">
           <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -51,13 +51,13 @@
 			
 			<% if can? :update, Page %>
 			  <li class="<% if @selected_page == "blocks" %>active<% end %>">
-			     <%= link_to "Pages", admin_pages_path %></li>
+			     <%= link_to "Page Content", admin_pages_path %></li>
 			  </li>
 			<% end %>
 			
 			<% if can? :update, Product %>
 			  <li class="<% if @selected_page == "products" %>active<% end %>">
-			     <%= link_to "Store", admin_products_path %></li>
+			     <%= link_to "Products", admin_products_path %></li>
 			  </li>
 			<% end %>			
 			

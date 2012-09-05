@@ -1,13 +1,19 @@
-<h1>Listing posts</h1>
+<h1>Blog</h1>
 
 <table>
   <tr>
+    <th>Picture</th>	
     <th>Title</th>
+    <th>Category</th>
   </tr>
 
 <% @posts.each do |post| %>
   <tr>
+    <td><%= picture_thumbnail(post.picture) %></td>
     <td><%= post.title %></td>
+    <td><%= link_to post.category.name, category_path(post.category) %></td>
   </tr>
 <% end %>
 </table>
+
+<%= paginate @posts %>

@@ -3,9 +3,11 @@
 <fieldset>
 <legend><%= controller.action_name.capitalize %> Product</legend>
 
+  <%= f.input :featured, :label => "Featured on Homepage", :as => :radio_buttons %>
   <%= f.input :product_type, :collection => Product::PRODUCT_TYPES.collect {|t| [t.titleize, t]}, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Choose a type...' } %>
   <%= f.input :title %>
   <%= f.input :author %>
+  <%= f.input :short_description, :input_html => { :rows => 3, :style => "width:500px;" } %>
   <%= f.input :description %>
   <%= f.input :url %>
   <%= f.input :image %>		

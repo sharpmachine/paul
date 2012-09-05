@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+		<th></th>	
 	    <th><%= sortable "title" %></th>
 	    <th><%= sortable "author" %></th>
 	    <th><%= sortable "product_type" %></th>	
@@ -14,6 +15,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+	      <td><% if product.featured? %><span class="label label-success">Featured</span><% end %></td>
 	      <td><%= product.title %></td>
 	      <td><%= product.author %></td>
 	      <td><%= product.product_type.titleize %></td>

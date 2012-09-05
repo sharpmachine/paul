@@ -1,27 +1,13 @@
-# == Schema Information
-#
-# Table name: posts
-#
-#  id          :integer          not null, primary key
-#  title       :string(255)
-#  content     :text
-#  user_id     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  category_id :integer
-#  published   :boolean          default(FALSE)
-#  slug        :string(255)
-#
-
 class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category, :counter_cache => true  
+  belongs_to :picture
   has_many :tagships, :dependent => :destroy
   has_many :tags, :through => :tagships  
   
   validates_presence_of :title, :content, :category_id
   
-  attr_accessible :title, :content, :tag_ids, :category_id, :published
+  attr_accessible :title, :content, :tag_ids, :category_id, :published, :picture_id
   
   extend FriendlyId
   friendly_id :title, use: :slugged   
@@ -36,5 +22,25 @@ class Post < ActiveRecord::Base
     else
       scoped
     end
-  end   
+  end
+  
+  def self.published
+    where("published = ?", true)
+  end
 end
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  content     :text
+#  user_id     :integer
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  category_id :integer
+#  published   :boolean         default(FALSE)
+#  slug        :string(255)
+#  picture_id  :integer
+#
+
