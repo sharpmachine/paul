@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  belongs_to :category, :counter_cache => true  
+  belongs_to :category
   belongs_to :picture
   has_many :tagships, :dependent => :destroy
   has_many :tags, :through => :tagships  
@@ -9,6 +9,9 @@ class Post < ActiveRecord::Base
   
   attr_accessible :title, :content, :tag_ids, :category_id, :published, :picture_id
   
+  after_save :cache_post_counts
+  after_destroy :cache_post_counts  
+    
   extend FriendlyId
   friendly_id :title, use: :slugged   
   
@@ -26,6 +29,13 @@ class Post < ActiveRecord::Base
   
   def self.published
     where("published = ?", true)
+  end
+  
+  private
+  
+  def cache_post_counts
+    Tag.all.each {|t| t.update_attributes(:posts_count => t.posts.count) }
+    Category.all.each {|c| c.update_attributes(:posts_count => c.posts.count) }    
   end
 end
 # == Schema Information
