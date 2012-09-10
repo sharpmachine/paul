@@ -4,5 +4,7 @@ class HomeController < ApplicationController
   def index
     @intro = Page.find("homepage-intro")
     @product = Product.get_featured
+
+    @instagrams = Instacache.retrieve
   end  
 end

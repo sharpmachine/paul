@@ -10,7 +10,7 @@
   <dt><strong>Description:</strong></dt>
   <dd><%= raw(@user.description) %></dd>
   <dt><strong>Avatar:</strong></dt>
-  <dd><%= image_tag @user.avatar.url(:thumb) if @user.avatar %></dd>
+  <dd><%= image_tag @user.avatar.url(:thumb) if @user.avatar.present? %></dd>
 <%- if can? :manage, :roles -%>
   <dt><strong>Role:</strong></dt>
   <dd><span class="label label-info"><%= @user.role %></span></dd>
