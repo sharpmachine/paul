@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @user], :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [:admin, @user], :html => { :multipart => true, :class => 'form-horizontal upload_form' } do |f| %>
   
 <fieldset>
 <legend><%= controller.action_name.capitalize %> User</legend>
@@ -7,6 +7,8 @@
 	<%= f.input :lastname %>
 	<%= f.input :role, :collection => User::ROLES, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Choose a role...' } %>		
 	<%= f.input :email %>
+	<%= f.input :description %>	
+	<%= f.input :avatar %>		
 	
 </fieldset>
 
@@ -15,3 +17,5 @@
     	<%= link_to "Cancel", admin_users_path, :class => "btn small grey" %> <%= f.button :submit, :class => 'btn btn-primary' %>
 </div>
 <% end %>
+
+<%= render "layouts/uploading" %>

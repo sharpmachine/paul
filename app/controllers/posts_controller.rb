@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_filter :set_active_nav  
 
   def index
-    @posts = Post.published.includes(:picture, :category, :tags)
+    @posts = Post.published.includes(:picture, :category, :tags, :user)
     
     if params[:q]
       @posts = @posts.text_search(params[:q])

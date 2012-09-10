@@ -7,6 +7,10 @@
   <dd><%= @user.firstname %> <%= @user.lastname %></dd>
   <dt><strong>Email:</strong></dt>
   <dd><%= @user.email %></dd>
+  <dt><strong>Description:</strong></dt>
+  <dd><%= raw(@user.description) %></dd>
+  <dt><strong>Avatar:</strong></dt>
+  <dd><%= image_tag @user.avatar.url(:thumb) if @user.avatar %></dd>
 <%- if can? :manage, :roles -%>
   <dt><strong>Role:</strong></dt>
   <dd><span class="label label-info"><%= @user.role %></span></dd>

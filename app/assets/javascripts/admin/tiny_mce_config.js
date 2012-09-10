@@ -3,7 +3,7 @@ tinyMCE.init({
 
 	// General options
 	mode : "exact",
-	elements : "post_content, page_content, product_description",
+	elements : "post_content, page_content, product_description, user_description",
 	theme : "advanced",
 	plugins : "advimage,autolink,lists,pagebreak,style,media,contextmenu,paste,fullscreen,nonbreaking,",
 
