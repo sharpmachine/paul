@@ -1,7 +1,7 @@
 Paulmanwaring::Application.routes.draw do
   
   devise_for :users
-  resources :categories, :only => [:index, :show]
+  resources :categories, :only => :show
 
   resources :posts, :only => [:index, :show]
 

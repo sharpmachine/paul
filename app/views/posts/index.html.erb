@@ -5,15 +5,32 @@
     <th>Picture</th>	
     <th>Title</th>
     <th>Category</th>
+    <th>Tags</th>
   </tr>
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%= picture_thumbnail(post.picture) %></td>
+    <td><%= image_tag post.picture_url(:thumb) %></td>
     <td><%= post.title %></td>
     <td><%= link_to post.category.name, category_path(post.category) %></td>
+    <td><%= render post.tags %></td>
   </tr>
 <% end %>
 </table>
 
 <%= paginate @posts %>
+
+<% content_for(:side) do %>
+	<h1>Categories</h1>
+	
+	<ul>
+	<% @categories.each do |c| %>
+		<li><%= link_to c.name, category_path(c) %></li>
+	<% end %>	
+	</ul>
+	
+	<h1>Tags</h1>
+	
+	<%= tag_cloud(@tagcloud) %>
+<% end %>
+

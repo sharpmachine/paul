@@ -1,27 +1,26 @@
 class CategoriesController < ApplicationController
   
   skip_authorization_check
-    
-  # GET /categories
-  # GET /categories.json
-  def index
-    @categories = Category.all
+  
+  before_filter :set_active_nav
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @categories }
-    end
-  end
-
-  # GET /categories/1
-  # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
+    
+    @posts = @category.posts.published.page(params[:page])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @category }
+      format.xml # show.xml.builder      
     end
-  end
+
+  end  
+  
+  private
+  
+  def set_active_nav
+    @selected_nav = "blog"
+    @selected_page = "blog"    
+  end  
 
 end

@@ -27,8 +27,46 @@ class Post < ActiveRecord::Base
     end
   end
   
+  ROOT_URL = "http://localhost:3000"
+  
   def self.published
-    where("published = ?", true)
+    where("posts.published = ?", true).order("posts.updated_at")
+  end
+  
+  def picture_url(size = :small)
+    #  :styles => { :thumb => "100x75>", :small => "320x240>", :medium => "480x360>", :square => "360x360#", :large => "640x480>" }
+    case size.to_s                
+    when "thumb"
+      if picture
+        ROOT_URL + picture.image.url(:thumb)
+      else 
+        ROOT_URL + "/assets/nophoto_thumb.png"
+      end
+    when "small"
+      if picture
+        ROOT_URL + picture.image.url(:small)
+      else 
+        ROOT_URL + "/assets/nophoto_small.png"
+      end     
+    when "medium"
+      if picture
+        ROOT_URL + picture.image.url(:medium)
+      else 
+        ROOT_URL + "/assets/nophoto_medium.png"
+      end
+    when "square"
+      if picture
+        ROOT_URL + picture.image.url(:square)
+      else 
+        ROOT_URL + "/assets/nophoto_square.png"
+      end      
+    when "large"
+      if picture
+        ROOT_URL + picture.image.url(:large)
+      else 
+        ROOT_URL + "/assets/nophoto_large.png"
+      end              
+    end
   end
   
   private

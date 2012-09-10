@@ -1,10 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
+<h1><%= @category.name %></h1>
 
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<table>
+  <tr>
+    <th>Picture</th>	
+    <th>Title</th>
+    <th>Category</th>
+    <th>Tags</th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= image_tag post.picture_url(:thumb) %></td>
+    <td><%= post.title %></td>
+    <td><%= link_to post.category.name, category_path(post.category) %></td>
+    <td><%= render post.tags %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= paginate @posts %>
+
+
