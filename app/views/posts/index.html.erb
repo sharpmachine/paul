@@ -29,8 +29,10 @@
 	<% end %>	
 	</ul>
 	
+	<% if @posts.size > 1%>
 	<h1>Tags</h1>
 	
 	<%= tag_cloud(@tagcloud) %>
+	<% end %>
 <% end %>
 
