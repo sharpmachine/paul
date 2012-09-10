@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
-      format.xml # index.xml.builder
+      format.atom # index.atom.builder
     end
   end
 
