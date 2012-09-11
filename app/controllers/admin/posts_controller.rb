@@ -40,7 +40,7 @@ class Admin::PostsController < Admin::BaseController
   
   def publish
     @post = Post.find(params[:id])
-    @post.published = true
+    @post.published_at = Time.now
     @post.save
     redirect_to admin_posts_path, notice: 'Post published.'
   end  

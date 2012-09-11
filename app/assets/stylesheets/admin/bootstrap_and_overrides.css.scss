@@ -2,29 +2,13 @@
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
-// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-$fontAwesomeEotPath: image-path('fontawesome-webfont.eot');
-$fontAwesomeWoffPath: image-path('fontawesome-webfont.woff');
-$fontAwesomeTtfPath: image-path('fontawesome-webfont.ttf');
-$fontAwesomeSvgzPath: image-path('fontawesome-webfont.svgz');
-$fontAwesomeSvgPath: image-path('fontawesome-webfont.svg');
+$baseFontSize: 13px;
 
 @import "bootstrap";
 // Font Awesome
 @import "font-awesome";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
-
-// Your custom LESS stylesheets goes here
-//
-// Since bootstrap was imported above you have access to its mixins which
-// you may use and inherit here
-//
-// If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/less.html for their names and documentation
-//
-// Example:
-// @linkColor: #ff0000;
 
 th a, th a:hover {
 	color:#000000;
@@ -45,4 +29,26 @@ th .desc {
 
 legend {
 	margin-bottom:0;
+}
+
+.dl-horizontal dt {
+	width:160px;
+	margin-right:10px;
+}
+
+dd, dt {
+	margin-bottom:12px;
+}
+
+.form-horizontal .control-label {
+	width:200px;
+	margin-right:10px;	
+}
+
+.form-horizontal .controls {
+	margin-left:210px;	
+}
+
+a.delete-tag {
+	color:$errorText;
 }

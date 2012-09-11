@@ -1,2 +1,6 @@
+<p><%= image_tag post.picture_url(:thumb) %></p>
 <p><%= post.title %></p>
+<p>By <%= post.author %></p>
+<p>Posted on <%= nice_date(post.published_at) %></p>
+<p><%= render post.tags %></p>
 <p><%= markdown(post.content) %></p>

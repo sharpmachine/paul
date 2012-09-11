@@ -1,69 +1,80 @@
-<% title "Event" %>
+<div class="row">
+	<div class="span12">
+		<% title "Event" %>
+		<h1><%= @title %></h1>
+	</div>
+</div>	
+<div class="row">
+  <div class="span6">
+	<dl class="dl-horizontal">
+	  <dt><strong>Status:</strong></dt>
+	  <dd><%= status_label(@event.status) %></dd>	
+	  <dt><strong>Dates:</strong></dt>
+	  <dd><%= nice_date(@event.starts_at) %><% if @event.ends_at %> to <%= nice_date(@event.ends_at) %><% end %></dd>
+	  <dt><strong>Organization:</strong></dt>
+	  <dd><%= @event.organization %></dd>
+	  <dt><strong>Name:</strong></dt>
+	  <dd><%= @event.name %></dd>
+	  <dt><strong>Phone:</strong></dt>
+	  <dd><%= @event.phone %></dd>
+	  <dt><strong>Email:</strong></dt>
+	  <dd><%= @event.email %></dd>
+	  <dt><strong>Address:</strong></dt>
+	  <dd><%= @event.address %></dd>
+	  <dt><strong>Website:</strong></dt>
+	  <dd><%= link_to @event.url, @event.url, :target => "_blank" %></dd>
+		<dt><strong>Budget for another?</strong></dt>
+		  <dd><%= @event.budget_for_additional_traveller ?  "Yes" : "No" %></dd>
+		  <dt><strong>Housing:</strong></dt>
+		  <dd><%= @event.housing %></dd>
+		  <dt><strong>Want Students?</strong></dt>
+		  <dd><%= @event.bethel_students ?  "Yes" : "No" %></dd>
+		  <dt><strong># of Students:</strong></dt>
+		  <dd><%= @event.bethel_students_total %></dd>
+		  <dt><strong>Student Housing?</strong></dt>	 
+	  	  <dd><%= @event.bethel_student_housing ?  "Yes" : "No" %></dd>		 
+	</dl>	
+	</div>
+	<div class="span6">
+	<dl class="dl-horizontal">
+		<dt><strong>Event Title:</strong></dt>
+		  <dd><%= @event.title.present? ? @event.title : status_label("No Title Entered") %></dd>
+		  <dt><strong>Event Type:</strong></dt>
+		  <dd><%= @event.event_type %></dd>
+		  <dt><strong>Theme:</strong></dt>
+		  <dd><%= @event.theme %></dd>
+		  <dt><strong>Est. Attendance:</strong></dt>
+		  <dd><%= @event.estimated_attendance %></dd>
+		  <dt><strong>Other Speakers:</strong></dt>
+		  <dd><%= @event.other_speakers %></dd>
+		  	
 
-<h1><%= @title %></h1>
-
-<dl class="dl-horizontal">
-  <dt><strong>Status:</strong></dt>
-  <dd><%= status_label(@event.status) %></dd>	
-  <dt><strong>Dates:</strong></dt>
-  <dd><%= nice_date(@event.starts_at) %><% if @event.ends_at %> to <%= nice_date(@event.ends_at) %><% end %></dd>
-  <dt><strong>Organization:</strong></dt>
-  <dd><%= @event.organization %></dd>
-  <dt><strong>Name:</strong></dt>
-  <dd><%= @event.name %></dd>
-  <dt><strong>Phone:</strong></dt>
-  <dd><%= @event.phone %></dd>
-  <dt><strong>Email:</strong></dt>
-  <dd><%= @event.email %></dd>
-  <dt><strong>Address:</strong></dt>
-  <dd><%= @event.address %></dd>
-  <dt><strong>Website:</strong></dt>
-  <dd><%= link_to @event.url, @event.url, :target => "_blank" %></dd>
-  <dt><strong>Event Title:</strong></dt>
-  <dd><%= @event.title.present? ? @event.title : status_label("No Title Entered") %></dd>
-  <dt><strong>Event Type:</strong></dt>
-  <dd><%= @event.event_type %></dd>
-  <dt><strong>Theme:</strong></dt>
-  <dd><%= @event.theme %></dd>
-  <dt><strong>Estimated Attendance:</strong></dt>
-  <dd><%= @event.estimated_attendance %></dd>
-  <dt><strong>Other Speakers:</strong></dt>
-  <dd><%= @event.other_speakers %></dd>
-  <dt><strong>Budget For Additional Traveller:</strong></dt>
-  <dd><%= @event.budget_for_additional_traveller %></dd>
-  <dt><strong>Housing:</strong></dt>
-  <dd><%= @event.housing %></dd>
-  <dt><strong>Bethel Students:</strong></dt>
-  <dd><%= @event.bethel_students %></dd>
-  <dt><strong>Bethel Students Total:</strong></dt>
-  <dd><%= @event.bethel_students_total %></dd>
-  <dt><strong>Bethel Student Housing:</strong></dt>
-  <dd><%= @event.bethel_student_housing %></dd>
-  <dt><strong>Location Name:</strong></dt>
-  <dd><%= @event.location_name %></dd>
-  <dt><strong>Address:</strong></dt>
-  <dd><%= @event.address %></dd>
-  <dt><strong>Address2:</strong></dt>
-  <dd><%= @event.address2 %></dd>
-  <dt><strong>City:</strong></dt>
-  <dd><%= @event.city %></dd>
-  <dt><strong>State:</strong></dt>
-  <dd><%= @event.state %></dd>
-  <dt><strong>Zip:</strong></dt>
-  <dd><%= @event.zip %></dd>
-  <dt><strong>Country:</strong></dt>
-  <dd><%= @event.country %></dd>
-  <dt><strong>Information:</strong></dt>
-  <dd><%= @event.information %></dd>
-  <dt><strong>Airport:</strong></dt>
-  <dd><%= @event.airport %></dd>
+	  <dt><strong>Location Name:</strong></dt>
+	  <dd><%= @event.location_name %></dd>
+	  <dt><strong>Address:</strong></dt>
+	  <dd><%= @event.address %></dd>
+	  <dt><strong>Address2:</strong></dt>
+	  <dd><%= @event.address2 %></dd>
+	  <dt><strong>City:</strong></dt>
+	  <dd><%= @event.city %></dd>
+	  <dt><strong>State:</strong></dt>
+	  <dd><%= @event.state %></dd>
+	  <dt><strong>Zip:</strong></dt>
+	  <dd><%= @event.zip %></dd>
+	  <dt><strong>Country:</strong></dt>
+	  <dd><%= @event.country %></dd>
+	  <dt><strong>Information:</strong></dt>
+	  <dd><%= @event.information %></dd>
+	  <dt><strong>Airport:</strong></dt>
+	  <dd><%= @event.airport %></dd>
 	
-</dl>	
-
-  <%= link_to "Back", admin_events_path, :class => "btn" %>
-  <%= link_to "Edit", edit_admin_event_path(@event), :class => "btn" %>
-  <%= link_to "Destroy", admin_event_path(@event), :confirm => "Are you sure?", :method => :delete, :class => "btn btn-danger" %>
-
-<%= content_for(:side) do %>
-
-<% end %>
+	</dl>	
+  </div>
+</div>
+<div class="row">
+	<div class="span12">
+		<%= link_to "Back", admin_events_path, :class => "btn" %>
+		<%= link_to "Edit", edit_admin_event_path(@event), :class => "btn" %>
+	  	<%= link_to "Destroy", admin_event_path(@event), :confirm => "Are you sure?", :method => :delete, :class => "btn btn-danger" %>
+	</div>
+</div>

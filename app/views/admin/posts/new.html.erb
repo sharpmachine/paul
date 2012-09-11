@@ -1,11 +1,12 @@
-<%- title "Posts" -%>
+<div class="row">
+  <div class="span9">
+	<%- title "Posts" -%>
 
-<h1><%= @title %></h1>
+	<h1><%= @title %></h1>
 
-<%= render 'form' %>
-
-<%= content_for(:side) do %>
-
+	<%= render 'form' %>
+  </div>
+  <div class="span3">
 	<%= render 'admin/tags/tags' %>
-
-<% end %>
+  </div>
+</div>

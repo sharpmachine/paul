@@ -1,5 +1,6 @@
-<li id="tag_<%= tag.id %>"><%= tag.tagstring %>
+<li id="tag_<%= tag.id %>">
 <%- if can? :destroy, tag -%>
-	<%= link_to([:admin, tag], :method => :delete, :remote => true) do %><i class="icon-remove-sign"></i><% end %>
+	<%= link_to([:admin, tag], :method => :delete, :remote => true, :class => "delete-tag") do %><i class="icon-remove-sign"></i><% end %>
 <%- end -%>
+<%= tag.tagstring %> <span class="muted">(<%= tag.posts.size %>)</span>
 </li>

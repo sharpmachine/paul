@@ -1,36 +1,44 @@
-<% title "Categories" %>
+<div class="row">
+  <div class="span9">
+  	<% title "Categories" %>
 
-<h1><%= @title %></h1>
+	<h1><%= @title %></h1>
+  </div>
+  <div class="span3">
+	<%= link_to "New Category", new_admin_category_path, :class => 'btn btn-primary pull-right' %>
+  </div>
+</div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= sortable "name" %></th>	    
-	  <th><%= sortable "posts_count", "Posts" %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-	<% @categories.each do |category| %>
-      <tr>
-        <td class="bold"><%= link_to category.name, category_path(category), :target => "_blank" %></td>
-		<td><%= category.posts.size %></td>
-        <td>
-          <%= link_to "Edit",
-                      edit_admin_category_path(category), :class => 'btn btn-mini' %>
-          <%= link_to "Delete", admin_category_path(category),
-                      :method => :delete,
-                      :confirm => 'Are you sure? This will delete all posts within this category',
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to "New Category", new_admin_category_path, :class => 'btn btn-primary' %>
+<div class="row">
+  <div class="span12">
 
 
-<%= content_for(:side) do %>
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th><%= sortable "name" %></th>	    
+		  <th><%= sortable "posts_count", "Posts" %></th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+		<% @categories.each do |category| %>
+	      <tr>
+	        <td class="bold"><%= link_to category.name, category_path(category), :target => "_blank" %></td>
+			<td><%= category.posts.size %></td>
+	        <td>
+	          <%= link_to "Edit",
+	                      edit_admin_category_path(category), :class => 'btn btn-mini' %>
+	          <%= link_to "Delete", admin_category_path(category),
+	                      :method => :delete,
+	                      :confirm => 'Are you sure? This will delete all posts within this category',
+	                      :class => 'btn btn-mini btn-danger' %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
 
-<% end %>
+	
+  </div>
+</div>

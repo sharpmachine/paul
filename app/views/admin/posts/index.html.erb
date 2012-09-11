@@ -1,51 +1,58 @@
-<% title "Blog" %>
+<div class="row">
+  <div class="span9">
+	<% title "Blog" %>
 
-<h1><%= @title %></h1>
-
-<table class="table table-striped">
-  <thead>
-	  <tr>
-	    <th><%= sortable "posts.title", "Title" %></th>
-	    <th><%= sortable "categories.name", "Category" %></th>
-	    <th><%= sortable "users.firstname", "Author" %></th>		
-	    <th><%= sortable "posts.published_at", "Published At" %></th>			
-	    <th></th>
-	    <th></th>
-	  </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><% if post.published? %>
-			<%= link_to post.title, post_path(post) %>
-			<% else %>
-			<%= link_to post.title, admin_post_path(post) %>			
-			<% end %></td>
-		<td><%= post.category.name %></td>
-		<td><%= post.user.firstname %> <%= post.user.lastname %></td>			
-		<td><% if post.published? %><%= post.published_at.strftime("%A %B %-d, %Y")%><% else %><span class="label">Unpublished</span><% end %></td>	
-        <td>
-          <%= link_to "Edit", edit_admin_post_path(post), :class => 'btn btn-mini' %>
-          <%= link_to "Delete",
-                      admin_post_path(post),
-                      :method => :delete,
-                      :confirm => 'Are you sure?',
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= paginate @posts %>
-
-<%= link_to "New Post",
-            new_admin_post_path,
-            :class => 'btn btn-primary' %>
+	<h1><%= @title %></h1>
+  </div>
+  <div class="span3">
+	<%= link_to "New Post",
+	            new_admin_post_path,
+	            :class => 'btn btn-primary pull-right' %>
+  </div>
+</div>
+<div class="row">
+  <div class="span9">
 
 
-<%= content_for(:side) do %>
+	<table class="table table-striped">
+	  <thead>
+		  <tr>
+		    <th><%= sortable "posts.title", "Title" %></th>
+		    <th><%= sortable "categories.name", "Category" %></th>
+		    <th><%= sortable "users.firstname", "Author" %></th>		
+		    <th><%= sortable "posts.published_at", "Published At" %></th>			
+		    <th></th>
+		    <th></th>
+		  </tr>
+	  </thead>
+	  <tbody>
+	    <% @posts.each do |post| %>
+	      <tr>
+	        <td><% if post.published? %>
+				<%= link_to post.title, post_path(post) %>
+				<% else %>
+				<%= link_to post.title, admin_post_path(post) %>			
+				<% end %></td>
+			<td><%= post.category.name %></td>
+			<td><%= post.user.firstname %> <%= post.user.lastname %></td>			
+			<td><% if post.published? %><%= post.published_at.strftime("%A %B %-d, %Y")%><% else %><span class="label">Unpublished</span><% end %></td>	
+	        <td>
+	          <%= link_to "Edit", edit_admin_post_path(post), :class => 'btn btn-mini' %>
+	          <%= link_to "Delete",
+	                      admin_post_path(post),
+	                      :method => :delete,
+	                      :confirm => 'Are you sure?',
+	                      :class => 'btn btn-mini btn-danger' %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
 
+	<%= paginate @posts %>
+
+  </div>
+  <div class="span3">
 	<%= render 'admin/tags/tags' %>
-
-<% end %>
+  </div>
+</div>

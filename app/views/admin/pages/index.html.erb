@@ -1,41 +1,51 @@
-<% title "Page Blocks" %>
+<div class="row">
+  <div class="span9">
+	<% title "Page Blocks" %>
 
-<h1><%= @title %></h1>
-
-<table class="table table-striped">
-  <thead>
-	  <tr>
-	    <th><%= sortable "title" %></th>
-	    <th><%= sortable "slug" %></th>
-	    <th></th>
-	  </tr>
-  </thead>
-  <tbody>
-	<% @pages.each do |page| %>
-	  <tr>
-	    <td><%= page.title %></td>
-	    <td><%= page.slug %></td>
-	    <td>
-			<% if can? :update, page %><%= link_to "Edit", edit_admin_page_path(page), :class => 'btn btn-mini' %><% end %>
-          <% if can? :destroy, page %><%= link_to "Delete",
-                      admin_page_path(page),
-                      :method => :delete,
-                      :confirm => 'Are you sure?',
-                      :class => 'btn btn-mini btn-danger' %><% end %>
-	    </td>
-	  </tr>
+	<h1><%= @title %></h1>
+  </div>
+  <div class="span3">
+	<% if can? :create, Page %>
+	<%= link_to "New Page Block",
+	            new_admin_page_path,
+	            :class => 'btn btn-primary' %>
 	<% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
-<%= paginate @pages %>
 
-<% if can? :create, Page %>
-<%= link_to "New Page Block",
-            new_admin_page_path,
-            :class => 'btn btn-primary' %>
-<% end %>
+<div class="row">
+  <div class="span12">
 
-<%= content_for(:side) do %>
 
-<% end %>
+	<table class="table table-striped">
+	  <thead>
+		  <tr>
+		    <th><%= sortable "title" %></th>
+		    <th><%= sortable "slug" %></th>
+		    <th></th>
+		  </tr>
+	  </thead>
+	  <tbody>
+		<% @pages.each do |page| %>
+		  <tr>
+		    <td><%= page.title %></td>
+		    <td><%= page.slug %></td>
+		    <td>
+				<% if can? :update, page %><%= link_to "Edit", edit_admin_page_path(page), :class => 'btn btn-mini' %><% end %>
+	          <% if can? :destroy, page %><%= link_to "Delete",
+	                      admin_page_path(page),
+	                      :method => :delete,
+	                      :confirm => 'Are you sure?',
+	                      :class => 'btn btn-mini btn-danger' %><% end %>
+		    </td>
+		  </tr>
+		<% end %>
+	  </tbody>
+	</table>
+
+	<%= paginate @pages %>
+
+
+  </div>
+</div>

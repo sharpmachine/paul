@@ -1,41 +1,51 @@
-<% title "Photos" %>
+<div class="row">
+  <div class="span9">
+	<% title "Photos" %>
 
-<h1><%= @title %></h1>
+	<h1><%= @title %></h1>
+  </div>
+  <div class="span3">
+	  <%= link_to 'Upload Photo', new_admin_picture_path, :class => 'btn btn-primary pull-right' %>
+  </div>
+</div>
 
-<table class="table table-striped">
-  <thead>
-	  <tr>
-	    <th>Picture Thumbnail</th>
-	    <th><%= sortable "title" %></th>
-	    <th><%= sortable "updated_at", "Date Added" %></th>
-	    <th><%= sortable "published", "Visible on photos page?" %></th>
-	  </tr>
-  </thead>
-  <tbody>
-	<% @pictures.each do |picture| %>
-	  <tr>
-	    <td><%= image_tag picture.image.url(:thumb) %></td>
-	    <td><%= picture.title %></td>
-	    <td><%= picture.updated_at.strftime("%D") %></td>	
-	    <td><% if picture.published? %><span class="label label-success">Published</span><% else %><span class="label">Unpublished</span><% end %></td>	
-	    <td>
-	        <%= link_to 'View Sizes', [:admin, picture], :class => "btn btn-mini" %>
-	        <%= link_to 'Edit', edit_admin_picture_path(picture), :class => "btn btn-mini" %>	
-	      <% if can? :destroy, picture %>
-	        <%= link_to 'Delete', [:admin, picture], :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-mini btn-danger" %>
-	      <% end %>
-	    </td>
-	  </tr>
-	<% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="span12">
 
-<%= paginate @pictures %>
 
-<% if can? :create, Picture %>
-  <%= link_to 'Upload Photo', new_admin_picture_path, :class => 'btn btn-primary' %>
-<% end %>
+	<table class="table table-striped">
+	  <thead>
+		  <tr>
+		    <th>Picture Thumbnail</th>
+		    <th><%= sortable "title" %></th>
+		    <th><%= sortable "updated_at", "Date Added" %></th>
+		    <th><%= sortable "published", "Visible on photos page?" %></th>
+		  </tr>
+	  </thead>
+	  <tbody>
+		<% @pictures.each do |picture| %>
+		  <tr>
+		    <td><%= image_tag picture.image.url(:thumb) %></td>
+		    <td><%= picture.title %></td>
+		    <td><%= picture.updated_at.strftime("%D") %></td>	
+		    <td><% if picture.published? %><span class="label label-success">Published</span><% else %><span class="label">Unpublished</span><% end %></td>	
+		    <td>
+		        <%= link_to 'View Sizes', [:admin, picture], :class => "btn btn-mini" %>
+		        <%= link_to 'Edit', edit_admin_picture_path(picture), :class => "btn btn-mini" %>	
+		      <% if can? :destroy, picture %>
+		        <%= link_to 'Delete', [:admin, picture], :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-mini btn-danger" %>
+		      <% end %>
+		    </td>
+		  </tr>
+		<% end %>
+	  </tbody>
+	</table>
 
-<%= content_for(:side) do %>
+	<%= paginate @pictures %>
 
-<% end %>
+
+
+
+
+  </div>
+</div>

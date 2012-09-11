@@ -2,6 +2,8 @@
   
 <fieldset>
 <legend><%= controller.action_name.capitalize %> Post</legend>
+
+		<%= f.input :published, :collection => [['Yes - Show post in website', true] ,['No - Hide post', false]], :as => :radio %>
 		
 		<%= f.association :category, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Choose a category...' } %>
 		
@@ -15,8 +17,6 @@
 	
 		<%= f.association :tags, :collection => @tags.collect {|t| [t.tagstring, t.id]}, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Add tags...' } %>
   
-		<%= f.input :published, :collection => [['Yes - Show post in website', true] ,['No - Hide post', false]], :as => :radio %>
-	
 	</fieldset>
 
 	  <div class="form-actions">

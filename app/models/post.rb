@@ -27,10 +27,14 @@ class Post < ActiveRecord::Base
     end
   end
   
+  def author
+    user.firstname + " " + user.lastname
+  end
+  
   ROOT_URL = Rails.env == "development" ? "http://localhost:3000" : "http://paulmanwaring.herokuapp.com"
   
   def self.published
-    where("posts.published_at is not null").order("posts.published_at")
+    where("posts.published_at is not null").order("posts.published_at desc")
   end
   
   def picture_url(size = :small)

@@ -1,24 +1,35 @@
-<% title "Products" %>
+<div class="row">
+  <div class="span9">
+	<% title "Products" %>
 
-<h1><%= @title %></h1>
-
+	<h1><%= @title %></h1>
+  </div>
+  <div class="span3">
+	<%= link_to "New Product", new_admin_product_path, :class => "btn btn-primary pull-right" %>
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
+	
 <table class="table table-striped">
   <thead>
     <tr>
-		<th></th>	
+		<th></th>
 	    <th><%= sortable "title" %></th>
 	    <th><%= sortable "author" %></th>
 	    <th><%= sortable "product_type" %></th>	
+		<th>Featured on Homepage?</th>		
 		<th></th>
 	 </tr>
   </thead>
   <tbody>
     <% @products.each do |product| %>
       <tr>
-	      <td><% if product.featured? %><span class="label label-success">Featured</span><% end %></td>
+	      <td><%= image_tag product.image.url(:small) %></td>
 	      <td><%= product.title %></td>
 	      <td><%= product.author %></td>
 	      <td><%= product.product_type.titleize %></td>
+		  <td><% if product.featured? %><span class="label label-success">Featured</span><% end %></td>
         <td>
 		    <%= link_to "View", admin_product_path(product), :class => "btn btn-mini" %>
 		    <%= link_to "Edit", edit_admin_product_path(product), :class => "btn btn-mini" %>
@@ -32,8 +43,5 @@
 
 <%= paginate @products %>
 
-<%= link_to "New Product", new_admin_product_path, :class => "btn btn-primary" %>
-
-<%= content_for(:side) do %>
-
-<% end %>
+</div>
+</div>
