@@ -19,7 +19,8 @@
 		    <th>Picture Thumbnail</th>
 		    <th><%= sortable "title" %></th>
 		    <th><%= sortable "updated_at", "Date Added" %></th>
-		    <th><%= sortable "published", "Visible on photos page?" %></th>
+		    <th><%= sortable "published", "On photos page?" %></th>
+		    <th>Blog post?</th>		
 		  </tr>
 	  </thead>
 	  <tbody>
@@ -29,6 +30,7 @@
 		    <td><%= picture.title %></td>
 		    <td><%= picture.updated_at.strftime("%D") %></td>	
 		    <td><% if picture.published? %><span class="label label-success">Published</span><% else %><span class="label">Unpublished</span><% end %></td>	
+		    <td><%= link_to "View Post", post_path(picture.posts.first) if picture.has_post? %></td>			
 		    <td>
 		        <%= link_to 'View Sizes', [:admin, picture], :class => "btn btn-mini" %>
 		        <%= link_to 'Edit', edit_admin_picture_path(picture), :class => "btn btn-mini" %>	

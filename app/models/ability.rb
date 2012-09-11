@@ -17,14 +17,12 @@ class Ability
     #can :read, Page
   end  
   
-  def manager
+  def contributer
     user # Inherit user permissions, and add more:
-    can :manage, User
-    can :manage, Page
-    can :manage, Post    
-    can :manage, Tag
-    can :manage, Category  
-    can :manage, Picture                
+    # Manage their own Post
+    can :manage, Post, :user_id => @user.id
+    can :read, Category
+    can :create, Tag
   end
   
   def superuser

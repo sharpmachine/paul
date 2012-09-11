@@ -16,6 +16,10 @@ class Picture < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged  
   
+  
+  def has_post?
+    posts.published.any?
+  end
 end
 # == Schema Information
 #

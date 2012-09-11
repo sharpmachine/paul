@@ -1,6 +1,11 @@
+<% home_page ||= false %>
+
 <p><%= image_tag post.picture_url(:thumb) %></p>
 <p><%= post.title %></p>
 <p>By <%= post.author %></p>
 <p>Posted on <%= nice_date(post.published_at) %></p>
+<% unless home_page %>
 <p><%= render post.tags %></p>
+<p><%= link_to post.title, post_path(post) + "#disqus_thread", "data-disqus-identifier" => post.id %></p>
+<% end %>
 <p><%= markdown(post.content) %></p>

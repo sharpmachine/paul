@@ -17,9 +17,9 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"  
       
   # ADMIN_ROLES are any ROLE that has access to the /admin/ namespace. So the ROLES list may be longer than the ADMIN_ROLES list.
-  ADMIN_ROLES = %w[superuser manager]
+  ADMIN_ROLES = %w[superuser contributer]
   # All User roles are defined here... And set up in the ability.rb class...
-  ROLES = %w[superuser manager user]
+  ROLES = %w[superuser contributer user]
   
   def is_admin?
     ADMIN_ROLES.include? role 

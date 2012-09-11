@@ -44,35 +44,36 @@
 				          <b class="caret"></b>
 				    </a>
 				    <ul class="dropdown-menu">
-						<% if can? :update, Post %><li class="<% if @selected_page == "posts" %>active<% end %>"><%= link_to "Posts", admin_posts_path %></li><% end %>
-						<% if can? :update, Category %><li class="<% if @selected_page == "categories" %>active<% end %>"><%= link_to "Categories", admin_categories_path %></li><% end %>
+						<% if can? :read, Post %><li class="<% if @selected_page == "posts" %>active<% end %>"><%= link_to "Posts", admin_posts_path %></li><% end %>
+						<% if can? :read, Category %><li class="<% if @selected_page == "categories" %>active<% end %>"><%= link_to "Categories", admin_categories_path %></li><% end %>
 				    </ul>
 				  </li>
 			
-			<% if can? :update, Page %>
+			<% if can? :read, Page %>
 			  <li class="<% if @selected_page == "blocks" %>active<% end %>">
 			     <%= link_to "Page Content", admin_pages_path %></li>
 			  </li>
 			<% end %>
 			
-			<% if can? :update, Product %>
+			<% if can? :read, Product %>
 			  <li class="<% if @selected_page == "products" %>active<% end %>">
 			     <%= link_to "Products", admin_products_path %></li>
 			  </li>
 			<% end %>			
 			
-			<% if can? :update, Picture %>
+			<% if can? :read, Picture %>
 			  <li class="<% if @selected_page == "photos" %>active<% end %>">
 			     <%= link_to "Photos", admin_pictures_path %>
 			  </li>
 			<% end %>			
-
+			<% if can? :read, Event %>
 			  <li class="<% if @selected_page == "events" %>active<% end %>">
 			     <%= link_to "Schedule", admin_events_path %>
 			  </li>
+			<% end %>
 
 						
-			<% if can? :update, User %>
+			<% if can? :read, User %>
 			  <li class="<% if @selected_page == "users" %>active<% end %>">
 			     <%= link_to "Users", admin_users_path %>
 			  </li>
