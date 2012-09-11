@@ -49,4 +49,14 @@ jQuery( function($) {
 		$("#event_zip").val("");
 		$("#event_country").val("");												
 	});
+	
+	var $myCarousel = $('#photoCarousel').carousel({'interval': false});
+
+	$('.carousel-select').each(function() {
+	    var $this = $(this);
+	    var index = $(this).data("slide");
+	    $this.click(function() {
+	        $myCarousel.carousel(index);
+	    });
+	});	
 });

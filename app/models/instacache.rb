@@ -15,10 +15,10 @@ class Instacache < ActiveRecord::Base
       
       most_recent = Instagram.user_recent_media(211842030)
     
-      most_recent.each do |media_item|
+      most_recent.each_with_index do |media_item, i|
         self.create(:link_url => media_item.link, :low_resolution_url => media_item.images.low_resolution.url, :thumbnail_url => media_item.images.thumbnail.url)
+		    break if i == 3        
       end
-    
       all
     end  
   end

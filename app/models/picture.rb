@@ -20,6 +20,10 @@ class Picture < ActiveRecord::Base
   def has_post?
     posts.published.any?
   end
+  
+  def self.published
+    where("pictures.published = ?", true).order("pictures.updated_at desc")
+  end
 end
 # == Schema Information
 #

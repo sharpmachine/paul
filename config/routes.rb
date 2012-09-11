@@ -2,7 +2,8 @@ Paulmanwaring::Application.routes.draw do
   
   devise_for :users
   resources :categories, :only => :show
-  resources :products, :only => :index 
+  resources :products, :only => :index
+  resources :pictures, :only => :index 
   resources :posts, :only => [:index, :show]
   resources :events, :only => [:index, :new, :create]
     
@@ -27,6 +28,12 @@ Paulmanwaring::Application.routes.draw do
   end    
   
   match '/errors/test' => 'errors#test'
+  
+  match 'paul' => 'home#paul', :as => :paul
+  match 'give' => 'home#give', :as => :give
+  match 'friends' => 'home#friends', :as => :friends    
+  match 'photos' => 'pictures#index', :as => :photos
+  match 'photo-archive' => 'pictures#archive', :as => :photo_archive  
   
   root :to => 'home#index'
   match '*a', :to => 'errors#routing', :format => false  

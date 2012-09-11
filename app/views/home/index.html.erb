@@ -21,13 +21,21 @@
 </div>
 
 <div class="row">
+	<% @pictures.each do |picture| %>  
+
+ 
+		<div class="span3">
+		<%= link_to image_tag(picture.image.url(:thumb)), picture.has_post? ? post_path(picture.posts.first) : pictures_path(:picture => picture.id) %>
+		</div>
+
+	<% end %>
+</div>
+
+<div class="row">
   <div class="span12">	
 	<h1>Instagram</h1>
-	<% @instagrams.each_with_index do |instagram, i| %>
+	<% @instagrams.each do |instagram| %>
 		<%= link_to (image_tag instagram.thumbnail_url), instagram.link_url %>
-		<% break if i == 3 %>
 	<% end %>
 	</div>
-
 </div>
-	

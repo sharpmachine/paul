@@ -29,7 +29,7 @@
 			  </li>
 			
 			  <li class="<% if @selected_nav == "paul" %>active<% end %>">
-			     <%= link_to "Paul", "" %></li>
+			     <%= link_to "Paul", paul_path %></li>
 			  </li>
 			
 			  <li class="<% if @selected_nav == "blog" %>active<% end %>">
@@ -49,15 +49,15 @@
 			  </li>	
 			
 			  <li class="<% if @selected_nav == "give" %>active<% end %>">
-			     <%= link_to "Give", "" %>
+			     <%= link_to "Give", give_path %>
 			  </li>
 			
 			  <li class="<% if @selected_nav == "friends" %>active<% end %>">
-			     <%= link_to "Friends", "" %>
+			     <%= link_to "Friends", friends_path %>
 			  </li>	
 			
 			  <li class="<% if @selected_nav == "photos" %>active<% end %>">
-			     <%= link_to "Photos", "" %>
+			     <%= link_to "Photos", photos_path %>
 			  </li>	
 			
 			<% if user_signed_in? && current_user.is_admin? %>

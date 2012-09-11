@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="span12">
+	<div id="photoCarousel" class="carousel slide">
+	  <!-- Carousel items -->
+	  <div class="carousel-inner">
+		
+		<% @pictures.each do |picture| %>  
+			<div class="item <%= params[:picture].to_i == picture.id ? "active" : "" %>"><%= image_tag picture.image.url(:large) %></div>
+		<% end %>
+	  </div>
+	  <!-- Carousel nav -->
+	  <a class="carousel-control left" href="#photoCarousel" data-slide="prev">&lsaquo;</a>
+	  <a class="carousel-control right" href="#photoCarousel" data-slide="next">&rsaquo;</a>
+	</div>
+	</div>
+</div>
+
+<% @pictures.in_groups_of(3, false) do |pictures| %>  
+	<div class="row">
+      <% pictures.each do |picture| %>  
+      <div class="span3"><a class="carousel-select" href="#" data-slide="<%= @pictures.index(picture) %>"><%= image_tag picture.image.url(:thumb) %></a></div>
+      <% end %>  
+	</div>
+<% end %>
+<div class="row">
+  <div class="span12">	
+	<h1>Instagram</h1>
+	<% @instagrams.each do |instagram| %>
+		<%= link_to (image_tag instagram.thumbnail_url), instagram.link_url %>
+	<% end %>
+	</div>
+</div>
