@@ -1,7 +1,7 @@
 <%= content_for(:head) do %>
 	<%= javascript_tag do %>
 		var disqus_title = '<%= @post.title %>'; 
-		var disqus_developer = <% if Rails.env == "development" %>1<% else %>0<% end %>;
+		var disqus_developer = <%= Rails.env == "development" ? 1 : 0 %>;
 		var disqus_shortname = 'paulmanwaring';		
 		var disqus_identifier = '<%= @post.id %>';	
 		

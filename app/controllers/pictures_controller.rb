@@ -15,6 +15,11 @@ class PicturesController < ApplicationController
       format.html # index.html.erb
     end
   end
+  
+  def show
+    @picture = Picture.published.find(params[:id])
+    render :layout => false
+  end  
 
   def archive
     @selected_nav = "photos"   

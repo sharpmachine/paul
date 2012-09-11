@@ -1,0 +1,7 @@
+<% @pictures.in_groups_of(3, false) do |pictures| %>  
+	<div class="row">
+      <% pictures.each do |picture| %>  
+      <div class="span3"><%= link_to image_tag(picture.image.url(:thumb)), picture_path(picture), "data-toggle" => "modal" %></div>
+      <% end %>  
+	</div>
+<% end %>

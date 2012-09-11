@@ -5,7 +5,13 @@
 	  <div class="carousel-inner">
 		
 		<% @pictures.each do |picture| %>  
-			<div class="item <%= params[:picture].to_i == picture.id ? "active" : "" %>"><%= image_tag picture.image.url(:large) %></div>
+			<div class="item <%= params[:picture].to_i == picture.id ? "active" : "" %>">
+				<%= image_tag picture.image.url(:large) %>
+				<div class="carousel-caption">
+					<h4><%= picture.title %></h4>
+					<p><%= picture.description %></p>
+				</div>	
+			</div>
 		<% end %>
 	  </div>
 	  <!-- Carousel nav -->
@@ -22,6 +28,11 @@
       <% end %>  
 	</div>
 <% end %>
+<div class="row">
+  <div class="span12">
+  	<%= link_to "Photo Archive", photo_archive_path, :class => "btn pull-right" %>
+  </div>	
+</div>
 <div class="row">
   <div class="span12">	
 	<h1>Instagram</h1>

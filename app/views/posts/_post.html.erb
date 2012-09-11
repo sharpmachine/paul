@@ -9,3 +9,4 @@
 <p><%= link_to post.title, post_path(post) + "#disqus_thread", "data-disqus-identifier" => post.id %></p>
 <% end %>
 <p><%= markdown(post.content) %></p>
+<p><%= link_to "Read More", post_path(post), :class => "btn" %>

@@ -3,7 +3,7 @@ Paulmanwaring::Application.routes.draw do
   devise_for :users
   resources :categories, :only => :show
   resources :products, :only => :index
-  resources :pictures, :only => :index 
+  resources :pictures, :only => [:index, :show]
   resources :posts, :only => [:index, :show]
   resources :events, :only => [:index, :new, :create]
     
