@@ -13,7 +13,7 @@ class Instacache < ActiveRecord::Base
       # If there are none, reload the cache from instagram
       self.delete_all
       
-      most_recent = Instagram.user_recent_media(215792694)
+      most_recent = Instagram.user_recent_media(211842030)
     
       most_recent.each do |media_item|
         self.create(:link_url => media_item.link, :low_resolution_url => media_item.images.low_resolution.url, :thumbnail_url => media_item.images.thumbnail.url)

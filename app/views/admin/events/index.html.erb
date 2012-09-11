@@ -19,6 +19,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+	    <th><%= sortable "title" %></th>
 	    <th><%= sortable "organization" %></th>
 	    <th><%= sortable "name" %></th>
 	    <th><%= sortable "city" %></th>
@@ -31,6 +32,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+	      <td><%= event.title.present? ? event.title : status_label("No Title Entered") %></td>
 	      <td><%= event.organization %></td>
 	      <td><%= event.name %></td>
 	      <td><%= event.city %></td>

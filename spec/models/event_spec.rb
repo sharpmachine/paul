@@ -98,5 +98,6 @@ end
 #  status                          :string(255)     default("new")
 #  created_at                      :datetime        not null
 #  updated_at                      :datetime        not null
+#  title                           :string(255)
 #
 

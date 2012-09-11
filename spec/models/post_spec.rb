@@ -2,16 +2,16 @@
 #
 # Table name: posts
 #
-#  id          :integer         not null, primary key
-#  title       :string(255)
-#  content     :text
-#  user_id     :integer
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
-#  category_id :integer
-#  published   :boolean         default(FALSE)
-#  slug        :string(255)
-#  picture_id  :integer
+#  id           :integer         not null, primary key
+#  title        :string(255)
+#  content      :text
+#  user_id      :integer
+#  created_at   :datetime        not null
+#  updated_at   :datetime        not null
+#  category_id  :integer
+#  slug         :string(255)
+#  picture_id   :integer
+#  published_at :datetime
 #
 
 require 'spec_helper'

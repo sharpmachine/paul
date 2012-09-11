@@ -1,11 +1,11 @@
 class Product < ActiveRecord::Base
-  attr_accessible :title, :author, :description, :url, :product_type, :image, :featured, :short_description
+  attr_accessible :title, :author, :url, :product_type, :image, :featured, :short_description
   
-  validates_presence_of :title, :author, :description, :url, :product_type, :short_description
+  validates_presence_of :title, :author, :url, :product_type, :short_description
   
   validates_length_of :short_description, :maximum => 100, :too_long => "must be 100 words maximum.", :tokenizer => lambda { |str| str.scan(/\w+/) }
   
-  has_attached_file :image, :styles => { :small => "100x127>", :large => "245x310>" },
+  has_attached_file :image, :styles => { :small => "100x127>" },
                     :url  => "/assets/products/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
 
@@ -39,7 +39,6 @@ end
 #  id                 :integer         not null, primary key
 #  title              :string(255)
 #  author             :string(255)
-#  description        :text
 #  url                :string(255)
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null

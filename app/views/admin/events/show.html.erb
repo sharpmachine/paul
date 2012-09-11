@@ -19,6 +19,8 @@
   <dd><%= @event.address %></dd>
   <dt><strong>Website:</strong></dt>
   <dd><%= link_to @event.url, @event.url, :target => "_blank" %></dd>
+  <dt><strong>Event Title:</strong></dt>
+  <dd><%= @event.title.present? ? @event.title : status_label("No Title Entered") %></dd>
   <dt><strong>Event Type:</strong></dt>
   <dd><%= @event.event_type %></dd>
   <dt><strong>Theme:</strong></dt>

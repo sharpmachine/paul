@@ -1,38 +1,40 @@
-<h1>Blog</h1>
-
-<table>
-  <tr>
-    <th>Picture</th>	
-    <th>Title</th>
-    <th>Category</th>
-    <th>Tags</th>
-  </tr>
-
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= image_tag post.picture_url(:thumb) %></td>
-    <td><%= post.title %></td>
-    <td><%= link_to post.category.name, category_path(post.category) %></td>
-    <td><%= render post.tags %></td>
-  </tr>
-<% end %>
-</table>
-
-<%= paginate @posts %>
-
-<% content_for(:side) do %>
-	<h1>Categories</h1>
+<div class="row">
 	
-	<ul>
-	<% @categories.each do |c| %>
-		<li><%= link_to c.name, category_path(c) %></li>
-	<% end %>	
-	</ul>
-	
-	<% if @posts.size > 1%>
-	<h1>Tags</h1>
-	
-	<%= tag_cloud(@tagcloud) %>
-	<% end %>
-<% end %>
+	<div class="span6">
+			
+		<% @posts.in_groups_of(2, false) do |posts| %>  
+			<div class="row">
+		      <% posts.each do |post| %>  
+		      <div class="span3"><%= render post %></div>
+		      <% end %>  
+			</div>
+		<% end %>	
 
+	</div>
+
+	<div class="span3">
+		
+		<%= link_to "Subscribe to Blog", posts_path(:format => "atom"), :class => "btn" %>
+		
+		<h1>Categories</h1>
+
+		<ul>
+		<% @categories.each do |c| %>
+			<li><%= link_to c.name, category_path(c) %></li>
+		<% end %>	
+		</ul>
+
+		<h1>Tag List</h1>
+
+		<%= tag_cloud(@tagcloud) %>
+
+		
+	</div>	
+
+</div>
+
+<div class="row">
+	<div class="span12">
+		<%= paginate @posts %>
+	</div>	
+</div>	

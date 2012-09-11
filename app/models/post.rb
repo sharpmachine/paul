@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   
   validates_presence_of :title, :content, :category_id
   
-  attr_accessible :title, :content, :tag_ids, :category_id, :published, :picture_id
+  attr_accessible :title, :content, :tag_ids, :category_id, :published_at, :picture_id, :published
   
   after_save :cache_post_counts
   after_destroy :cache_post_counts  
@@ -27,10 +27,10 @@ class Post < ActiveRecord::Base
     end
   end
   
-  ROOT_URL = "http://localhost:3000"
+  ROOT_URL = Rails.env == "development" ? "http://localhost:3000" : "http://paulmanwaring.herokuapp.com"
   
   def self.published
-    where("posts.published = ?", true).order("posts.updated_at")
+    where("posts.published_at is not null").order("posts.published_at")
   end
   
   def picture_url(size = :small)
@@ -69,6 +69,22 @@ class Post < ActiveRecord::Base
     end
   end
   
+  def published
+    published?
+  end
+  
+  def published=(gonna_publish)
+    if gonna_publish == "true"
+      self.published_at = Time.now unless published?
+    else
+      self.published_at = nil
+    end  
+  end
+  
+  def published?
+    published_at.present?
+  end
+  
   private
   
   def cache_post_counts
@@ -80,15 +96,15 @@ end
 #
 # Table name: posts
 #
-#  id          :integer         not null, primary key
-#  title       :string(255)
-#  content     :text
-#  user_id     :integer
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
-#  category_id :integer
-#  published   :boolean         default(FALSE)
-#  slug        :string(255)
-#  picture_id  :integer
+#  id           :integer         not null, primary key
+#  title        :string(255)
+#  content      :text
+#  user_id      :integer
+#  created_at   :datetime        not null
+#  updated_at   :datetime        not null
+#  category_id  :integer
+#  slug         :string(255)
+#  picture_id   :integer
+#  published_at :datetime
 #
 

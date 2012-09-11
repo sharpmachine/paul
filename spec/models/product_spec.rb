@@ -5,7 +5,6 @@
 #  id                 :integer         not null, primary key
 #  title              :string(255)
 #  author             :string(255)
-#  description        :text
 #  url                :string(255)
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null
@@ -40,7 +39,6 @@ describe Product do
   context "fields" do
     it { should have_db_column(:title).of_type(:string) }
     it { should have_db_column(:author).of_type(:string) }
-    it { should have_db_column(:description).of_type(:text) }
     it { should have_db_column(:short_description).of_type(:text) }    
     it { should have_db_column(:url).of_type(:string) }
     it { should have_db_column(:featured).of_type(:boolean) }        
@@ -49,7 +47,6 @@ describe Product do
   context "basic validations" do
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:author) }
-    it { should validate_presence_of(:description) }
     it { should validate_presence_of(:short_description) }    
     it { should validate_presence_of(:url) }               
   end

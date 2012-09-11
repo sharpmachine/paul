@@ -38,7 +38,6 @@ class PostsController < ApplicationController
   private
   
   def set_active_nav
-    @selected_nav = "blog"
-    @selected_page = "blog"    
+    @selected_nav = "blog"    
   end  
 end

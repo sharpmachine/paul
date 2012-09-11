@@ -5,7 +5,7 @@ class Admin::PostsController < Admin::BaseController
   before_filter :get_tags, :set_active_nav
   
   def index
-    params[:sort] ||= "posts.created_at"  
+    params[:sort] ||= "posts.published_at"  
     params[:direction] ||= "desc"        
     @posts = Post.text_search(params[:q]).includes(:user, :category).order(sort_column + " " + sort_direction).page(params[:page])  
     

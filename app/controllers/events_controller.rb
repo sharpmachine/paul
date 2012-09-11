@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @selected_nav = "invite"
     @event = Event.new
   end
 
@@ -31,7 +32,6 @@ class EventsController < ApplicationController
   private
   
   def set_active_nav
-    @selected_nav = ""
-    @selected_page = "schedule"    
+    @selected_nav = "schedule"
   end  
 end

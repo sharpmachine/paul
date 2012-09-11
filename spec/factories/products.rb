@@ -3,7 +3,6 @@ FactoryGirl.define do
     title "MyString"
     author "MyString"
     short_description "This is a short description"
-    description "MyText"
     url "MyString"
     featured false
     product_type "book"

@@ -1,5 +1,5 @@
 atom_feed do |feed|
-  feed.title("Paul Manwaring Blog")
+  feed.title("Paul Manwaring Blog Category: #{@category.name}")
   feed.updated(@posts[0].updated_at) if @posts.length > 0
 
   @posts.each do |post|

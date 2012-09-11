@@ -31,6 +31,7 @@
 <fieldset>	
 <legend>Event Information</legend>
 
+  <%= f.input :title, :label => "Title or Name of event" %>
   <%= f.input :event_type, :label => "Type of event" %>
   <%= f.input :theme, :label => "What would you like Paul to speak on?", :input_html => { :rows => "3" } %>
   <%= f.input :starts_at, :label => "Event Start Date", :required => true, :as => :string, :input_html => { :class => "datepicker input-small" } %>

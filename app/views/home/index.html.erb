@@ -1,9 +1,33 @@
-<h1>Intro</h1>
-<%= raw(@intro.content) %>
+<div class="row">
+	<div class="span12">	
+		<%= markdown(@intro.content) %>
+	</div>
+</div>	
+<div class="row">
+  <div class="span3">
+  	<h1>Latest Post</h1>
+	<%= render @post %>
+  </div>
+  <div class="span3">
+  	<h1>Upcoming Events</h1>
+	<p>
+  </div>
+  <div class="span3">
+  	<h1>Featured Product</h1>
+	<%= render @product %>
+	<p><%= link_to "See all products", products_path, :class => "btn" %></p>	
+  </div>
 
-<h1>Instagram Photos</h2>
-<% @instagrams.each do |instagram| %>
-	<p><%= image_tag instagram.low_resolution_url %><br />
-	<%= link_to "View in instagram", instagram.link_url %>
-	</p>
-<% end %>	
+</div>
+
+<div class="row">
+  <div class="span12">	
+	<h1>Instagram</h1>
+	<% @instagrams.each_with_index do |instagram, i| %>
+		<%= link_to (image_tag instagram.thumbnail_url), instagram.link_url %>
+		<% break if i == 3 %>
+	<% end %>
+	</div>
+
+</div>
+	

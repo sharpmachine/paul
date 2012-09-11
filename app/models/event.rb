@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
                   :organization_state, :organization_zip, :organization_country, :url, :event_type, :theme, :starts_at, :ends_at, 
                   :estimated_attendance, :other_speakers, :budget_for_additional_traveller, :housing, :bethel_students, 
                   :bethel_students_total, :bethel_student_housing, :location_name, :address, :address2, :city, :state, 
-                  :zip, :country, :country_code, :information, :airport, :status, :as => :admin      
+                  :zip, :country, :country_code, :information, :airport, :status, :title, :as => :admin      
   
   validates :organization, :name, :phone, :email, :presence => true
   validates_date :starts_at, :after => :today, :allow_nil => false, :allow_blank => false, :after_message => "must be a date in the future"
@@ -46,6 +46,10 @@ class Event < ActiveRecord::Base
   
   def self.website_listing
     where("status = ? and ((starts_at > ? and ends_at is ?) or (ends_at > ? and ends_at is not ?))", "published_to_website", Date.today, nil, Date.today, nil)
+  end
+  
+  def location
+    [city, state, country].compact.reject { |s| s.blank? }.join(', ')
   end
 end
 # == Schema Information
@@ -87,5 +91,6 @@ end
 #  status                          :string(255)     default("new")
 #  created_at                      :datetime        not null
 #  updated_at                      :datetime        not null
+#  title                           :string(255)
 #
 

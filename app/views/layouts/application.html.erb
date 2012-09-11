@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PaulManwaring.com - <%= @title || "Welcome" %></title>
+  <title>Paul Manwaring - <%= @title || "Welcome" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <!--[if lt IE 9]>
@@ -24,39 +24,39 @@
 
         <div class="nav-collapse">
 			<ul class="nav nav-pills">
-			  <li class="<% if @selected_page == "home" %>active<% end %>">
+			  <li class="<% if @selected_nav == "home" %>active<% end %>">
 			     <%= link_to "Home", root_path %></li>
 			  </li>
 			
-			  <li class="<% if @selected_page == "paul" %>active<% end %>">
+			  <li class="<% if @selected_nav == "paul" %>active<% end %>">
 			     <%= link_to "Paul", "" %></li>
 			  </li>
 			
-			  <li class="<% if @selected_page == "blog" %>active<% end %>">
+			  <li class="<% if @selected_nav == "blog" %>active<% end %>">
 			     <%= link_to "Blog", posts_path %></li>
 			  </li>
 			
-			  <li class="<% if @selected_page == "schedule" %>active<% end %>">
+			  <li class="<% if @selected_nav == "schedule" %>active<% end %>">
 			     <%= link_to "Schedule", events_path %>
 			  </li>
 			
-			  <li class="<% if @selected_page == "invite" %>active<% end %>">
+			  <li class="<% if @selected_nav == "invite" %>active<% end %>">
 			     <%= link_to "Invite", new_event_path %>
 			  </li>
 			
-			  <li class="<% if @selected_page == "store" %>active<% end %>">
-			     <%= link_to "Store", "" %>
+			  <li class="<% if @selected_nav == "store" %>active<% end %>">
+			     <%= link_to "Store", products_path %>
 			  </li>	
 			
-			  <li class="<% if @selected_page == "give" %>active<% end %>">
+			  <li class="<% if @selected_nav == "give" %>active<% end %>">
 			     <%= link_to "Give", "" %>
 			  </li>
 			
-			  <li class="<% if @selected_page == "friends" %>active<% end %>">
+			  <li class="<% if @selected_nav == "friends" %>active<% end %>">
 			     <%= link_to "Friends", "" %>
 			  </li>	
 			
-			  <li class="<% if @selected_page == "photos" %>active<% end %>">
+			  <li class="<% if @selected_nav == "photos" %>active<% end %>">
 			     <%= link_to "Photos", "" %>
 			  </li>	
 			
@@ -82,12 +82,8 @@
 		</div>
 	<%- end -%>	
 	
-    <div class="row">
-      <div class="span9"><%= yield %></div>
-      <div class="span3">
-        <%= yield(:side) %>
-      </div>
-    </div>
+	<%= yield %>
+
   </div>
 </body>
 </html>

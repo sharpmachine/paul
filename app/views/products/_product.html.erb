@@ -1,0 +1,4 @@
+<%= image_tag product.image.url(:small) %>
+<h2><%= product.title %></h2>
+<p><%= markdown(product.short_description) %></p>
+<p><%= link_to "Buy at iBethel", product.url, :class => "btn btn-inverse" %></p>
