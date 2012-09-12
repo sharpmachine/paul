@@ -9,6 +9,8 @@ Paulmanwaring::Application.routes.draw do
     
   # Namespace for Admin Section
   namespace :admin do
+    resources :inquiries
+
     resources :events
 
     resources :products

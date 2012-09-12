@@ -55,7 +55,7 @@ class Admin::PagesController < Admin::BaseController
   private
   
   def set_active_nav
-    @selected_nav = "pages"
+    @selected_nav = "content"
     @selected_page = "blocks"    
   end  
 end

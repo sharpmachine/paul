@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="span12">
+
+<% title "Inquiry" %>
+
+<h1><%= @title %></h1>
+
+<dl class="dl-horizontal">
+  <dt><strong>Email:</strong></dt>
+  <dd><%= @inquiry.email %></dd>
+  <dt><strong>Description:</strong></dt>
+  <dd><%= @inquiry.description %></dd>
+	
+</dl>	
+
+  <%= link_to "Back", admin_inquiries_path, :class => "btn" %>
+  <%= link_to "Edit", edit_admin_inquiry_path(@inquiry), :class => "btn" %>
+  <%= link_to "Destroy", admin_inquiry_path(@inquiry), :confirm => "Are you sure?", :method => :delete, :class => "btn btn-danger" %>
+
+</div></div>

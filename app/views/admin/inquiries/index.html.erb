@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="span9">
+	<% title "Inquiries" %>
+
+	<h1><%= @title %></h1>
+  </div>
+  <div class="span3">
+	<%= link_to "New Inquiry", new_admin_inquiry_path, :class => "btn btn-primary pull-right" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12">
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	    <th><%= sortable "email" %></th>
+	    <th><%= sortable "description" %></th>
+		<th></th>
+	 </tr>
+  </thead>
+  <tbody>
+    <% @inquiries.each do |inquiry| %>
+      <tr>
+	      <td><%= inquiry.email %></td>
+	      <td><%= inquiry.description %></td>
+        <td>
+		    <%= link_to "Edit", edit_admin_inquiry_path(inquiry), :class => "btn btn-mini" %>
+		
+            <%= link_to "Delete", admin_inquiry_path(inquiry), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @inquiries %>
+
+
+</div></div>

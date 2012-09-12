@@ -36,23 +36,36 @@
 
         <div class="nav-collapse">
 			<ul class="nav nav-pills">
-			  	<li class="dropdown<% if @selected_nav == "blog" %> active<% end %>">
-				    <a href="#"
-				          class="dropdown-toggle"
-				          data-toggle="dropdown">
-				          Blog
-				          <b class="caret"></b>
-				    </a>
-				    <ul class="dropdown-menu">
-						<% if can? :read, Post %><li class="<% if @selected_page == "posts" %>active<% end %>"><%= link_to "Posts", admin_posts_path %></li><% end %>
-						<% if can? :read, Category %><li class="<% if @selected_page == "categories" %>active<% end %>"><%= link_to "Categories", admin_categories_path %></li><% end %>
-				    </ul>
-				  </li>
-			
-			<% if can? :read, Page %>
-			  <li class="<% if @selected_page == "blocks" %>active<% end %>">
-			     <%= link_to "Page Content", admin_pages_path %></li>
+		  	<li class="dropdown<% if @selected_nav == "blog" %> active<% end %>">
+			    <a href="#"
+			          class="dropdown-toggle"
+			          data-toggle="dropdown">
+			          Blog
+			          <b class="caret"></b>
+			    </a>
+			    <ul class="dropdown-menu">
+					<% if can? :read, Post %><li class="<% if @selected_page == "posts" %>active<% end %>"><%= link_to "Posts", admin_posts_path %></li><% end %>
+					<% if can? :read, Category %><li class="<% if @selected_page == "categories" %>active<% end %>"><%= link_to "Categories", admin_categories_path %></li><% end %>
+			    </ul>
 			  </li>
+			
+			<% if can? :read, Page %>			
+		  	<li class="dropdown<% if @selected_nav == "content" %> active<% end %>">
+			    <a href="#"
+			          class="dropdown-toggle"
+			          data-toggle="dropdown">
+			          Content
+			          <b class="caret"></b>
+			    </a>
+			    <ul class="dropdown-menu">
+					<li class="<% if @selected_page == "pages" %>active<% end %>">
+						<%= link_to "Page Content", admin_pages_path %></li>
+				  	</li>
+					<li class="<% if @selected_page == "inquiries" %>active<% end %>">
+						<%= link_to "Contact Form Inquiries", admin_inquiries_path %>
+					</li>
+			    </ul>
+			</li>						
 			<% end %>
 			
 			<% if can? :read, Product %>
