@@ -1,0 +1,8 @@
+<h3><%= @inquiry.description %></h3>
+<p>
+  The following person just filled in the Contact form at the PaulManwaring.com website:<br />
+<strong><%= @contact.firstname %> <%= @contact.lastname %></strong> (<%= @contact.email %>)</p>
+<p>
+  <strong>Message:</strong><br /><br />
+<%= @contact.content %>
+</p>

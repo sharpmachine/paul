@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="span9">
+	<% title "Contact Us" %>
+
+	<h1><%= @title %></h1>
+
+	<% if params[:sent] %>
+		<p>
+			Thank you. We will be in touch with you shortly.
+		</p>
+	<% else %>
+		<h3>
+			Contact us using the form below.
+		</h3>
+
+		<%= render "form" %>
+	<% end %>
+  </div>
+  <div class="span3">
+
+  </div>
+</div>

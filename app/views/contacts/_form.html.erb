@@ -1,0 +1,14 @@
+<%= simple_form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
+  
+
+
+  <%= f.input :firstname %>
+  <%= f.input :lastname %>
+  <%= f.input :email %>
+  <%= f.input :inquiry_id, :label => "About", :collection => @inquiries.map { |i| [i.description, i.id] }, :include_blank => "Please select..." %>
+  <%= f.input :content, :label => "Your Message", :as => :text %>
+
+  <div class="form-actions">
+    <%= f.submit "Send", :class => "btn btn-primary" %>
+  </div>
+<% end %>

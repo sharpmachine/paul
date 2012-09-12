@@ -6,6 +6,7 @@ Paulmanwaring::Application.routes.draw do
   resources :pictures, :only => [:index, :show]
   resources :posts, :only => [:index, :show]
   resources :events, :only => [:index, :new, :create]
+  resources :contacts, :only => [:create, :index]  
     
   # Namespace for Admin Section
   namespace :admin do
@@ -36,7 +37,8 @@ Paulmanwaring::Application.routes.draw do
   match 'friends' => 'home#friends', :as => :friends    
   match 'photos' => 'pictures#index', :as => :photos
   match 'photo-archive' => 'pictures#archive', :as => :photo_archive  
-  
+  match 'contact' => 'contacts#index', :as => :contact
+    
   root :to => 'home#index'
   match '*a', :to => 'errors#routing', :format => false  
 end

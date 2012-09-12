@@ -6,7 +6,7 @@ class Admin::InquiriesController < Admin::BaseController
 
   def index
     
-    params[:sort] ||= "created_at" 
+    params[:sort] ||= "description" 
         
     @inquiries = Inquiry.order(sort_column + " " + sort_direction).page(params[:page])
     
