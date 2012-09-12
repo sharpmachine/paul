@@ -1,53 +1,77 @@
-// Set the correct sprite paths
+// From Here: https://github.com/twitter/bootstrap/blob/master/less/variables.less
+$gridColumns:             12;
+$gridColumnWidth:         60px;
+$gridGutterWidth:         20px;
+$gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
+
+// Navbar 
+// From here: https://github.com/twitter/bootstrap/blob/master/less/navbar.less
+$navbarHeight: 150px;
+$navbarLinkColor: #FFFFFF;
+$navbarLinkColorHover: #FFFFFF;
+$navbarLinkColorActive: #FFFFFF;
+
+// Icon path
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
-// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-$fontAwesomeEotPath: image-path('fontawesome-webfont.eot');
-$fontAwesomeWoffPath: image-path('fontawesome-webfont.woff');
-$fontAwesomeTtfPath: image-path('fontawesome-webfont.ttf');
-$fontAwesomeSvgzPath: image-path('fontawesome-webfont.svgz');
-$fontAwesomeSvgPath: image-path('fontawesome-webfont.svg');
+// Typography
+//$baseFontSize: 13px;
 
-@import "bootstrap";
-// Font Awesome
+@import "bootstrap";                                                                               
 @import "font-awesome";
-body { padding-top: 60px; }
-@import "bootstrap-responsive";
-
-// Your custom LESS stylesheets goes here
-//
-// Since bootstrap was imported above you have access to its mixins which
-// you may use and inherit here
-//
-// If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/less.html for their names and documentation
-//
-// Example:
-// @linkColor: #ff0000;
-
-textarea { width:500px; height:150px; }
-
-th a, th a:hover {
-	color:#000000;
+body { padding-top: 200px; } 
+                                                                                                   
+// Navbar                                                                                          
+.navbar .brand {                                                                                   
+	float: none;                                                                                   
+	padding-bottom: 0;                                                                             
+	border-bottom:1px solid #807E73;
+  	text-shadow:none;	                                                               
+}                                                                                                  
+.navbar .nav {                                                                                     
+	float: right;
+	margin:0;                                                                               
+}                                                                                                  
+                                                                                                   
+.navbar .navbar-inner {                                                                            
+	background:url(image_path('temp_nav_bg.png'));                                                 
 }
 
-th .current {
-  padding-right: 24px;
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-th .asc { 
-  background-image: image-url("sort_asc.png"); 
+.navbar .nav > li {
+	padding:0;
+	margin:0;
 }
 
-th .desc { 
-  background-image: image-url("sort_desc.png"); 
+// Nav links
+.navbar .nav > li > a {
+	margin:0;
+	padding:10px;
+	text-decoration: none;
+	text-shadow:none;
+	text-transform:uppercase;
+  	border-radius:0;	
 }
 
-a.tag_btn {
- 	text-decoration: none;
-	color:white;
-	padding:5px;
-	font-size:11px;
-}
+// Hover over nav
+.navbar .nav > li > a:hover {
+	padding-top:5px;
+	border-top:5px solid #847C71;	
+}	
+
+// Dot between nav items
+.navbar .nav > li.dot {
+	color:$navbarLinkColor;
+	padding-top:5px;
+}                                                                                            
+                                                                                                   
+// Active nav items
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  padding-top:5px;
+  background-color:transparent;
+  box-shadow:none;
+  border-top:5px solid #726B62;
+  border-radius:0;
+}                                                                                 

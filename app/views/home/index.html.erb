@@ -4,15 +4,15 @@
 	</div>
 </div>	
 <div class="row">
-  <div class="span3">
+  <div class="span4">
   	<h1>Latest Post</h1>
 	<%= render :partial => @post, :locals => {:home_page => true} %>
   </div>
-  <div class="span3">
+  <div class="span4">
   	<h1>Upcoming Events</h1>
 	<p>
   </div>
-  <div class="span3">
+  <div class="span4">
   	<h1>Featured Product</h1>
 	<%= render @product %>
 	<p><%= link_to "See all products", products_path, :class => "btn" %></p>	
@@ -24,7 +24,7 @@
 	<% @pictures.each do |picture| %>  
 
  
-		<div class="span3">
+		<div class="span4">
 		<%= link_to image_tag(picture.image.url(:thumb)), picture.has_post? ? post_path(picture.posts.first) : pictures_path(:picture => picture.id) %>
 		</div>
 

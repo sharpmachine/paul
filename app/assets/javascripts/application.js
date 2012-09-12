@@ -69,7 +69,7 @@ jQuery( function($) {
 			$(href).modal('open');
 		} else {
 			$.get(href, function(data) {
-				$('<div class="modal" >' + data + '</div>').modal();
+				$('<div class="modal fade" >' + data + '</div>').modal();
 			}).success(function() { $('input:text:visible:first').focus(); });
 		}
 	});	

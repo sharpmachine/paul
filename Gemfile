@@ -36,7 +36,6 @@ group :production do
 end
 
 group :development, :test do
-
 	gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'rb-fsevent', '~> 0.9.1'
