@@ -11,11 +11,62 @@
   filter: none;
 }
 
-// From Here: https://github.com/twitter/bootstrap/blob/master/less/variables.less
-$gridColumns:             12;
-$gridColumnWidth:         60px;
-$gridGutterWidth:         20px;
-$gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
+// Global Variables: https://github.com/twitter/bootstrap/blob/master/less/variables.less
+
+// Variables
+// -------------------------
+
+// Grays
+// -------------------------
+$black:                 #000 !default;
+$grayDarker:            #222 !default;
+$grayDark:              #333 !default;
+$gray:                  #555 !default;
+$grayLight:             #999 !default;
+$grayLighter:           #eee !default;
+$white:                 #fff !default;
+
+
+// Accent colors
+// -------------------------
+$blue:                  #049cdb !default;
+$blueDark:              #0064cd !default;
+$green:                 #46a546 !default;
+$red:                   #9d261d !default;
+$yellow:                #ffc40d !default;
+$orange:                #f89406 !default;
+$pink:                  #c3325f !default;
+$purple:                #7a43b6 !default;
+
+
+// Scaffolding
+// -------------------------
+$bodyBackground:        $white !default;
+$textColor:             $grayDark !default;
+
+
+// Links
+// -------------------------
+$linkColor:             #08c !default;
+$linkColorHover:        darken($linkColor, 15%) !default;
+
+$sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+$baseFontSize:          12px !default;
+$baseFontFamily:        $sansFontFamily !default;
+$baseLineHeight:        20px !default;
+$altFontFamily:         $serifFontFamily !default;
+
+$headingsFontFamily:    'Syncopate' !default; 
+$headingsFontWeight:    400 !default;
+$headingsColor:         #D3D1CB !default;
+
+// Grid
+$gridColumns:             24;
+$gridColumnWidth:         30px;
+$gridGutterWidth:         10px;
 
 // Navbar 
 // From here: https://github.com/twitter/bootstrap/blob/master/less/navbar.less
@@ -28,14 +79,46 @@ $navbarLinkColorActive: #FFFFFF;
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
-// Typography
-//$baseFontSize: 13px;
+
 
 @import "bootstrap";    
 //@import "bootstrap-responsive";                                                                           
 @import "font-awesome"; 
 
 body { padding-top: $navbarHeight; }
+
+// Typography
+// Headings
+// -------------------------
+h1, h2, h3, h4, h5, h6 {
+  margin: ($baseLineHeight / 2) 0;
+  font-family: $headingsFontFamily;
+  font-weight: $headingsFontWeight;
+  font-style: normal;
+  line-height: 1;
+  color: $headingsColor;
+  text-transform: uppercase;
+  small {
+    font-weight: normal;
+    line-height: 1;
+    color: $grayLight;
+  }
+}
+h1 { font-size: 40px; line-height: 40px; }
+h2 { font-size: 30px; line-height: 40px; }
+h3 { font-size: 24px; line-height: 40px; }
+h4 { font-size: 18px; line-height: 20px; }
+h5 { font-size: 14px; line-height: 20px; }
+h6 { font-size: 12px; line-height: 20px; }
+
+h1 small { font-size: 24px; }
+h2 small { font-size: 18px; }
+h3 small { font-size: 14px; }
+h4 small { font-size: 14px; }
+
+
+
+
                                                                                                    
 // Navbar                                                                                          
 .navbar {
