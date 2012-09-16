@@ -1,4 +1,10 @@
-<%= image_tag product.image.url(:small) %>
-<h2><%= product.title %></h2>
-<p><%= markdown(product.short_description) %></p>
-<p><%= link_to "Buy at iBethel", product.url, :class => "btn btn-inverse" %></p>
+<% home_page ||= false %>
+<div class="page-box">
+	<div class="container">	
+		<%= image_tag product.image.url(:small), :class => "product-image" %>		
+		<h6><%= product.title %></h6>
+		<p><%= markdown(product.short_description) %></p>
+		
+		<p><%= link_to "Buy at iBethel", product.url, :class => "btn btn-inverse" %><% if home_page %>&nbsp;<%= link_to "See all products", products_path, :class => "btn" %><% end %></p>
+	</div>
+</div>		

@@ -38,6 +38,8 @@ Paulmanwaring::Application.routes.draw do
   match 'photos' => 'pictures#index', :as => :photos
   match 'photo-archive' => 'pictures#archive', :as => :photo_archive  
   match 'contact' => 'contacts#index', :as => :contact
+  match 'privacy' => 'home#privacy', :as => :privacy
+  match 'terms' => 'home#terms', :as => :terms    
     
   root :to => 'home#index'
   match '*a', :to => 'errors#routing', :format => false  

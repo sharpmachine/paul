@@ -2,7 +2,7 @@ class Picture < ActiveRecord::Base
   
   has_many :posts
   
-  has_attached_file :image, :styles => { :thumb => "100x75>", :small => "320x240>", :medium => "480x360>", :square => "360x360#", :large => "640x480>" },
+  has_attached_file :image, :styles => { :thumb => { :geometry => "308x116#", :processors => [:cropper]}, :small => "308x206#", :medium => { :geometry => "628x235#", :processors => [:cropper]}, :large => "950x660>" },
                     :url  => "/assets/pictures/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/pictures/:id/:style/:basename.:extension"
 
@@ -11,7 +11,23 @@ class Picture < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"
   
   validates_presence_of :title
-  attr_accessible :image, :title, :published, :description
+  attr_accessible :image, :title, :published, :description, :crop_x, :crop_y, :crop_w, :crop_h
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  
+  after_update :reprocess_image, :if => :cropping?
+  
+  
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+  
+  def image_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(image.path(style))
+  end
+  def image_aspect_ratio
+    (image_geometry(:medium).width / image_geometry(:medium).height).round(2)
+  end  
   
   extend FriendlyId
   friendly_id :title, use: :slugged  
@@ -24,6 +40,12 @@ class Picture < ActiveRecord::Base
   def self.published
     where("pictures.published = ?", true).order("pictures.updated_at desc")
   end
+  
+  private
+  
+  def reprocess_image
+    image.reprocess!
+  end  
 end
 # == Schema Information
 #

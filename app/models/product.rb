@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   
   validates_length_of :short_description, :maximum => 100, :too_long => "must be 100 words maximum.", :tokenizer => lambda { |str| str.scan(/\w+/) }
   
-  has_attached_file :image, :styles => { :small => "100x127>" },
+  has_attached_file :image, :styles => { :small => "158x200>" },
                     :url  => "/assets/products/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
 

@@ -54,7 +54,7 @@ module ApplicationHelper
   end
   
   def markdown(text)
-    snippet = text.length < 400 ? text : text[0..400].gsub(/\b(\S+)$/, '...')
+    snippet = text.length < 450 ? text : text[0..450].gsub(/\b(\S+)$/, '...')
     Redcarpet.new(snippet, :hard_wrap, :filter_html, :autolink).to_html.html_safe    
   end  
 end

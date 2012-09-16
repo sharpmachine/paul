@@ -16,6 +16,7 @@
 //= require chosen/chosen.jquery
 //= require tinymce
 //= require jquery-ui
+//= require jquery.Jcrop.min
 //= require_directory .
 
 jQuery( function($) {

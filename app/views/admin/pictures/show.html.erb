@@ -7,15 +7,13 @@
 	<dl class="dl-horizontal">
 	  <dt><strong>Description</strong></dt>
 	  <dd><%= @picture.description %></dd>
-	  <dt><strong>Large 640 x 480</strong></dt>
+	  <dt><strong>Large <%= @picture.image_geometry(:large).width.to_i %> x <%= @picture.image_geometry(:large).height.to_i %></strong></dt>
 	  <dd><%= image_tag @picture.image.url(:large) %></dd>
-	  <dt><strong>Square 360 x 360</strong></dt>
-	  <dd><%= image_tag @picture.image.url(:square) %></dd>
-	  <dt><strong>Medium 480 x 360</strong></dt>
+	  <dt><strong>Medium <%= @picture.image_geometry(:medium).width.to_i %> x <%= @picture.image_geometry(:medium).height.to_i %></strong></dt>
 	  <dd><%= image_tag @picture.image.url(:medium) %></dd>
-	  <dt><strong>Small 320 x 240</strong></dt>
+	  <dt><strong>Small <%= @picture.image_geometry(:small).width.to_i %> x <%= @picture.image_geometry(:small).height.to_i %></strong></dt>
 	  <dd><%= image_tag @picture.image.url(:small) %></dd>
-	  <dt><strong>Thumb 100 x 75</strong></dt>
+	  <dt><strong>Thumb <%= @picture.image_geometry(:thumb).width.to_i %> x <%= @picture.image_geometry(:thumb).height.to_i %></strong></dt>
 	  <dd><%= image_tag @picture.image.url(:thumb) %></dd>
 	</dl>
 

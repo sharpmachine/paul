@@ -1,41 +1,60 @@
-<div class="row">
-	<div class="span24">	
+<%= content_for(:nav) do %>
+	<div class="nav-intro">
 		<%= markdown(@intro.content) %>
+		<%= link_to "Read More", paul_path, :class => "btn" %>
+	</div>	
+
+	<div class="nav-tagline">
+		<h1>What is beautiful to you?</h1>
+	</div>
+<% end %>
+
+<div class="container">
+	<div class="row">
+	  <div class="span8">
+	  	<h1><small>My thoughts</small><br />LATEST POST<%= link_to image_tag("theres_more.png"), posts_path, :class => "pull-right" %></h1>
+		<%= render :partial => @post, :locals => {:home_page => true} %>
+	  </div>
+	  <div class="span8">
+	  	<h1><small>My ministry schedule</small><br />UPCOMING EVENTS<%= link_to image_tag("theres_more.png"), events_path, :class => "pull-right" %></h1>
+		<p>
+	  </div>
+	  <div class="span8">
+	  	<h1><small>My books and resources</small><br />FEATURED PRODUCT<%= link_to image_tag("theres_more.png"), products_path, :class => "pull-right" %></h1>
+		<%= render :partial => @product, :locals => {:home_page => true} %>
+	  </div>
 	</div>
 </div>	
-<div class="row">
-  <div class="span8">
-  	<h1>Latest Post</h1>
-	<%= render :partial => @post, :locals => {:home_page => true} %>
-  </div>
-  <div class="span8">
-  	<h1>Upcoming Events</h1>
-	<p>
-  </div>
-  <div class="span8">
-  	<h1>Featured Product</h1>
-	<%= render @product %>
-	<p><%= link_to "See all products", products_path, :class => "btn" %></p>	
-  </div>
 
-</div>
-
-<div class="row">
-	<% @pictures.each do |picture| %>  
-
- 
-		<div class="span8">
-		<%= link_to image_tag(picture.image.url(:thumb)), picture.has_post? ? post_path(picture.posts.first) : pictures_path(:picture => picture.id) %>
+<div class="filmstrip-bg">
+	<div class="container">
+		<div class="row">
+			<div class="span24">
+				<h1><small>My photos</small><br />LATEST PHOTOS</h1>
+				<h5>From Paul's Camera<%= image_tag "pm.png", :alt => "Paul Manwaring's Photos" %> From Blog<%= image_tag "blog.png", :alt => "Paul Manwaring's Blog Posts" %></h5>
+			</div>
+		</div>
+		
+		<div class="row">
+			<% @pictures.each do |picture| %>  
+			<div class="span8">
+				<%= link_to image_tag(picture.image.url(:small)), picture.has_post? ? post_path(picture.posts.first) : pictures_path(:picture => picture.id) %>
+			</div>
+			<% end %>
 		</div>
 
-	<% end %>
-</div>
+		<div class="row">
+			<div class="span24">
+				<p>&nbsp;</p>
+				<h5>From Instagram<%= image_tag "instagram.png", :alt => "Paul Manwaring's Instagram" %></h5>
+			</div>	
+		</div>
+		<div class="row">
+			<% @instagrams.each do |instagram| %>
+		    <div class="span6" style="position:relative; "><%= image_tag instagram.low_resolution_url, :width => "230", :height => "230", :class => "instagram" %><%= link_to (image_tag "instagram.png", :alt => "Paul Manwaring's Instagram"), instagram.link_url, :class => "instagram-link" %></div>
+			<% end %>
 
-<div class="row">
-  <div class="span24">	
-	<h1>Instagram</h1>
-	<% @instagrams.each do |instagram| %>
-		<%= link_to (image_tag instagram.thumbnail_url), instagram.link_url %>
-	<% end %>
+		</div>
+
 	</div>
-</div>
+</div>	
