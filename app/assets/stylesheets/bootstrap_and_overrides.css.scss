@@ -21,7 +21,7 @@
 $black:                 #000 !default;
 $grayDarker:            #514d45 !default;
 $grayDark:              #55524A !default;
-$gray:                  #787368 !default;
+$gray:                  #787369 !default;
 $grayLight:             #BDBCB7 !default;
 $grayLighter:           #DEDDDB !default;
 $white:                 #fff !default;
@@ -317,28 +317,93 @@ img.product-image {
 	background-color:$white;	
 }    
 
-img.instagram {
+a.post-link {
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+	display:block;
+	width:306px;
+	height:204px;
+	background:transparent url(image-path('blog.png')) 267px 172px no-repeat;			
 	border: 1px solid $grayLighter;	
-    z-index:0;
-}  
+	&:hover {
+		border: 1px solid $gray;			
+		background-image:url(image-path('blog_hover.png'));	
+	}  	
+}
+a.picture-link {
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+	display:block;
+	width:306px;
+	height:204px;
+	background:transparent url(image-path('pm.png')) 267px 171px no-repeat;			
+	border: 1px solid $grayLighter;		
+	&:hover {
+		border: 1px solid $gray;			
+		background-image:url(image-path('pm_hover.png'));	
+	}  	
+}
+
 a.instagram-link {
 	position:absolute;
 	left:0;
 	top:0;
 	z-index:1;
 	display:block;
-	width:100%;
-	height:100%;
+	width:228px;
+	height:228px;
+	background:transparent url(image-path('instagram.png')) 200px 203px no-repeat;			
+	&:hover {
+		border: 1px solid $gray;			
+		background-image:url(image-path('instagram_hover.png'));	
+		background-position:199px 201px;
+	}  	
 } 
 
 .footer {
 	margin-top:48px;
 	background-color:$grayDarker;
 	border-bottom:1px solid $grayLight;
-	height:34px;
+	height:27px;
+	padding-top:10px;	
 } 
-.footer .container li a {
-	
+.footer a {
 	font-family: $altFontFamily;
 	color: #F8F7F3;	
-}                             
+	text-transform:uppercase;
+	margin-top:10px;
+	padding:13px 10px 10px 0;
+} 
+.footer .dot {
+	font-family: $altFontFamily;
+	color: #F8F7F3;	
+	text-transform:uppercase;
+	margin-top:10px;
+	padding:13px 10px 10px 0;
+}  
+a.twitter {
+	margin-top:-7px;
+	padding:0;
+	display:block;
+	width:30px;
+	height:35px;
+	background:transparent url(image-path('twitter.png')) center no-repeat;	
+	&:hover {
+		background-image:url(image-path('twitter_hover.png'));	
+	}	
+}                          
+a.facebook {
+	margin-top:-9px;
+	padding:0;
+	display:block;
+	width:30px;
+	height:35px;
+	background:transparent url(image-path('facebook.png')) center no-repeat;	
+	&:hover {
+		background-image:url(image-path('facebook_hover.png'));	
+	}	
+}

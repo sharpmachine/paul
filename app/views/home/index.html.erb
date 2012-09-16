@@ -31,27 +31,31 @@
 		<div class="row">
 			<div class="span24">
 				<h1><small>My photos</small><br />LATEST PHOTOS</h1>
-				<h5>From Paul's Camera<%= image_tag "pm.png", :alt => "Paul Manwaring's Photos" %> From Blog<%= image_tag "blog.png", :alt => "Paul Manwaring's Blog Posts" %></h5>
+				<h5>From Paul's Camera <%= image_tag "pm.png", :alt => "Paul Manwaring's Photos" %>&nbsp;&nbsp;&nbsp;From Blog <%= image_tag "blog.png", :alt => "Paul Manwaring's Blog Posts" %></h5>
 			</div>
 		</div>
 		
 		<div class="row">
 			<% @pictures.each do |picture| %>  
-			<div class="span8">
-				<%= link_to image_tag(picture.image.url(:small)), picture.has_post? ? post_path(picture.posts.first) : pictures_path(:picture => picture.id) %>
+			<div class="span8" style="position:relative; ">
+				<%= image_tag picture.image.url(:small), :width => "308", :height => "206" %>
+				<%- if picture.has_post? -%>
+					<%= link_to "", post_path(picture.posts.first), :class => "post-link" %>					
+				<%- else -%>
+					<%= link_to "", pictures_path(:picture => picture.id), :class => "picture-link" %>				
+				<%- end -%>
 			</div>
 			<% end %>
 		</div>
 
 		<div class="row">
 			<div class="span24">
-				<p>&nbsp;</p>
-				<h5>From Instagram<%= image_tag "instagram.png", :alt => "Paul Manwaring's Instagram" %></h5>
+				<h5>From Instagram <%= image_tag "instagram.png", :alt => "Paul Manwaring's Instagram" %></h5>
 			</div>	
 		</div>
 		<div class="row">
 			<% @instagrams.each do |instagram| %>
-		    <div class="span6" style="position:relative; "><%= image_tag instagram.low_resolution_url, :width => "230", :height => "230", :class => "instagram" %><%= link_to (image_tag "instagram.png", :alt => "Paul Manwaring's Instagram"), instagram.link_url, :class => "instagram-link" %></div>
+		    <div class="span6" style="position:relative; "><%= image_tag instagram.low_resolution_url, :width => "230", :height => "230" %><%= link_to "", instagram.link_url, :class => "instagram-link" %></div>
 			<% end %>
 
 		</div>

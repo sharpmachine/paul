@@ -79,34 +79,19 @@
 
   <%= yield %>
 
-
   <footer class="footer">
     <div class="container">
-		<ul>
 		<% if user_signed_in? && current_user.is_admin? %>	
-			<li>
-				<%= link_to "Admin", admin_posts_path %>
-			</li>	
+			<%= link_to "Admin", admin_posts_path %><span class="dot">.</span>
 		<% end %>				
-		  <li class="dot">.</li>	
-		  <li class="<% if @selected_nav == "contact" %>active<% end %>">
-		     <%= link_to "Contact", contact_path %>
-		  </li>
-		  <li class="dot">.</li>	
-		  <li>
-		     <%= link_to "Global Legacy", "http://www.igloballegacy.org" %>
-		  </li>	
-		  <li class="dot">.</li>	
-		  <li>
-		     <%= link_to "Privacy Policy", privacy_path %>
-		  </li>	
-		  <li class="dot">.</li>	
-		  <li>
-		     <%= link_to "Terms & Conditions", terms_path %>
-		  </li>				  
-		</ul>		
+		<%= link_to "Contact", contact_path %><span class="dot">.</span>
+		<%= link_to "Global Legacy", "http://www.igloballegacy.org" %><span class="dot">.</span>
+		<%= link_to "Privacy Policy", privacy_path %><span class="dot">.</span>
+		<%= link_to "Terms & Conditions", terms_path %>
+	
+		<%= link_to "", "https://twitter.com/Paul_Manwaring", :class => "twitter pull-right" %>
+		<%= link_to "", "http://www.facebook.com/PaulManwaringMinistries", :class => "facebook pull-right" %>			
 	</div>
   </footer>		
-
 </body>
 </html>

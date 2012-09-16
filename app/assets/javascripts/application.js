@@ -73,4 +73,5 @@ jQuery( function($) {
 			}).success(function() { $('input:text:visible:first').focus(); });
 		}
 	});	
+	
 });
