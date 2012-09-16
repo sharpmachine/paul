@@ -12,6 +12,7 @@ class Event < ActiveRecord::Base
                   :zip, :country, :country_code, :information, :airport, :status, :title, :as => :admin      
   
   validates :organization, :name, :phone, :email, :presence => true
+  validates_presence_of :title, :if => :published?
   validates_date :starts_at, :after => :today, :allow_nil => false, :allow_blank => false, :after_message => "must be a date in the future"
   validates_date :ends_at, :on_or_after => :starts_at, :allow_nil => true, :allow_blank => true, :after => "must be on or after start date"
   validates_format_of :url, :with => /^(((http|https?):\/\/)?((?:[-a-z0-9]+\.)+[a-z]{2,})).*/i, :message => "has an invalid format", :if => :url_filled?
@@ -22,6 +23,10 @@ class Event < ActiveRecord::Base
   def accepted?
     status == "accepted" || status == "published_to_website"
   end
+  
+  def published?
+    status == "published_to_website"
+  end  
   
   def url_filled?
     url.present?

@@ -47,9 +47,11 @@ module ApplicationHelper
     end    
   end
   
-  def nice_date(date = nil)
-    if date
+  def nice_date(date = nil, include_year = false)
+    if date && include_year
       date.strftime("%B %-d, %Y")
+    elsif date
+      date.strftime("%B %-d")      
     end  
   end
   

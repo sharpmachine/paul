@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     @product = Product.get_featured
     @pictures = Picture.published.limit(3)  
     @instagrams = Instacache.retrieve
+    @events = Event.website_listing.limit(3)
   end  
   
   def paul

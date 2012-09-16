@@ -1,7 +1,7 @@
 <%= content_for(:nav) do %>
 	<div class="nav-intro">
 		<%= markdown(@intro.content) %>
-		<%= link_to "Read More", paul_path, :class => "btn" %>
+		<%= link_to "Read More", paul_path, :class => "btn btn-primary" %>
 	</div>	
 
 	<div class="nav-tagline">
@@ -17,7 +17,13 @@
 	  </div>
 	  <div class="span8">
 	  	<h1><small>My ministry schedule</small><br />UPCOMING EVENTS<%= link_to image_tag("theres_more.png"), events_path, :class => "pull-right" %></h1>
-		<p>
+		<%= render :partial => @events, :locals => {:home_page => true} %>	
+		<div class="mini-event-box">
+			<div class="container">
+				<h6>&nbsp;</h6>
+				<p><%= link_to "See all events", events_path, :class => "btn" %></p>
+			</div>
+		</div>	
 	  </div>
 	  <div class="span8">
 	  	<h1><small>My books and resources</small><br />FEATURED PRODUCT<%= link_to image_tag("theres_more.png"), products_path, :class => "pull-right" %></h1>

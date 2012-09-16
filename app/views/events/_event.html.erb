@@ -1,2 +1,14 @@
-<p><%= event.organization %></p>
-<p><%= event.location %></p>
+<% home_page ||= false %>
+
+<div class="mini-event-box">
+	<div class="container">
+		<h6><%= event.title %></h6>
+		<p class="place"><%= event.location %></p>
+		<p class="date">
+			<%- if event.ends_at -%> 
+				<%= nice_date(event.starts_at) %> to <%= nice_date(event.ends_at) %>
+			<%- else -%>	
+				<%= nice_date(event.starts_at) %>
+			<%- end -%></p>
+	</div>	
+</div>
