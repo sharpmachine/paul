@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 40px; line-height: 40px; margin-top:30px; }
 h2 { font-size: 30px; line-height: 40px; }
-h3 { font-size: 24px; line-height: 40px; }
+h3 { font-size: 24px; line-height: 40px; margin-top:50px; }
 h4 { font-size: 14px; line-height: 20px; color:#514D45; }
 h5 { margin-top: 23px; font-size: 11px; line-height: 20px; color:$grayLight; }
 h6 { font-size: 16px; line-height: 20px; color:$grayDarker; font-family:$sansFontFamily; }
@@ -363,6 +363,11 @@ h4 small { font-size: 14px; }
 	overflow:hidden;	
 }
 
+.page-box.small {
+	height: 320px;
+	margin-bottom:0;		
+}
+
 .mini-event-box {
 	width: 310px;
 	height: 110px;
@@ -449,12 +454,14 @@ a.instagram-link {
 } 
 
 .footer {
-	margin-top:48px;
 	background-color:$grayDarker;
 	border-bottom:1px solid $grayLight;
 	height:27px;
 	padding-top:10px;	
 } 
+#home .footer {
+	margin-top:48px;
+}
 .footer a {
 	font-family: $altFontFamily;
 	color: #F8F7F3;	
@@ -502,4 +509,19 @@ p.date {
 	color:#767267;
 	font-family:Helvetica, Arial, sans-serif;
 	margin:0;	
+}
+
+h3.theres-more {
+	background:transparent url(image-path('theres_more_small.png')) right no-repeat;	
+}
+.white-bg {
+	margin-top:50px;
+	background-color:$white;
+	padding:50px 0 70px 0;
+}
+.white-bg h1 {
+	margin:37px 0 34px 0;
+}
+.white-bg p {
+	font-size:14px;	
 }

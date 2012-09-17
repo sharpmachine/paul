@@ -1,51 +1,102 @@
-<div class="row">
-  <div class="span3">
-  	<h1>Nursing</h1>
-	<%= markdown(@nursing.content) %>
-  </div>
-  <div class="span3">
-  	<h1>Prison Service</h1>
-	<%= markdown(@prison_service.content) %>
-  </div>
-  <div class="span3">
-  	<h1>Family</h1>
-	<%= markdown(@family.content) %>
-  </div>
-</div>
+<div class="container">
+	<div class="row">
+	  <div class="span8">	
+		<h3 class="theres-more">Nursing</h3>
+		<div class="page-box small">
+			<%= image_tag "paul_nursing.jpg" %>				
+			<div class="container">		
+				<%= raw(@nursing.content) %>
+			  </div>
+			</div>				
+	  </div>
+	  <div class="span8">
+	  	<h3 class="theres-more">Prison Service</h3>
+		<div class="page-box small">
+			<%= image_tag "paul_prison_service.jpg" %>	
+			<div class="container">	
+				<%= raw(@prison_service.content) %>
+			  </div>
+			</div>				
+	  </div>
+	  <div class="span8">
+	  	<h3 class="theres-more">Family</h3>
+		<div class="page-box small">
+			<%= image_tag "paul_family.jpg" %>				
+			<div class="container">	
+				<%= raw(@family.content) %>
+			  </div>
+			</div>				
+	  </div>
+	</div>
 
-<div class="row">
-  <div class="span3">
-  	<h1>Interests</h1>
-	<%= markdown(@interests.content) %>
-  </div>
-  <div class="span3">
-  	<h1>Faith Journey</h1>
-	<%= markdown(@faith_journey.content) %>
-  </div>
-  <div class="span3">
-  	<h1>Present Career</h1>
-	<%= markdown(@present_career.content) %>
-  </div>
-</div>
+	<div class="row">
+	  <div class="span8">
+	  	<h3 class="theres-more">Interests</h3>
+		<div class="page-box small">
+			<%= image_tag "paul_interests.jpg" %>				
+			<div class="container">	
+				<%= raw(@interests.content) %>
+			  </div>
+			</div>				
+	  </div>
+	  <div class="span8">
+	  	<h3 class="theres-more">Faith Journey</h3>
+		<div class="page-box small">
+			<%= image_tag "paul_faith_journey.jpg" %>				
+			<div class="container">	
+				<%= raw(@faith_journey.content) %>
+			  </div>
+			</div>				
+	  </div>
+	  <div class="span8">
+	  	<h3 class="theres-more">Present Career</h3>
+		<div class="page-box small">
+			<%= image_tag "paul_career.jpg" %>
+			<div class="container">	
+				<%= raw(@present_career.content) %>
+			  </div>
+			</div>				
+	  </div>
+	</div>
 
-<div class="row">
-  <div class="span3">
-  	<h1>Life Messages</h1>
-	<%= markdown(@life_messages.content) %>
-  </div>
-  <div class="span3">
-  	<h1>World View</h1>
-	<%= markdown(@world_view.content) %>
-  </div>
-  <div class="span3">
-  	<h1>Sonship</h1>
-	<%= markdown(@sonship.content) %>
-  </div>
-</div>
+	<div class="row">
+	  <div class="span8">
+	  	<h3 class="theres-more">Life Messages</h3>
+		<div class="page-box small">
+			<%= image_tag "paul_messages.jpg" %>	
+			<div class="container">	
+				<%= raw(@life_messages.content) %>
+			  </div>
+			</div>				
+	  </div>
+	  <div class="span8">
+	  	<h3 class="theres-more">World View</h3>
+		<div class="page-box small">
+			<%= image_tag "paul_world_view.jpg" %>	
+			<div class="container">	
+				<%= raw(@world_view.content) %>
+			  </div>
+			</div>				
+	  </div>
+	  <div class="span8">
+	  	<h3 class="theres-more">Sonship</h3>
+		<div class="page-box small">
+			<%= image_tag "paul_sonship.jpg" %>			
+			<div class="container">	
+				<%= raw(@sonship.content) %>
+			  </div>
+			</div>				
+	  </div>
+	</div>
+</div>	
 
-
-<div class="row">
-  <div class="span12">
-  	<h1>Connect with Paul</h1>
-  </div>
+<div class="white-bg">
+	<div class="container">	
+		<div class="row">
+		  <div class="span24">
+		  	<h1>Connect with Paul</h1>
+			<%= raw(@connect.content) %>		
+		  </div>
+		</div>
+	</div>
 </div>

@@ -22,6 +22,7 @@ class HomeController < ApplicationController
     @prison_service = Page.find("paul-prison-service")
     @sonship = Page.find("paul-sonship")
     @world_view = Page.find("paul-world-view")
+    @connect = Page.find("paul-connect")    
   end  
   
   def give
