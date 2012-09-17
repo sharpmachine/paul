@@ -20,7 +20,7 @@
 // -------------------------
 $black:                 #000 !default;
 $grayDarker:            #514d45 !default;
-$grayDark:              #55524A !default;
+$grayDark:              #5C554B !default;
 $gray:                  #787369 !default;
 $grayLight:             #BDBCB7 !default;
 $grayLighter:           #DEDDDB !default;
@@ -105,7 +105,7 @@ $gridGutterWidth:         10px;
 // Navbar 
 // From here: https://github.com/twitter/bootstrap/blob/master/less/navbar.less
 $navbarHeight: 147px;
-$navbarHeightHome: 444px;
+$navbarHeightHome: 441px;
 $navbarLinkColor: #FFFFFF;
 $navbarLinkColorHover: #FFFFFF;
 $navbarLinkColorActive: #FFFFFF;
@@ -151,13 +151,15 @@ h4 small { font-size: 14px; }
 
 .nav-bg {
 	margin:0;
-	padding:0;	
-	background:url(image_path('bg_header.jpg')) center;	
+	padding:0;
+	background-image: url(image_path('tile.jpg'));
+	background-position: center top;
+	background-repeat: repeat-x;				
 }                                                                                            
 .navbar {
 	margin:0;
 	padding:0;	
-	height:$navbarHeight;	
+	height:$navbarHeight;		
 }
 .navbar .brand {                                                                                   
 	margin:0;	
@@ -213,7 +215,7 @@ h4 small { font-size: 14px; }
 // Hover over nav
 .navbar .nav > li > a:hover {
 	padding-top:5px;
-	border-top:5px solid $gray;
+	border-top:5px solid $grayDark;
 }	
 
 // Dot between nav items
@@ -232,7 +234,7 @@ h4 small { font-size: 14px; }
   padding-top:5px;
   background-color:transparent;
   @include box-shadow(none);
-  border-top:5px solid $gray;
+  border-top:5px solid $grayDark;
   border-radius:0;
 }     
 
@@ -282,8 +284,10 @@ h4 small { font-size: 14px; }
 }
 
 
-
 /* Carousel */
+.carousel {
+	margin-bottom:0;
+}
 
 .carousel-control {
   position: absolute;
@@ -294,8 +298,8 @@ h4 small { font-size: 14px; }
   margin-top:0;
   font-size: 80px;
   font-weight: 100;
-  line-height: 0;
-  color: $white;
+  line-height: 630px;
+  color: $black;
   text-align: center;
   background: transparent;
   border: none;
@@ -312,26 +316,54 @@ h4 small { font-size: 14px; }
   &:hover {
     color: $white;
     text-decoration: none;
-
   	background: rgba(0,0,0,.4);
 
   }
 }
 
 .carousel-caption {
-  background: rgba(0,0,0,.4);
+  	text-align:left;
+	background: rgba(0,0,0,.4);
 }
+
+.pm-white {
+	background:url(image_path('pm_white.png')) 250px 0 no-repeat;
+	padding:0 243px 0 300px;
+}
+.blog-white {
+	background:url(image_path('blog_white.png')) 267px 0 no-repeat;
+	padding:0 243px 0 300px;
+}
+
+.carousel-caption h4 {
+	font-family:$sansFontFamily;
+}
+.carousel-caption h4 small { 
+	font-size: 12px; 
+	font-family:$serifFontFamily;
+	color:$white;
+}
+.carousel-caption h4 small a { 
+	color:$white;
+	text-decoration:none;
+	text-transform:none;	
+	  // Hover state
+	  &:hover {
+	    color: $white;
+	    text-decoration:underline;
+	  }	
+}
+
+.carousel-inner { text-align: center; }
+
+.carousel .item > img { display: inline-block; }
 
 // Conditional Styling for Homepage
 // Navbar                                                                                          
-
-#home .nav-bg {
-	margin:0;
-	padding:0;	
-	background:url(image_path('bg_header_home.jpg')) top center;
-}		
+	
 #home .navbar {
-	height:$navbarHeightHome;	
+	height:$navbarHeightHome;
+	background:url(image_path('bg_header_home.jpg')) center no-repeat;		
 } 
 
 #home .nav-intro {
@@ -346,7 +378,7 @@ h4 small { font-size: 14px; }
 #home .nav-tagline {
 	width:600px;
 	float:right;
-	margin-top:100px;
+	margin-top:69px;
 	
 }
 #home .nav-tagline h1 {
@@ -403,7 +435,8 @@ img.product-image {
 
 .filmstrip-bg {
 	background:url(image_path('bg_filmstrip.jpg')) bottom center repeat-x;	
-	background-color:$white;	
+	background-color:$white;
+	padding-bottom:48px;	
 }    
 
 a.post-link {
@@ -459,9 +492,7 @@ a.instagram-link {
 	height:27px;
 	padding-top:10px;	
 } 
-#home .footer {
-	margin-top:48px;
-}
+
 .footer a {
 	font-family: $altFontFamily;
 	color: #F8F7F3;	

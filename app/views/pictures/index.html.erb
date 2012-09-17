@@ -1,43 +1,68 @@
-<div class="row">
-  <div class="span12">
-	<div id="photoCarousel" class="carousel slide">
-	  <!-- Carousel items -->
-	  <div class="carousel-inner">
-		
-		<% @pictures.each do |picture| %>  
-			<div class="item <%= params[:picture].to_i == picture.id ? "active" : "" %>">
-				<%= image_tag picture.image.url(:large) %>
-				<div class="carousel-caption">
-					<h4><%= picture.title %></h4>
-					<p><%= picture.description %></p>
-				</div>	
-			</div>
-		<% end %>
-	  </div>
-	  <!-- Carousel nav -->
-	  <a class="carousel-control left" href="#photoCarousel" data-slide="prev">&lsaquo;</a>
-	  <a class="carousel-control right" href="#photoCarousel" data-slide="next">&rsaquo;</a>
-	</div>
-	</div>
-</div>
-
-<% @pictures.in_groups_of(3, false) do |pictures| %>  
+<div class="container">
 	<div class="row">
-      <% pictures.each do |picture| %>  
-      <div class="span3"><a class="carousel-select" href="#" data-slide="<%= @pictures.index(picture) %>"><%= image_tag picture.image.url(:thumb) %></a></div>
-      <% end %>  
+	  <div class="span24">
+		<div id="photoCarousel" class="carousel slide">
+		  <!-- Carousel items -->
+		  <div class="carousel-inner">
+		
+			<% @pictures.each do |picture| %>  
+				<div class="item <%= params[:picture].to_i == picture.id ? "active" : "" %>">
+					<%= image_tag picture.image.url(:large) %>
+					<div class="carousel-caption">
+						<div class="<%= picture.has_post? ? "blog-white" : "pm-white" %>"> 
+						
+							<h4><%= picture.title %><% if picture.has_post? %>&nbsp;&nbsp;<small><%= link_to "see blog post", post_path(picture.posts.first) %></small><% end %></h4>
+							<p><%= picture.description %></p>
+						</div>
+					</div>	
+				</div>
+			<% end %>
+		  </div>
+		  <!-- Carousel nav -->
+		  <a class="carousel-control left" href="#photoCarousel" data-slide="prev">&lsaquo;</a>
+		  <a class="carousel-control right" href="#photoCarousel" data-slide="next">&rsaquo;</a>
+		</div>
+		</div>
 	</div>
-<% end %>
-<div class="row">
-  <div class="span12">
-  	<%= link_to "Photo Archive", photo_archive_path, :class => "btn pull-right" %>
-  </div>	
 </div>
-<div class="row">
-  <div class="span12">	
-	<h1>Instagram</h1>
-	<% @instagrams.each do |instagram| %>
-		<%= link_to (image_tag instagram.thumbnail_url), instagram.link_url %>
+<div class="filmstrip-bg">
+	<div class="container">
+		<div class="row">
+			<div class="span24">
+				<h5>From Paul's Camera <%= image_tag "pm.png", :alt => "Paul Manwaring's Photos" %>&nbsp;&nbsp;&nbsp;From Blog <%= image_tag "blog.png", :alt => "Paul Manwaring's Blog Posts" %></h5>
+			</div>
+		</div>
+
+	<% @pictures.in_groups_of(3, false) do |pictures| %>  
+		<div class="row">
+	      <% pictures.each do |picture| %>  
+
+	
+		<div class="span8" style="position:relative; ">
+			<%= image_tag picture.image.url(:small), :width => "308", :height => "206" %>
+			<%- if picture.has_post? -%>
+				<%= link_to "", "#", :class => "carousel-select post-link",  "data-slide" =>  @pictures.index(picture) %>										
+			<%- else -%>
+				<%= link_to "", "#", :class => "carousel-select picture-link",  "data-slide" =>  @pictures.index(picture) %>				
+			<%- end -%>
+		</div>	
+	
+	
+	      <% end %>  
+		</div>
 	<% end %>
+	
+	<div class="row">
+		<div class="span24">
+			<h5>From Instagram <%= image_tag "instagram.png", :alt => "Paul Manwaring's Instagram" %></h5>
+		</div>	
 	</div>
-</div>
+	<div class="row">
+		<% @instagrams.each do |instagram| %>
+	    <div class="span6" style="position:relative; "><%= image_tag instagram.low_resolution_url, :width => "230", :height => "230" %><%= link_to "", instagram.link_url, :class => "instagram-link" %></div>
+		<% end %>
+
+	</div>	
+
+	</div>
+</div>	
