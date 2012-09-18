@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   has_many :tags, :through => :tagships  
   
   validates_presence_of :title, :content, :category_id
+  validates_presence_of :picture_id, :if => :published?, :message => "required to publish a post"
   
   attr_accessible :title, :content, :tag_ids, :category_id, :published_at, :picture_id, :published
   
@@ -43,32 +44,22 @@ class Post < ActiveRecord::Base
     when "thumb"
       if picture
         ROOT_URL + picture.image.url(:thumb)
-      else 
-        ROOT_URL + "/assets/nophoto_thumb.png"
       end
     when "small"
       if picture
         ROOT_URL + picture.image.url(:small)
-      else 
-        ROOT_URL + "/assets/nophoto_small.png"
       end     
     when "medium"
       if picture
         ROOT_URL + picture.image.url(:medium)
-      else 
-        ROOT_URL + "/assets/nophoto_medium.png"
       end
     when "square"
       if picture
         ROOT_URL + picture.image.url(:square)
-      else 
-        ROOT_URL + "/assets/nophoto_square.png"
       end      
     when "large"
       if picture
         ROOT_URL + picture.image.url(:large)
-      else 
-        ROOT_URL + "/assets/nophoto_large.png"
       end              
     end
   end

@@ -140,7 +140,7 @@ h1 { font-size: 40px; line-height: 40px; margin-top:30px; }
 h2 { font-size: 30px; line-height: 40px; }
 h3 { font-size: 24px; line-height: 40px; margin-top:50px; }
 h4 { font-size: 14px; line-height: 20px; color:#514D45; }
-h5 { margin-top: 23px; font-size: 11px; line-height: 20px; color:$grayLight; }
+h5 { margin: 23px 0 5px 0; font-size: 11px; line-height: 20px; color:$grayLight; }
 h6 { font-size: 16px; line-height: 20px; color:$grayDarker; font-family:$sansFontFamily; }
 
 h1 small { font-size:12px; font-family:$serifFontFamily; font-style:italic; text-transform: none; line-height:0;}
@@ -283,6 +283,19 @@ h4 small { font-size: 14px; }
   }	
 }
 
+.rss {
+	font-size:14px;
+	width:165px;
+	height:37px;
+	background:url(image_path('rss.jpg')) right no-repeat;
+	padding:0;	
+	text-align:left;
+	line-height:37px;
+	padding-left:25px;
+	  &:hover {
+		background:url(image_path('rss.jpg')) right no-repeat;	
+	  }	
+}
 
 /* Carousel */
 .carousel {
@@ -555,4 +568,7 @@ h3.theres-more {
 }
 .white-bg p {
 	font-size:14px;	
+}
+.pad {
+	height:36px;
 }
