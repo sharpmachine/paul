@@ -7,8 +7,12 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     
-    @posts = @category.posts.published.page(params[:page])
+    @posts = @category.posts.published.page(params[:page]).per(4)
 
+    @categories = Category.order("name")    
+
+    @tagcloud = Tag.cloud
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml # show.xml.builder      

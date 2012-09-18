@@ -1,16 +1,26 @@
 <% home_page ||= false %>
 
-<div class="page-box">
+<div class="page-box <%= home_page ? "home" : "" %>">
 	<%= image_tag post.picture_url(:thumb), :class => "post-thumbnail" %>
 	<div class="container">	
 		<h6><%= post.title %></h6>
+
 		<% unless home_page %>
-		<p>By <%= post.author %></p>
-		<p>Posted on <%= nice_date(post.published_at) %></p>		
-		<p><%= render post.tags %></p>
-		<p><%= link_to post.title, post_path(post) + "#disqus_thread", "data-disqus-identifier" => post.id %></p>
+
+		<p class="author">By <%= post.author %></p>		
+
+		<p class="date"><%= post.published_at > 1.week.ago ? time_ago_in_words(post.published_at) + " ago" : nice_date(post.published_at, true) %></p>			
+
+		<p class="tags"><%= render post.tags %></p>
+
+		<p class="comments"><%= link_to post.title, post_path(post) + "#disqus_thread", "data-disqus-identifier" => post.id %></p>
+
+		<hr>
+
 		<% end %>
-		<p><%= markdown(post.content) %></p>
-		<p><%= link_to "Read More", post_path(post), :class => "btn" %></p>
+		<p><%= markdown(post.content, home_page ? 450 : 280) %></p>
 	</div>	
+</div>
+<div class="read-more">
+	<%= link_to "Read More", post_path(post), :class => "btn" %>
 </div>

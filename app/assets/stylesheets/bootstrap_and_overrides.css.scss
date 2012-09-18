@@ -26,6 +26,7 @@ $grayLight:             #BDBCB7 !default;
 $grayLighter:           #DEDDDB !default;
 $white:                 #fff !default;
 $pageColor:				#f7f6f2;
+$eventDateColor:		#8B8A7E;
 
 // Accent colors
 // -------------------------
@@ -91,7 +92,7 @@ $monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 $baseFontSize:          12px !default;
 $baseFontFamily:        $serifFontFamily !default;
 $baseLineHeight:        20px !default;
-$altFontFamily:         $sansFontFamily !default;
+$altFontFamily:         Helvetica, Arial, sans-serif;
 
 $headingsFontFamily:    'Syncopate' !default; 
 $headingsFontWeight:    400 !default;
@@ -113,6 +114,21 @@ $navbarLinkColorActive: #FFFFFF;
 // Icon path
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+
+// Forms
+// -------------------------
+$inputBackground:               $white;
+$inputBorder:                   $grayLight;
+$inputBorderRadius:             0px;
+$inputDisabledBackground:       $grayLighter;
+$formActionsBackground:         $white;
+
+// Pagination
+// -------------------------
+$paginationBackground:                transparent;
+$paginationBorder:                    $grayLight;
+$paginationActiveBackground:          $eventDateColor;
+
 
 @import "bootstrap";    
 //@import "bootstrap-responsive";                                                                           
@@ -137,16 +153,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 40px; line-height: 40px; margin-top:30px; }
-h2 { font-size: 30px; line-height: 40px; }
+h2 { font-size: 30px; line-height: 40px; margin:30px 0 13px 0; }
 h3 { font-size: 24px; line-height: 40px; margin-top:50px; }
 h4 { font-size: 14px; line-height: 20px; color:#514D45; }
 h5 { margin: 23px 0 5px 0; font-size: 11px; line-height: 20px; color:$grayLight; }
-h6 { font-size: 16px; line-height: 20px; color:$grayDarker; font-family:$sansFontFamily; }
+h6 { font-size: 16px; line-height: 20px; color:$grayDarker; font-family:$sansFontFamily; margin:8px 0 -3px 0; }
 
 h1 small { font-size:12px; font-family:$serifFontFamily; font-style:italic; text-transform: none; line-height:0;}
 h2 small { font-size: 18px; }
 h3 small { font-size: 14px; }
 h4 small { font-size: 14px; }
+
+h3 strong {
+	color: $gray;
+}
 
 
 .nav-bg {
@@ -209,7 +229,7 @@ h4 small { font-size: 14px; }
 	@include transition(#{border-top-width, 0.5s});
 	height: 18px;
 	font-size: 14px;
-	font-family: $altFontFamily;
+	font-family: $sansFontFamily;
 }
 
 // Hover over nav
@@ -402,15 +422,27 @@ h4 small { font-size: 14px; }
 
 .page-box {
 	width: 310px;
-	height: 470px;
+	height: 425px;
 	background-color:$white;
-	margin-bottom:60px;
-	overflow:hidden;	
+	overflow:hidden;
+	padding-bottom:27px;	
+}
+
+.read-more {
+	width: 230px;
+
+	background-color:$white;
+	margin-bottom:18px;
+	padding:10px 40px 27px 40px;
 }
 
 .page-box.small {
 	height: 320px;
 	margin-bottom:0;		
+}
+
+.page-box.home {
+	height: 376px;
 }
 
 .mini-event-box {
@@ -434,7 +466,7 @@ h4 small { font-size: 14px; }
 .page-box .container {
 	width: 230px;
 	margin:0;
-	padding:27px 40px 40px 40px;		
+	padding:27px 40px 27px 40px;		
 }    
 .page-box img {
 	border: 1px solid $grayLighter;
@@ -507,14 +539,14 @@ a.instagram-link {
 } 
 
 .footer a {
-	font-family: $altFontFamily;
+	font-family: $sansFontFamily;
 	color: #F8F7F3;	
 	text-transform:uppercase;
 	margin-top:10px;
 	padding:13px 10px 10px 0;
 } 
 .footer .dot {
-	font-family: $altFontFamily;
+	font-family: $sansFontFamily;
 	color: #F8F7F3;	
 	text-transform:uppercase;
 	margin-top:10px;
@@ -549,10 +581,37 @@ p.place {
 	margin:2px 0 0 0;
 }
 
+p.author {
+	font-size:14px;
+	font-style:italic;
+	color:#999;
+	margin:2px 0 0 0;
+}
+
 p.date {
 	color:#767267;
-	font-family:Helvetica, Arial, sans-serif;
-	margin:0;	
+	font-family:$altFontFamily;
+	margin:0 0 14px 0;	
+}
+
+p.tags {
+	color:#767267;
+	font-family:$altFontFamily;	
+	margin:0;
+	background:url(image-path('tags.png')) left no-repeat;		
+	padding-left:23px;
+}
+p.comments {
+	margin:0;
+	background:url(image-path('comments.png')) left no-repeat;		
+	padding-left:23px;
+	font-family:$altFontFamily;		
+}
+p.comments a {
+	color:#999;
+	&:hover {
+		color:#767267;		
+	}
 }
 
 h3.theres-more {
@@ -571,4 +630,110 @@ h3.theres-more {
 }
 .pad {
 	height:36px;
+}
+
+// FORMS
+
+// SEARCH FORM
+// -----------
+
+form.form-search {
+	margin-top:10px;
+}
+input.search-query {
+	padding-right: 0;
+	padding-right: 0;
+	padding-left: 0;
+	padding-left: 0; /* IE7-8 doesn't have border-radius, so don't indent the padding */
+	margin-bottom: 0; // Remove the default margin on all inputs
+	@include border-radius(0px);
+	font-size:14px;
+	width:125px;
+	height:30px;
+	padding-left:25px;
+	padding-right:40px;
+	background-color:transparent;
+	font-family:$sansFontFamily;
+	&:focus{
+		color:$grayDark;
+		background-color:$white;					
+	}
+}
+
+input.search-btn {
+	margin-left:-40px;
+	width:39px;
+	height:38px;
+	background:url(image_path('search.jpg'));
+	border:none;	
+}
+
+a.tag-link {
+	font-family:$altFontFamily;	
+	text-decoration:underline;
+	&:hover {
+		text-decoration:none;					
+	}	
+}
+a.tag-btn {    
+	font-family:$altFontFamily;		                                                                                 
+ 	text-decoration: none;                                                                         
+	color:$white;                                                                                   
+	padding:8px;                                                                                   
+	font-size:12px;    
+	line-height:37px;  
+	&:hover {
+		background-color:transparent;
+		text-decoration:underline;					
+	}	                                                                          
+}
+
+//
+// Pagination (multiple pages)
+// --------------------------------------------------
+
+.pagination {
+	border-top:1px solid;
+	height: $baseLineHeight * 2;
+	margin: 0 0 45px 0;
+	padding-top:36px;
+}
+
+.pagination ul {
+  display: block;
+}
+.pagination li {
+    display: block;
+	float:left;
+	margin-right:8px;
+}
+
+.pagination a,
+.pagination span {
+	border-left-width: 1px;
+	font-family:$sansFontFamily;
+	text-decoration:underline;
+	&:hover {
+		text-decoration:none;		
+	}
+}
+
+.pagination .active a,
+.pagination .active span {
+  color:$white;
+  background-color: $paginationActiveBackground;
+}
+
+.pagination a:hover{
+  color:$white;
+  background-color: $btnBackground;
+}
+.pagination li:first-child a,
+.pagination li:first-child span {
+  border-left-width: 1px;
+  @include border-radius(0);
+}
+.pagination li:last-child a,
+.pagination li:last-child span {
+  @include border-radius(0);
 }

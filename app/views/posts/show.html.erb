@@ -1,6 +1,8 @@
+<% title @post.title %>
+
 <%= content_for(:head) do %>
 	<%= javascript_tag do %>
-		var disqus_title = '<%= @post.title %>'; 
+		var disqus_title = '<%= @title %>'; 
 		var disqus_developer = <%= Rails.env == "development" ? 1 : 0 %>;
 		var disqus_shortname = 'paulmanwaring';		
 		var disqus_identifier = '<%= @post.id %>';	
@@ -13,7 +15,7 @@
 	<% end %>
 <% end %>
 
-<h1><%= @post.title %></h2>
+<h1><%= @title %></h2>
 
 
 <%= raw(@post.content) %>

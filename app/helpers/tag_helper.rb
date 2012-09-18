@@ -1,6 +1,6 @@
 module TagHelper
   def tag_cloud(cloud = {})
-    min_font_color = 63 
+    min_font_color = 32
     max_font_color = 204
     
     max_frequency = cloud.values.max
@@ -12,7 +12,7 @@ module TagHelper
     html = ""    
     cloud.keys.each do |tag|
       font_color = (255 - (min_font_color + ((max_frequency-(max_frequency-(cloud[tag]-min_frequency)))*multiplier).to_i)).to_s(16)
-      html << link_to(tag, posts_path(:tag => tag), :style => "background:##{font_color}#{font_color}#{font_color};", :class => "tag_btn")
+      html << link_to(tag, posts_path(:tag => tag), :style => "background-color:##{font_color}#{font_color}#{font_color};", :class => "tag-btn")
       html << " "
     end  
     html.html_safe

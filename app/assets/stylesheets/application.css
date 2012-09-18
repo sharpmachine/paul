@@ -13,9 +13,3 @@
  *= require jquery-ui/jquery-ui
  *= require_directory .
 */
-a.tag_btn {                                                                                        
- 	text-decoration: none;                                                                         
-	color:white;                                                                                   
-	padding:5px;                                                                                   
-	font-size:11px;                                                                                
-}

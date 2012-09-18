@@ -1,3 +1,5 @@
+<% title "Blog" %>
+
 <%= content_for(:head) do %>
 	<%= javascript_tag do %>
 	    var disqus_shortname = 'paulmanwaring';
@@ -12,42 +14,59 @@
 
 <div class="container">
 <div class="row">
-	<div class="span24 pad"></div>
+	<% if params[:tag].present? %>
+	<div class="span24">
+		<h3><%= link_to image_tag("tag.png"), posts_path, :title => "Back to Blog Home" %>&nbsp;Tag / <strong><%= params[:tag] %></strong></h3>
+	</div>
+	<% elsif params[:q].present? %>
+		<div class="span24">
+			<h3><%= link_to image_tag("search_icon.png"), posts_path, :title => "Back to Blog Home" %>&nbsp;Search / <strong><%= params[:q] %></strong></h3>
+		</div>	
+	<% else %>
+		<div class="span24 pad"></div>
+	<% end %>
 </div>	
 <div class="row">
 	
 	<div class="span17">
-			
-		<% @posts.in_groups_of(2, false) do |posts| %>  
+		
+		<% if @posts.any? %>	
+			<% @posts.in_groups_of(2, false) do |posts| %>  
+				<div class="row">
+			      <% posts.each do |post| %>  
+			      <div class="span8">
+					<h5><%= post.category.name %></h5>
+				    <%= render post %>
+				  </div>
+			      <% end %>  
+				</div>
+			<% end %>	
+		<% else %>
 			<div class="row">
-		      <% posts.each do |post| %>  
 		      <div class="span8">
-				<h5><%= post.category.name %></h5>
-			    <%= render post %>
+				<h5>No Posts Found</h5>
 			  </div>
-		      <% end %>  
-			</div>
-		<% end %>	
-
+			</div>			
+		<% end %>
 	</div>
 
 	<div class="span7">
-		<h5>&nbsp;</h5>
+		<% if @posts.any? %><h5>&nbsp;</h5><% end %>
 		<%= link_to "Subscribe to Blog", posts_path(:format => "atom"), :class => "btn rss" %>
 		
-		<%= form_tag(posts_path, :method => "get", :class => "blog") do %>
-			<%= text_field_tag(:q, params[:q]) %><%= submit_tag("", :name => nil) %>
+		<%= form_tag(posts_path, :method => "get", :class => "form-search") do %>
+			<%= text_field_tag(:q, params[:q], :class => "search-query", :placeholder => "SEARCH") %><%= submit_tag("", :name => nil, :class => "search-btn") %>
 		<% end %>
 		
 		<h2>Categories <%= image_tag "category.png" %></h2>
 
-		<ul>
+		<ul class="unstyled">
 		<% @categories.each do |c| %>
-			<li><%= link_to c.name, category_path(c) %></li>
+			<li><%= link_to c.name, category_path(c), :class => "tag-link" %></li>
 		<% end %>	
 		</ul>
 
-		<h1>Tag List</h1>
+		<h2>Tag List <%= image_tag "tag.png" %></h2>
 
 		<%= tag_cloud(@tagcloud) %>
 
@@ -55,10 +74,11 @@
 	</div>	
 
 </div>
-
-
 <div class="row">
-	<div class="span12">
+	<div class="span24 pad"></div>
+</div>
+<div class="row">
+	<div class="span24">
 		<%= paginate @posts %>
 	</div>	
 </div>	

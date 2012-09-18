@@ -7,12 +7,12 @@ class PostsController < ApplicationController
   def index
     @posts = Post.published.includes(:picture, :category, :tags, :user)
     
-    if params[:q]
+    if params[:q].present?
       @posts = @posts.text_search(params[:q])
-    elsif params[:tag]
+    elsif params[:tag].present?
       @posts = @posts.where("tags.tagstring = ?", params[:tag])
     end       
-    @posts = @posts.page(params[:page])
+    @posts = @posts.page(params[:page]).per(4)  
     
     @categories = Category.order("name")    
 
