@@ -12,14 +12,25 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-transition
+//= require bootstrap-alert
+//= require bootstrap-carousel
 //= require chosen/chosen.jquery
+//= require jquery.mousewheel-3.0.6.pack
+//= require jquery.fancybox.pack
 //= require jquery-ui
 //= require_directory .
 
 jQuery( function($) {
 	
 	$(".chzn-select").chosen();
+	$(".fancybox").fancybox({
+	    helpers : {
+	        title: {
+	            type: 'outside'
+	        }
+	    }
+	});	
 
   	$(".upload_form").submit(function() { 
 

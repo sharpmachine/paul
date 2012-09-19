@@ -15,16 +15,11 @@ class PicturesController < ApplicationController
       format.html # index.html.erb
     end
   end
-  
-  def show
-    @picture = Picture.published.find(params[:id])
-    render :layout => false
-  end  
 
   def archive
     @selected_nav = "photos"   
     
-    @pictures = Picture.published.page(params[:page])
+    @pictures = Picture.published.page(params[:page]).per(18)
 
     respond_to do |format|
       format.html # index.html.erb

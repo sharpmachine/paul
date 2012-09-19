@@ -1,7 +1,28 @@
-<% @pictures.in_groups_of(3, false) do |pictures| %>  
-	<div class="row">
-      <% pictures.each do |picture| %>  
-      <div class="span3"><%= link_to image_tag(picture.image.url(:thumb)), picture_path(picture), "data-toggle" => "modal" %></div>
-      <% end %>  
-	</div>
-<% end %>
+<div class="filmstrip-bg">
+	<div class="container">
+		<div class="row">
+			<div class="span24">
+				<h1><small>My Photos</small><br />Photo Archive</h1>
+			</div>
+		</div>
+	<% @pictures.in_groups_of(3, false) do |pictures| %>  
+		<div class="row">
+	      <% pictures.each do |picture| %>  
+			<div class="span8" style="margin-bottom:10px; ">
+				
+				<%= link_to image_tag(picture.image.url(:small)), picture.image.url(:large), :title => picture.title + " - " + picture.description, :class => "fancybox" %>
+													
+			</div>	
+	      <% end %>  
+		</div>
+	<% end %>		
+</div></div>	
+
+<div class="container">
+<div class="row">
+	<div class="span24">
+		<%= paginate @pictures %>
+	</div>	
+</div>	
+
+</div>

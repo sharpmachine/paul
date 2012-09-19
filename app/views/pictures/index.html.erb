@@ -38,7 +38,7 @@
 	      <% pictures.each do |picture| %>  
 
 	
-		<div class="span8" style="position:relative; ">
+		<div class="span8" style="position:relative; margin-bottom:10px; ">
 			<%= image_tag picture.image.url(:small), :width => "308", :height => "206" %>
 			<%- if picture.has_post? -%>
 				<%= link_to "", "#", :class => "carousel-select post-link",  "data-slide" =>  @pictures.index(picture) %>										
@@ -51,7 +51,11 @@
 	      <% end %>  
 		</div>
 	<% end %>
-	
+	<div class="row">
+		<div class="span24">
+			<%= link_to "Photo Archive", photo_archive_path, :class => "btn pull-right" %>
+		</div>			
+	</div>	
 	<div class="row">
 		<div class="span24">
 			<h5>From Instagram <%= image_tag "instagram.png", :alt => "Paul Manwaring's Instagram" %></h5>

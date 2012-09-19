@@ -11,5 +11,6 @@
  *= require_self
  *= require chosen/chosen
  *= require jquery-ui/jquery-ui
+ *= require fancybox/jquery.fancybox.css
  *= require_directory .
 */
