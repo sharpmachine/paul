@@ -1,9 +1,20 @@
-<% @products.in_groups_of(3, false) do |products| %>  
+<div class="container">
 	<div class="row">
-      <% products.each do |product| %>  
-      <div class="span3"><%= render product %></div>
-      <% end %>  
+		<div class="span24 pad"></div>
 	</div>
-<% end %>
-
-<%= paginate(@products) %>
+	<% @products.in_groups_of(3, false) do |products| %>  
+		<div class="row">
+	      <% products.each do |product| %>  
+	      <div class="span8"><%= render product %></div>
+	      <% end %>  
+		</div>
+	<% end %>
+	<div class="row">
+		<div class="span24 pad"></div>
+	</div>
+	<div class="row">
+		<div class="span24">
+			<%= paginate(@products) %>
+		</div>
+	</div>		
+</div>

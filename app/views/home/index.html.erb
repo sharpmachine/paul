@@ -18,11 +18,8 @@
 	  <div class="span8">
 	  	<h1><small>My ministry schedule</small><br />UPCOMING EVENTS<%= link_to image_tag("theres_more.png"), events_path, :class => "pull-right" %></h1>
 		<%= render :partial => @events, :locals => {:home_page => true} %>	
-		<div class="mini-event-box">
-			<div class="container">
-				<h6>&nbsp;</h6>
-				<p><%= link_to "See all events", events_path, :class => "btn" %></p>
-			</div>
+		<div class="read-more" style="padding-top: 27px; border-bottom:2px solid #FFF; ">
+			<%= link_to "See all events", events_path, :class => "btn" %>
 		</div>	
 	  </div>
 	  <div class="span8">

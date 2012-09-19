@@ -7,7 +7,7 @@
   <%= f.input :product_type, :collection => Product::PRODUCT_TYPES.collect {|t| [t.titleize, t]}, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Choose a type...' } %>
   <%= f.input :title %>
   <%= f.input :author %>
-  <%= f.input :short_description, :input_html => { :rows => 3, :style => "width:500px;" } %>
+  <%= f.input :short_description, :input_html => { :rows => 6, :style => "width:500px;" } %>
   <%= f.input :url %>
   <%= f.input :image %>		
 

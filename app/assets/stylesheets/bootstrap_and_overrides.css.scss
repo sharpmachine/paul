@@ -25,7 +25,7 @@ $gray:                  #787369 !default;
 $grayLight:             #BDBCB7 !default;
 $grayLighter:           #DEDDDB !default;
 $white:                 #fff !default;
-$pageColor:				#f7f6f2;
+$pageColor:				#EFEEE6;
 $eventDateColor:		#8B8A7E;
 
 // Accent colors
@@ -154,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 40px; line-height: 40px; margin-top:30px; }
 h2 { font-size: 30px; line-height: 40px; margin:30px 0 13px 0; }
-h3 { font-size: 24px; line-height: 40px; margin-top:50px; }
+h3 { font-size: 20px; line-height: 40px; margin-top:50px; }
 h4 { font-size: 14px; line-height: 20px; color:#514D45; }
 h5 { margin: 23px 0 5px 0; font-size: 11px; line-height: 20px; color:$grayLight; }
 h6 { font-size: 16px; line-height: 20px; color:$grayDarker; font-family:$sansFontFamily; margin:8px 0 -3px 0; }
@@ -447,11 +447,12 @@ h3 strong {
 }
 
 .mini-event-box {
-	width: 310px;
-	height: 110px;
-	background-color:$white;
-	margin-bottom:$gridGutterWidth;
-	overflow:hidden;
+	width: 230px;
+	height: 84px;
+	background-color: $white;
+	margin-bottom: $gridGutterWidth;
+	overflow: hidden;
+	padding:17px 40px;
 }
 
 .mini-event-box h6 {
@@ -659,6 +660,22 @@ h3.theres-more {
 	}
 }
 
+.lightgray-bg {
+	background-color:#E6E5DD;
+}
+
+.product-description {
+	height:160px;
+	background-color:#E6E5DD;
+	padding:42px;	
+}
+
+.product-box {
+	height:220px;
+	background-color:$white;
+	padding:20px;	
+}
+
 .pad {
 	height:36px;
 }
@@ -724,7 +741,7 @@ a.tag-btn {
 // --------------------------------------------------
 
 .pagination {
-	border-top:1px solid;
+	border-top:1px solid $grayLighter;
 	height: $baseLineHeight * 2;
 	margin: 0 0 45px 0;
 	padding-top:36px;

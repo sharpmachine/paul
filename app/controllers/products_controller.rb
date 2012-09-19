@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   before_filter :set_active_nav  
 
   def index
-    @products = Product.order("created_at").page(params[:page])
+    @products = Product.order("created_at").page(params[:page]).per(6)
     
     respond_to do |format|
       format.html # index.html.erb

@@ -52,5 +52,43 @@ jQuery( function($) {
 		$("#event_country").val("");												
 	});
 	
+	$.fn.textareaCounter = function(options) {
+		// setting the defaults
+		// $("textarea").textareaCounter({ limit: 100 });
+		var defaults = {
+			limit: 100,
+			word_count_field: "counter-text"
+		};	
+		var options = $.extend(defaults, options);
+
+		// and the plugin begins
+		return this.each(function() {
+			var obj, text, wordcount, limited;
+
+			obj = $(this);
+			obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" id="'+options.word_count_field+'">Max. '+options.limit+' words</span>');
+
+			obj.keyup(function() {
+			    text = obj.val();
+			    if(text === "") {
+			    	wordcount = 0;
+			    } else {
+				    wordcount = $.trim(text).split(" ").length;
+				}
+			    if(wordcount > options.limit) {
+			        $("#"+options.word_count_field).html('<span style="color: #DD0000;">0 words left</span>');
+					limited = $.trim(text).split(" ", options.limit);
+					limited = limited.join(" ");
+					$(this).val(limited);
+			    } else {
+			        $("#"+options.word_count_field).html((options.limit - wordcount)+' words left');
+			    } 
+			});
+		});
+	};
+	
+	
+	$("#product_short_description").textareaCounter({ limit: 50, word_count_field: "mentor_vision-text" });	
+	
 });	
 

@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
   
   validates_presence_of :title, :content, :category_id
   
+  validates_presence_of :picture_id, :if => :published?
+  
   attr_accessible :title, :content, :tag_ids, :category_id, :published_at, :picture_id, :published
   
   after_save :cache_post_counts
