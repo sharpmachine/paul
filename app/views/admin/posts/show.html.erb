@@ -9,6 +9,8 @@
 	  <dd><%= link_to @post.category.name, category_path(@post.category) %></dd>
 	  <dt><strong>Tags:</strong></dt>
 	  <dd><%= @post.tags.collect {|t| t.tagstring }.join(", ") %></dd>
+	  <dt><strong>Picture:</strong></dt>
+	  <dd><%= image_tag @post.picture.image.url(:medium) if @post.picture.present? %></dd>	
 	  <dt><strong>Post:</strong></dt>
 	  <dd><%= raw(@post.content) %></dd>
 	</dl>

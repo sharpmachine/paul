@@ -8,6 +8,7 @@
 	<%= f.input :role, :collection => User::ROLES, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Choose a role...' } %>		
 	<%= f.input :email %>
 	<%= f.input :description %>	
+	<%= f.input :url, :label => "Website URL" %>		
 	<%= f.input :avatar %>		
 	
 </fieldset>

@@ -4,17 +4,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :description, :avatar
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :description, :avatar, :role, :as => :superuser
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :description, :avatar, :url
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :lastname, :description, :avatar, :url, :role, :as => :superuser
   
   has_many :posts
   
-  has_attached_file :avatar, :styles => { :thumb => "100x75>", :small => "320x240>" },
+  has_attached_file :avatar, :styles => { :thumb => "75x75>", :small => "150x150>" },
                     :url  => "/assets/users/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
 
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"  
+  validates_format_of :url, :with => /^(((http|https?):\/\/)?((?:[-a-z0-9]+\.)+[a-z]{2,})).*/i, :message => "has an invalid format", :if => :url_filled?  
       
   # ADMIN_ROLES are any ROLE that has access to the /admin/ namespace. So the ROLES list may be longer than the ADMIN_ROLES list.
   ADMIN_ROLES = %w[superuser contributer]
@@ -31,6 +32,23 @@ class User < ActiveRecord::Base
   def name
     firstname + " " + lastname
   end 
+  
+  def url_filled?
+    url.present?
+  end
+  
+  def url=(str)
+    if str.blank?
+      super(str)
+    else  
+      str = 'http://' + str if str[0,7] != 'http://' && str[0,8] != 'https://'
+      super(str)
+    end
+  end
+      
+  def paul?
+    name == "Paul Manwaring"
+  end  
 end
 # == Schema Information
 #
@@ -62,5 +80,6 @@ end
 #  avatar_content_type    :string(255)
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
+#  url                    :string(255)
 #
 

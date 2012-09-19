@@ -6,7 +6,6 @@ atom_feed do |feed|
     feed.entry(post) do |entry|
       entry.title(post.title)
       entry.content(post.content, :type => 'html')
-      entry.picture(post.picture_url(:thumb))  
       entry.published_at(post.published_at)            
 
       entry.author do |author|

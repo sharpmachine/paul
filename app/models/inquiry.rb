@@ -8,15 +8,6 @@ end
 #
 # Table name: inquiries
 #
-#  id          :integer          not null, primary key
-#  email       :string(255)
-#  description :string(255)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#\n# == Schema Information
-#
-# Table name: inquiries
-#
 #  id          :integer         not null, primary key
 #  email       :string(255)
 #  description :string(255)

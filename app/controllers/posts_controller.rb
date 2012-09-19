@@ -11,6 +11,9 @@ class PostsController < ApplicationController
       @posts = @posts.text_search(params[:q])
     elsif params[:tag].present?
       @posts = @posts.where("tags.tagstring = ?", params[:tag])
+    elsif params[:author].present?
+      @user = User.find_by_id(params[:author])
+      @posts = @posts.where("users.id = ?", @user)       
     end       
     @posts = @posts.page(params[:page]).per(4)  
     

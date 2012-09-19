@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
   has_many :tags, :through => :tagships  
   
   validates_presence_of :title, :content, :category_id
-  validates_presence_of :picture_id, :if => :published?, :message => "required to publish a post"
   
   attr_accessible :title, :content, :tag_ids, :category_id, :published_at, :picture_id, :published
   
@@ -32,36 +31,8 @@ class Post < ActiveRecord::Base
     user.firstname + " " + user.lastname
   end
   
-  ROOT_URL = Rails.env == "development" ? "http://localhost:3000" : "http://paulmanwaring.herokuapp.com"
-  
   def self.published
     where("posts.published_at is not null").order("posts.published_at desc")
-  end
-  
-  def picture_url(size = :small)
-    #  :styles => { :thumb => "100x75>", :small => "320x240>", :medium => "480x360>", :square => "360x360#", :large => "640x480>" }
-    case size.to_s                
-    when "thumb"
-      if picture
-        ROOT_URL + picture.image.url(:thumb)
-      end
-    when "small"
-      if picture
-        ROOT_URL + picture.image.url(:small)
-      end     
-    when "medium"
-      if picture
-        ROOT_URL + picture.image.url(:medium)
-      end
-    when "square"
-      if picture
-        ROOT_URL + picture.image.url(:square)
-      end      
-    when "large"
-      if picture
-        ROOT_URL + picture.image.url(:large)
-      end              
-    end
   end
   
   def published

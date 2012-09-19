@@ -15,6 +15,7 @@
 <table class="table table-striped">
   <thead>
 	  <tr>
+		<th></th>
 	    <th><%= sortable "firstname" %></th>
 	    <th><%= sortable "lastname" %></th>	
 	    <% if can? :manage, :roles %><th><%= sortable "role" %></th><% end %>
@@ -24,6 +25,7 @@
   <tbody>
 	<% @users.each do |user| %>
 	  <tr>
+	    <td><%= user.avatar.present? ? image_tag(user.avatar.url(:thumb)) : "no avatar" %></td>
 	    <td><%= link_to user.firstname, [:admin, user] %></td>
 	    <td><%= link_to user.lastname, [:admin, user] %></td>	
 	    <% if can? :manage, :roles %><td><span class="label label-info"><%= user.role %></span></td><% end %>

@@ -9,7 +9,11 @@
 	<% elsif params[:q].present? %>
 		<div class="span24">
 			<h3><%= link_to image_tag("search_icon.png"), posts_path, :title => "Back to Blog Home" %>&nbsp;Search / <strong><%= params[:q] %></strong></h3>
-		</div>	
+		</div>
+	<% elsif params[:author].present? %>
+		<div class="span24">
+			<h3><%= link_to image_tag("search_icon.png"), posts_path, :title => "Back to Blog Home" %>&nbsp;Author / <strong><%= @user ? @user.name : "Unknown" %></strong></h3>
+		</div>			
 	<% else %>
 		<div class="span24 pad"></div>
 	<% end %>
