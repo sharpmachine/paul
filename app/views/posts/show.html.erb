@@ -11,14 +11,72 @@
 		        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 		        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
 		        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		    })();	
+		    })();
+	    (function () {
+	        var s = document.createElement('script'); s.async = true;
+	        s.type = 'text/javascript';
+	        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+	        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+	    }());			
 	<% end %>
 <% end %>
 
-<h1><%= @title %></h2>
+<div class="container">
+<div class="row"><div class="span24 pad"></div></div>
 
+	<div class="row">
+		<div class="span17">
+			
+				<div class="row">
+					<div class="span4">
+						<div class="post-date">
+							<p class="post-day"><%= @post.published_at.strftime("%d") %></p>
+							<p class="post-month"><%= @post.published_at.strftime("%^b") %></p>						
+						</div>
+						
+					</div>	
+					<div class="span12">
+					
+						<h6><%= @title %></h6>
 
-<%= raw(@post.content) %>
+						<p class="author">By <%= @post.author %></p>				
 
+						<p>
+							<span class="category"><%= link_to @post.category.name, category_path(@post.category), :class => "tag-link" %></span>
+							&nbsp;&nbsp;
+							<span class="tags"><%= render @post.tags %></span>
+							&nbsp;&nbsp;
+							<span class="comments"><%= link_to @post.title, post_path(@post) + "#disqus_thread", "data-disqus-identifier" => @post.id %></span>							
+						</p>
+						
+					</div>							
+				</div>
+				<div class="row">
+					<div class="span16">
+						<%= image_tag @post.picture_url(:medium) %>	
+						<div class="post-content">					
+							<%= raw(@post.content) %>
+						</div>
+					</div>
+				</div>							
+			
+		</div>
+		<div class="span7">
+			<%= render :partial => "posts/side" %>
+		</div>
+	</div>
+</div>	
 
-<div id="disqus_thread"></div>
+<div class="container">
+	<div class="row">
+	</div>	
+</div>
+<div class="white-bg">
+	<div class="container">
+		<div class="row">
+			<div class="span24">
+				<div id="disqus_thread"></div>
+			</div>
+		</div>	
+	</div>
+</div>

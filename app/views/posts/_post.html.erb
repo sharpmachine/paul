@@ -1,9 +1,23 @@
 <% home_page ||= false %>
 
+<% unless home_page %>
+	<%= content_for(:head) do %>
+		<%= javascript_tag do %>
+		    var disqus_shortname = 'paulmanwaring';
+		    (function () {
+		        var s = document.createElement('script'); s.async = true;
+		        s.type = 'text/javascript';
+		        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+		        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		    }());
+		<% end %>
+	<% end %>
+<% end %>
+
 <div class="page-box <%= home_page ? "home" : "" %>">
 	<%= image_tag post.picture_url(:thumb), :class => "post-thumbnail" %>
 	<div class="container">	
-		<h6><%= post.title %></h6>
+		<h6><%= link_to post.title, post_path(post) %></h6>
 
 		<% unless home_page %>
 

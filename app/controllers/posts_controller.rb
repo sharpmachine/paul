@@ -14,10 +14,6 @@ class PostsController < ApplicationController
     end       
     @posts = @posts.page(params[:page]).per(4)  
     
-    @categories = Category.order("name")    
-
-    @tagcloud = Tag.cloud
-    
     respond_to do |format|
       format.html # index.html.erb
       format.atom # index.atom.builder
@@ -28,16 +24,13 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
   end
   
   private
   
   def set_active_nav
-    @selected_nav = "blog"    
+    @selected_nav = "blog" 
+    @categories = Category.order("name")   
+    @tagcloud = Tag.cloud       
   end  
 end

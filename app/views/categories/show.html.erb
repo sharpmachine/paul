@@ -1,17 +1,5 @@
 <% title @category.name %>
 
-<%= content_for(:head) do %>
-	<%= javascript_tag do %>
-	    var disqus_shortname = 'paulmanwaring';
-	    (function () {
-	        var s = document.createElement('script'); s.async = true;
-	        s.type = 'text/javascript';
-	        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-	        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-	    }());
-	<% end %>
-<% end %>
-
 <div class="container">
 <div class="row">
 	<div class="span24">
@@ -43,26 +31,7 @@
 	</div>
 
 	<div class="span7">
-		<% if @posts.any? %><h5>&nbsp;</h5><% end %>
-		<%= link_to "Subscribe to Blog", posts_path(:format => "atom"), :class => "btn rss" %>
-		
-		<%= form_tag(posts_path, :method => "get", :class => "form-search") do %>
-			<%= text_field_tag(:q, params[:q], :class => "search-query", :placeholder => "SEARCH") %><%= submit_tag("", :name => nil, :class => "search-btn") %>
-		<% end %>
-		
-		<h2>Categories <%= image_tag "category.png" %></h2>
-
-		<ul class="unstyled">
-		<% @categories.each do |c| %>
-			<li><%= link_to c.name, category_path(c), :class => "tag-link" %></li>
-		<% end %>	
-		</ul>
-
-		<h2>Tag List <%= image_tag "tag.png" %></h2>
-
-		<%= tag_cloud(@tagcloud) %>
-
-		
+		<%= render :partial => "posts/side" %>
 	</div>	
 
 </div>

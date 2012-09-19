@@ -588,26 +588,33 @@ p.author {
 	margin:2px 0 0 0;
 }
 
-p.date {
+.date {
 	color:#767267;
 	font-family:$altFontFamily;
 	margin:0 0 14px 0;	
 }
 
-p.tags {
+.tags {
 	color:#767267;
 	font-family:$altFontFamily;	
 	margin:0;
 	background:url(image-path('tags.png')) left no-repeat;		
 	padding-left:23px;
 }
-p.comments {
+.category {
+	color:#767267;
+	font-family:$altFontFamily;	
+	margin:0;
+	background:url(image-path('category_small.png')) left no-repeat;		
+	padding-left:23px;
+}
+.comments {
 	margin:0;
 	background:url(image-path('comments.png')) left no-repeat;		
 	padding-left:23px;
 	font-family:$altFontFamily;		
 }
-p.comments a {
+.comments a {
 	color:#999;
 	&:hover {
 		color:#767267;		
@@ -736,4 +743,36 @@ a.tag-btn {
 .pagination li:last-child a,
 .pagination li:last-child span {
   @include border-radius(0);
+}
+
+.post-date {
+	width:110px;
+	height:110px;	
+	text-align:center;
+	background-color:$eventDateColor;
+}
+
+.post-date {
+	width:110px;
+	height:86px;	
+	text-align:center;
+	background-color:$eventDateColor;
+	padding-top:24px;
+	border:1px solid $grayLight;
+}
+p.post-day {
+	color:#F7F6F2;
+	font-family:$altFontFamily;
+	font-size:65px;
+	line-height:46px;
+}
+p.post-month {
+	font-family:$headingsFontFamily;
+	color:#D3D1CB;
+	font-size:24px;
+	line-height:10px;	
+}
+.post-content {
+	background-color:$white;
+	padding:40px;
 }
