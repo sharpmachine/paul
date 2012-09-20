@@ -1,0 +1,45 @@
+<div class="white-bg-top">
+	<div class="container">
+		<div class="row">
+		  <div class="span24">
+		  	<h1>Unlikely revivalists</h1>
+			<p>Men and women stopping at nothing to establish the Kingdom in their sphere of influence.</p>
+		  </div>
+		</div>
+	</div>
+</div>		
+
+<div class="container">
+	<div class="row">
+	<% @friends.each do |friend| %>
+	<% if friend.featured? %>	
+	  <div class="span8">
+	  	<h3><%= friend.title %></h3>
+		<div class="page-box small">		
+		<%= image_tag friend.picture.image.url(:thumb) %>
+			<div class="container">			
+				<h6><%= friend.name %></h6>			
+				<%= markdown(friend.description, 280) %>
+				<p><%= link_to friend.url, friend.url %></p>
+			</div>	
+		</div>		
+	  </div>
+	<% end %>
+	<% end %>
+	</div>
+	<div class="row">
+		<div class="span24 pad"></div>
+	</div>	
+	<div class="row">
+	  <div class="span24">
+		<% @friends.each do |friend| %>	
+		<% unless friend.featured? %>
+			<%= link_to friend.name, friend.url, :class => "btn" %>&nbsp;&nbsp;
+		<% end %>	
+		<% end %>
+	  </div>	
+	</div>	
+	<div class="row">
+		<div class="span24 pad"></div>
+	</div>	
+</div>

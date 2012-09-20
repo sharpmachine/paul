@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @event], :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [:admin, @event], :html => { :multipart => true, :class => 'form-horizontal upload_form' } do |f| %>
   
 <fieldset>
 
@@ -33,6 +33,9 @@
 
   <%= f.input :title, :label => "Title or Name of event" %>
   <%= f.input :event_type, :label => "Type of event" %>
+
+  <%= f.input :banner, :label => "Event Graphic. Resizes to 310px by 206px." %>
+
   <%= f.input :theme, :label => "What would you like Paul to speak on?", :input_html => { :rows => "3" } %>
   <%= f.input :starts_at, :label => "Event Start Date", :required => true, :as => :string, :input_html => { :class => "datepicker input-small" } %>
   <%= f.input :ends_at, :label => "Event End Date", :as => :string, :input_html => { :class => "datepicker input-small" } %>
@@ -66,3 +69,5 @@
     <%= link_to "Cancel", admin_events_path, :class => "btn" %>
   </div>
 <% end %>
+
+<%= render "layouts/uploading" %>
