@@ -6,21 +6,18 @@
   <thead>
     <tr>
 		<th></th>
-	    <th><%= sortable "title" %></th>
 	    <th><%= sortable "name" %></th>
 	    <th><%= sortable "description" %></th>
-	    <th><%= sortable "url" %></th>
+	    <th><%= sortable "featured" %></th>	
 		<th></th>
 	 </tr>
   </thead>
   <tbody>
     <% @friends.each do |friend| %>
       <tr>
-	      <td><%= image_tag friend.picture.image.url(:thumb) %></td>
-	      <td><%= friend.title %></td>
+	      <td><%= image_tag friend.picture.image.url(:thumb) if friend.picture %></td>
 	      <td><%= friend.name %></td>
-	      <td><%= friend.description %></td>
-	      <td><%= friend.url %></td>
+	      <td><%= friend.featured? ? status_label("featured") : status_label("link") %></td>	
         <td>
 		    <%= link_to "View", admin_friend_path(friend), :class => "btn btn-mini" %>
 		    <%= link_to "Edit", edit_admin_friend_path(friend), :class => "btn btn-mini" %>

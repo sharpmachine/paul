@@ -10,14 +10,16 @@ class Instacache < ActiveRecord::Base
       # Return the cached items
       new_cache    
     else
-      # If there are none, reload the cache from instagram
-      self.delete_all
-      
-      most_recent = Instagram.user_recent_media(211842030)
+      # If there are none, reload the cache from instagram      
+      begin # Rescue from errors incase there is a problem with Instagram
+        most_recent = Instagram.user_recent_media(211842030)
     
-      most_recent.each_with_index do |media_item, i|
-        self.create(:link_url => media_item.link, :low_resolution_url => media_item.images.low_resolution.url, :thumbnail_url => media_item.images.thumbnail.url)
-		    break if i == 3        
+        self.delete_all
+        most_recent.each_with_index do |media_item, i|
+          self.create(:link_url => media_item.link, :low_resolution_url => media_item.images.low_resolution.url, :thumbnail_url => media_item.images.thumbnail.url)
+  		    break if i == 3        
+        end
+      rescue
       end
       all
     end  

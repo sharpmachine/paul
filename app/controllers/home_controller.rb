@@ -36,8 +36,9 @@ class HomeController < ApplicationController
   
   
   def friends
-    @friends = Friend.order("created_at").limit(3)
-    @our_heart = Page.find("give-our-heart")   
+    @selected_nav = "friends"    
+    @friends = Friend.featured.order("updated_at").limit(3)
+    @links = Friend.links
   end  
 end
 

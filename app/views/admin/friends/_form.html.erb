@@ -4,7 +4,7 @@
 <legend><%= controller.action_name.capitalize %> Friend</legend>
 
 <%= f.input :featured, :collection => [['Yes - Show on friends page', true] ,['No - Just show button to website', false]], :as => :radio %>
-  <%= f.input :title %>
+  <%= f.input :title, :label => "Title e.g. 'Athlete'" %>
   <%= f.input :name %>
   <%= f.input :description, :as => :text, :input_html => { :rows => 6 } %>
   <%= f.input :url %>

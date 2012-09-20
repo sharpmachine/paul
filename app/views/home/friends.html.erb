@@ -13,12 +13,29 @@
 	<div class="row">
 	<% @friends.each do |f| %>	
 	  <div class="span8">
-	  	<h1><%= f.title %></h1>
+	  	<h3><%= f.title %></h3>
+		<div class="page-box small">		
 		<%= image_tag f.picture.image.url(:thumb) %>
-		<p><%= f.name %></p>
-		<p><%= f.description %></p>
-		<p><%= link_to f.url, f.url %></p>		
+			<div class="container">			
+				<h6><%= f.name %></h6>			
+				<%= markdown(f.description, 280) %>
+				<p><%= link_to f.url, f.url %></p>
+			</div>	
+		</div>		
 	  </div>
 	<% end %>
 	</div>
+	<div class="row">
+		<div class="span24 pad"></div>
+	</div>	
+	<div class="row">
+	  <div class="span24">
+		<% @links.each do |l| %>	
+			<%= link_to l.name, l.url, :class => "btn" %>&nbsp;&nbsp;
+		<% end %>
+	  </div>	
+	</div>	
+	<div class="row">
+		<div class="span24 pad"></div>
+	</div>	
 </div>

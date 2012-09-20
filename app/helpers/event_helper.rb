@@ -11,6 +11,8 @@ module EventHelper
       "<span class=\"label\">#{status.titleize}</span>".html_safe 
     when "accepted"  
       "<span class=\"label label-info\">#{status.titleize}</span>".html_safe                
+    when "featured"  
+      "<span class=\"label label-success\">Featured</span>".html_safe
     when "published_to_website"  
       "<span class=\"label label-success\">#{status.titleize}</span>".html_safe      
     else
