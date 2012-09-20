@@ -47,12 +47,23 @@ module ApplicationHelper
     end    
   end
   
-  def nice_date(date = nil, include_year = false)
-    if date && include_year
-      date.strftime("%B %-d, %Y")
-    elsif date
-      date.strftime("%B %-d")      
-    end  
+  def nice_date(date = nil, end_date = nil, include_year = false)
+    nice = ""
+    if date
+      if end_date
+        nice << date.strftime("%B %-d") 
+        nice << " to " 
+        if date.month == end_date.month
+          nice << end_date.strftime("%-d")
+        else
+          nice << end_date.strftime("%B %-d")          
+        end  
+        nice << end_date.strftime(", %Y") if include_year
+      else
+        nice << date.strftime("%B %-d") 
+        nice << date.strftime(", %Y") if include_year
+      end
+    end    
   end
   
   def markdown(text, text_length = 450)

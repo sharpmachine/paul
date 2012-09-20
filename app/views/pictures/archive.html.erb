@@ -1,8 +1,10 @@
+<% title "Photo Archive" %>
+
 <div class="filmstrip-bg">
 	<div class="container">
 		<div class="row">
 			<div class="span24">
-				<h1><small>My Photos</small><br />Photo Archive</h1>
+				<h1><small>My Photos</small><br /><%= @title %></h1>
 			</div>
 		</div>
 	<% @pictures.in_groups_of(3, false) do |pictures| %>  

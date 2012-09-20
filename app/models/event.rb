@@ -60,7 +60,7 @@ class Event < ActiveRecord::Base
   end 
   
   def self.website_listing
-    where("status = ? and ((starts_at > ? and ends_at is ?) or (ends_at > ? and ends_at is not ?))", "published_to_website", Date.today, nil, Date.today, nil)
+    where("status = ? and ((starts_at > ? and ends_at is ?) or (ends_at > ? and ends_at is not ?))", "published_to_website", Date.today, nil, Date.today, nil).order("starts_at")
   end
   
   def location

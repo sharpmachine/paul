@@ -3,10 +3,5 @@
 <div class="mini-event-box">
 		<h6><%= event.title %></h6>
 		<p class="place"><%= event.location %></p>
-		<p class="date">
-			<%- if event.ends_at -%> 
-				<%= nice_date(event.starts_at) %> to <%= nice_date(event.ends_at) %>
-			<%- else -%>	
-				<%= nice_date(event.starts_at) %>
-			<%- end -%></p>
+		<p class="date"><%= nice_date(event.starts_at, event.ends_at, true) %></p>
 </div>

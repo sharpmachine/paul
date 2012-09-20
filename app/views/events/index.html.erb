@@ -1,34 +1,47 @@
 <% title "Schedule" %>
 
-<h1><%= @title %></h1>
+<div class="container">
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-	    <th><%= sortable "organization" %></th>
-	    <th><%= sortable "name" %></th>
-	    <th><%= sortable "city" %></th>
-	    <th><%= sortable "country" %></th>	
-	    <th><%= sortable "starts_at" %></th>
-	 </tr>
-  </thead>
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-	      <td><%= event.organization %></td>
-	      <td><%= event.name %></td>
-	      <td><%= event.city %></td>
-	      <td><%= event.country %></td>
-	      <td><%= nice_date(event.starts_at) %></td>		
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+	<div class="row">
+		<div class="span24">
+			<h1><%= @title %></h1>
+		</div>
+	</div>		
 
-<%= paginate @events %>
+	<% @events.each do |event| %>	
+		<div class="row">	
+			<div class="span3">
+				<div class="post-date">
+					<p class="post-day"><%= event.starts_at.strftime("%d") %></p>
+					<p class="post-month"><%= event.starts_at.strftime("%^b") %></p>						
+				</div>
+			</div>
+				<div class="span8">
+					<%= image_tag event.banner.url(:small) %>	
+				</div>	
+				<div class="span13 event-box">
+					<h6><%= event.title %></h6>
+					<p class="place"><%= event.location_name %><br /><%= event.location %></p>
+					<p class="date"><%= nice_date(event.starts_at, event.ends_at, true) %></p>
+					<%= link_to "Event Website", event.url, :class => "btn" %>										
+				</div>
+		</div>	
+	<% end %>	
+		
+	<div class="row">
+		<div class="span24" style="margin-top:20px; ">
+			<%= paginate(@events) %>
+		</div>
+	</div>		
+</div>
 
-<%= link_to "Invite Paul", new_event_path, :class => "btn btn-primary" %>
-
-<%= content_for(:side) do %>
-
-<% end %>
+<div class="white-bg" style="margin-top:27px; ">
+	<div class="container">	
+		<div class="row">
+		  <div class="span24">
+		  	<h1>Invite Paul</h1>
+			<p>Planning an event? Here's how you can <%= link_to "invite Paul", new_event_path %></p>
+		  </div>
+		</div>
+	</div>
+</div>
