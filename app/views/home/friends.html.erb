@@ -1,27 +1,24 @@
-<div class="row">
-  <div class="span12">
-  	<h1>Unlikely revivalists</h1>
-	<p>Men and women stopping at nothing to establish the Kingdom in their sphere of influence.</p>
-  </div>
-</div>
+<div class="white-bg-top">
+	<div class="container">
+		<div class="row">
+		  <div class="span24">
+		  	<h1>Unlikely revivalists</h1>
+			<p>Men and women stopping at nothing to establish the Kingdom in their sphere of influence.</p>
+		  </div>
+		</div>
+	</div>
+</div>		
 
-<div class="row">
-  <div class="span3">
-  	<h1>Minister</h1>
-
-  </div>
-  <div class="span3">
-  	<h1>Athlete</h1>
-
-  </div>
-  <div class="span3">
-  	<h1>Author</h1>
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="span12">
-
-  </div>
+<div class="container">
+	<div class="row">
+	<% @friends.each do |f| %>	
+	  <div class="span8">
+	  	<h1><%= f.title %></h1>
+		<%= image_tag f.picture.image.url(:thumb) %>
+		<p><%= f.name %></p>
+		<p><%= f.description %></p>
+		<p><%= link_to f.url, f.url %></p>		
+	  </div>
+	<% end %>
+	</div>
 </div>

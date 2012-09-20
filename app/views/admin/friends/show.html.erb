@@ -1,0 +1,25 @@
+<% title "Friend" %>
+
+<h1><%= @title %></h1>
+
+<dl class="dl-horizontal">
+  <dt><strong>Title:</strong></dt>
+  <dd><%= @friend.title %></dd>
+  <dt><strong>Name:</strong></dt>
+  <dd><%= @friend.name %></dd>
+  <dt><strong>Description:</strong></dt>
+  <dd><%= @friend.description %></dd>
+  <dt><strong>Url:</strong></dt>
+  <dd><%= @friend.url %></dd>
+  <dt><strong>Picture:</strong></dt>
+  <dd><%= @friend.picture_id %></dd>
+	
+</dl>	
+
+  <%= link_to "Back", admin_friends_path, :class => "btn" %>
+  <%= link_to "Edit", edit_admin_friend_path(@friend), :class => "btn" %>
+  <%= link_to "Destroy", admin_friend_path(@friend), :confirm => "Are you sure?", :method => :delete, :class => "btn btn-danger" %>
+
+<%= content_for(:side) do %>
+
+<% end %>

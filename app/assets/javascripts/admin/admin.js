@@ -88,7 +88,8 @@ jQuery( function($) {
 	};
 	
 	
-	$("#product_short_description").textareaCounter({ limit: 50, word_count_field: "mentor_vision-text" });	
+	$("#product_short_description").textareaCounter({ limit: 50 });	
+	$("#friend_description").textareaCounter({ limit: 50 });		
 	
 });	
 

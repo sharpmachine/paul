@@ -10,6 +10,8 @@ Paulmanwaring::Application.routes.draw do
     
   # Namespace for Admin Section
   namespace :admin do
+    resources :friends
+
     resources :inquiries
 
     resources :events

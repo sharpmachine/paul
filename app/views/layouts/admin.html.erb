@@ -61,6 +61,9 @@
 					<li class="<% if @selected_page == "pages" %>active<% end %>">
 						<%= link_to "Page Content", admin_pages_path %></li>
 				  	</li>
+					<li class="<% if @selected_page == "friends" %>active<% end %>">
+						<%= link_to "Friends", admin_friends_path %></li>
+				  	</li>				
 					<li class="<% if @selected_page == "inquiries" %>active<% end %>">
 						<%= link_to "Contact Form Inquiries", admin_inquiries_path %>
 					</li>

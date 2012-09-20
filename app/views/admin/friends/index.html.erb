@@ -1,0 +1,41 @@
+<% title "Friends" %>
+
+<h1><%= @title %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+		<th></th>
+	    <th><%= sortable "title" %></th>
+	    <th><%= sortable "name" %></th>
+	    <th><%= sortable "description" %></th>
+	    <th><%= sortable "url" %></th>
+		<th></th>
+	 </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+	      <td><%= image_tag friend.picture.image.url(:thumb) %></td>
+	      <td><%= friend.title %></td>
+	      <td><%= friend.name %></td>
+	      <td><%= friend.description %></td>
+	      <td><%= friend.url %></td>
+        <td>
+		    <%= link_to "View", admin_friend_path(friend), :class => "btn btn-mini" %>
+		    <%= link_to "Edit", edit_admin_friend_path(friend), :class => "btn btn-mini" %>
+		
+            <%= link_to "Delete", admin_friend_path(friend), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @friends %>
+
+<%= link_to "New Friend", new_admin_friend_path, :class => "btn btn-primary" %>
+
+<%= content_for(:side) do %>
+
+<% end %>
