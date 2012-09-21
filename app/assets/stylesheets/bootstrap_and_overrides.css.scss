@@ -168,6 +168,9 @@ h3 strong {
 	color: $gray;
 }
 
+h2 strong {
+	color: $gray;	
+}
 
 .nav-bg {
 	margin:0;
@@ -421,6 +424,23 @@ h3 strong {
 	text-align:right;
 }
 
+#invite .nav-intro {
+	margin:0;
+	padding-top:20px;
+	width:340px;
+	height:273px;
+	float:left;		
+}       
+#invite .nav-intro h1 {
+	color:#D3D1CB;
+	font-size:30px;
+}       
+#invite .nav-intro p {
+	color:$white;
+	font-size:12px;	
+	margin-bottom:18px;
+}     
+
 .page-box {
 	width: 310px;
 	height: 425px;
@@ -635,6 +655,22 @@ p.author {
 h3.theres-more {
 	background:transparent url(image-path('theres_more_small.png')) right no-repeat;	
 }
+
+.green-bg {
+	background:url(image-path('tile_green.jpg')) top center repeat;
+	height:293px;
+}
+.invite-header {
+	background:url(image-path('bg_header_invite.jpg')) top center no-repeat;
+}
+
+.white-box {
+	background-color:$white;
+	padding:40px 50px 30px 50px;
+	color:#999999;
+}
+
+
 .white-bg {
 	margin-top:50px;
 	background-color:$white;
@@ -830,4 +866,53 @@ p.post-month {
 .post-content {
 	background-color:$white;
 	padding:40px;
+}
+
+// FORMS
+
+// Set font for forms
+.chzn-single, 
+.chzn-results,
+label,
+input,
+button,
+select,
+textarea {
+  font-family: $altFontFamily;
+  color:$black;
+}
+
+label {
+	color:#767267;
+}
+legend {
+	font-size:14px;
+	color: #7A776D;
+	font-family: $sansFontFamily;	
+	text-transform:uppercase;
+	margin-bottom:0;
+}
+.control-group {
+	margin-bottom:0;
+}
+
+// Shared size and type resets
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  color: $black;
 }

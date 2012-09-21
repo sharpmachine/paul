@@ -1,7 +1,5 @@
-<% home_page ||= false %>
-
 <div class="mini-event-box">
-		<h6><%= event.title %></h6>
+		<h6><%= link_to event.title, events_path + "##{event.id}" %></h6>
 		<p class="place"><%= event.location %></p>
 		<p class="date"><%= nice_date(event.starts_at, event.ends_at, true) %></p>
 </div>

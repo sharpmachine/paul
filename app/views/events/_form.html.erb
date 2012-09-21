@@ -1,9 +1,13 @@
-<%= simple_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
-  
-<fieldset>
-<legend>Church/Ministry Information</legend>
+<%= simple_form_for @event, :html => { } do |f| %>
 
-  <%= f.input :organization, :label => "Name of Organization", :input_html => { :placeholder => "Your Church/Ministry/Organization" } %>
+<div class="span11">  
+<fieldset>
+<legend>Your Information</legend>
+
+  <%= f.input :organization, :label => "Name of Church/Ministry making invitation" %>
+  <%= f.input :name, :label => "Your name" %>
+  <%= f.input :phone, :label => "Your phone number" %>
+  <%= f.input :email, :label => "Your email address" %>
   <%= f.input :organization_address, :label => "Address" %>
   <%= f.input :organization_address2, :label => "Address 2" %>
   <%= f.input :organization_city, :label => "City" %>
@@ -12,15 +16,11 @@
   <%= f.input :organization_country, :label => "Country", :input_html => { :class => "chzn-select" } %>
   <%= f.input :url, :label => "Website URL" %>
 
-</fieldset>
-<fieldset>
-<legend>Your Information</legend>
 
-<%= f.input :name, :label => "Your name" %>
-<%= f.input :phone %>
-<%= f.input :email %>
 
 </fieldset>
+</div>
+<div class="span11 offset1">
 <fieldset>	
 <legend>Event Information</legend>
 
@@ -30,31 +30,30 @@
   <%= f.input :ends_at, :label => "Event End Date", :as => :string, :input_html => { :class => "datepicker input-small" } %>
   <%= f.input :estimated_attendance, :input_html => { :class => "input-small" } %>
   <%= f.input :other_speakers, :label => "Other confirmed speakers" %>
-  <%= f.input :budget_for_additional_traveller, :label => "Would your budget cover someone traveling with Paul?", :as => :radio_buttons %>
+  <%= f.input :budget_for_additional_traveller, :label => "Whenever possible, Paul prefers to travel with his wife or a companion. Would your budget cover someone traveling with Paul?", :as => :radio_buttons, :item_wrapper_class => 'inline' %>
   <%= f.input :housing, :label => "Where will Paul be staying?" %>
-  <%= f.input :bethel_students, :as => :radio_buttons, :label => "Would you also like a team of Bethel students?" %>
+  <%= f.input :bethel_students, :as => :radio_buttons, :label => "Would you also like a team of Bethel students?", :item_wrapper_class => 'inline' %>
   <%= f.input :bethel_students_total, :label => "If so, how many students?", :input_html => { :class => "input-small" } %>
-  <%= f.input :bethel_student_housing, :as => :radio_buttons, :label => "Can you provide host homes for Bethel students?" %>
+  <%= f.input :bethel_student_housing, :as => :radio_buttons, :label => "Can you provide host homes for Bethel students?", :item_wrapper_class => 'inline' %>
 
-</fieldset>
-<fieldset>
-<legend>Event Location</legend>
 
-<div class="control-group radio_buttons optional"><label class="radio_buttons optional control-label">Copy event location from my organization address above?</label><div class="controls"><label class="radio"><input class="radio_buttons optional" id="copy_org_true" name="copy_org_false" type="radio" value="true" />Yes</label><label class="radio"><input class="radio_buttons optional" id="copy_org_false" name="copy_org_false" type="radio" value="false" />No</label></div></div>
 
-  <%= f.input :location_name, :label => "Location of the event" %>
-  <%= f.input :address %>
-  <%= f.input :address2 %>
-  <%= f.input :city %>
-  <%= f.input :state %>
-  <%= f.input :zip %>
-  <%= f.input :country, :input_html => { :class => "chzn-select" } %>
-  <%= f.input :airport, :label => "What airport would Paul fly into?" %>
+	<div class="control-group radio_buttons optional"><label class="radio_buttons optional control-label">Copy event location from my organization address above?</label><div class="controls"><label class="radio inline"><input class="radio_buttons optional" id="copy_org_true" name="copy_org_false" type="radio" value="true" />Yes</label><label class="radio inline"><input class="radio_buttons optional" id="copy_org_false" name="copy_org_false" type="radio" value="false" />No</label></div></div>
 
-</fieldset>
+	  <%= f.input :location_name, :label => "Location of the event" %>
+	  <%= f.input :address %>
+	  <%= f.input :address2 %>
+	  <%= f.input :city %>
+	  <%= f.input :state %>
+	  <%= f.input :zip %>
+	  <%= f.input :country, :input_html => { :class => "chzn-select" } %>
+	  <%= f.input :airport, :label => "What airport would Paul fly into?" %>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => "btn btn-primary" %>
-    <%= link_to "Cancel", events_path, :class => "btn" %>
-  </div>
-<% end %>
+	</fieldset>
+
+	  <div class="form-actions">
+	    <%= f.submit nil, :class => "btn btn-primary" %>
+	    <%= link_to "Cancel", events_path, :class => "btn" %>
+	  </div>
+	<% end %>
+</div>	

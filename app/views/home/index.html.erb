@@ -2,7 +2,7 @@
 
 <%= content_for(:nav) do %>
 	<div class="nav-intro">
-		<%= markdown(@intro.content) %>
+		<%= raw(@intro.content) %>
 		<%= link_to "Read More", paul_path, :class => "btn btn-primary" %>
 	</div>	
 

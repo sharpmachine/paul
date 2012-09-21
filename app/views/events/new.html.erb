@@ -1,5 +1,39 @@
 <% title "Invite Paul" %>
 
-<h1><%= @title %></h1>
-
-<%= render "form" %>
+<div class="green-bg">
+	<div class="invite-header">
+		<div class="container">
+			<div class="nav-intro">
+				<h1>Why invite Paul</h2>
+				<%= raw(@intro.content) %>
+			</div>	
+		</div>	
+	</div>	
+</div>
+<div class="container">
+	<div class="row">
+		<div class="span24">
+			<h2><strong>How</strong> to invite Paul</h2>
+		</div>	
+	</div>
+	<div class="row">
+		<div class="span24">
+			<div class="white-box">
+				<%= raw(@how.content) %>
+			</div>
+		</div>	
+	</div>		
+</div>	
+<div class="white-bg">
+	<div class="container">
+		<div class="row">	
+			<div class="span24">				
+				<h1><%= @title %></h1>
+				<h6>Please supply us with the following information</h6>
+			</div>
+		</div>		
+		<div class="row">			
+			<%= render "form" %>
+		</div>
+	</div>
+</div>
