@@ -50,6 +50,7 @@ jQuery( function($) {
 		$("#event_state").val( $("#event_organization_state").val() );						
 		$("#event_zip").val( $("#event_organization_zip").val() );
 		$("#event_country").val( $("#event_organization_country").val() );										
+		$("#event_country").trigger("liszt:updated");				
 	});
 	$("#copy_org_false").click(function() {
 		$("#event_location_name").val("");
@@ -59,6 +60,7 @@ jQuery( function($) {
 		$("#event_state").val("");	
 		$("#event_zip").val("");
 		$("#event_country").val("");												
+		$("#event_country").trigger("liszt:updated");		
 	});
 	
 	var $myCarousel = $('#photoCarousel').carousel({'interval': false});

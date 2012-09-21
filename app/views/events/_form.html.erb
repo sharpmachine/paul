@@ -8,52 +8,80 @@
   <%= f.input :name, :label => "Your name" %>
   <%= f.input :phone, :label => "Your phone number" %>
   <%= f.input :email, :label => "Your email address" %>
-  <%= f.input :organization_address, :label => "Address" %>
+  <%= f.input :url, :label => "Website of Church/Ministry" %>
+
+  <%= f.input :organization_address, :label => "Address of Church/Ministry", :label_html => { :class => "label-pad" } %>
   <%= f.input :organization_address2, :label => "Address 2" %>
   <%= f.input :organization_city, :label => "City" %>
-  <%= f.input :organization_state, :label => "State/Province" %>
-  <%= f.input :organization_zip, :label => "Zip/Postal Code" %>
+  <%= f.input :organization_state, :label => "State/Province", :input_html => { :class => "input-medium" } %>
+  <%= f.input :organization_zip, :label => "Zip/Postal Code", :input_html => { :class => "input-small" } %>
   <%= f.input :organization_country, :label => "Country", :input_html => { :class => "chzn-select" } %>
-  <%= f.input :url, :label => "Website URL" %>
-
-
 
 </fieldset>
+<fieldset>
+<legend class="label-pad">Travel Information</legend>
+
+  <%= f.input :airport, :label => "What airport would Paul fly into?" %>
+<span class="help-block"><strong>*</strong> Regarding airfare if applicable:  we will purchase economy tickets from our end.  Unless otherwise arranged, please remit payment within 3 weeks of booking. </span>
+
+<%= f.input :budget_for_additional_traveller, :label => "Would your budget cover someone traveling with Paul?", :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+<span class="help-block"><strong>*</strong> Whenever possible, Paul prefers to travel with his wife or a companion.</span>
+
+  <%= f.input :housing, :label => "Where will Paul be staying?" %>
+
+  <%= f.input :bethel_students, :as => :radio_buttons, :label => "Would you like Paul to bring a group of Bethel Supernatural Ministry School Students with him to serve as his ministry team?", :item_wrapper_class => 'inline', :label_html => { :class => "label-pad" } %>
+<span class="help-block"><strong>*</strong> Students cover their own expenses.</span>
+
+  <%= f.input :bethel_students_total, :label => "If so, how many students?", :input_html => { :class => "input-small" } %>
+
+
+  <%= f.input :bethel_student_housing, :as => :radio_buttons, :label => "Would you be able to find host-homes for the students to help reduce their expenses?", :item_wrapper_class => 'inline' %>
+
+</fieldset>
+
 </div>
 <div class="span11 offset1">
 <fieldset>	
 <legend>Event Information</legend>
 
   <%= f.input :event_type, :label => "Type of event" %>
-  <%= f.input :theme, :label => "What would you like Paul to speak on?", :input_html => { :rows => "3" } %>
-  <%= f.input :starts_at, :label => "Event Start Date", :required => true, :as => :string, :input_html => { :class => "datepicker input-small" } %>
-  <%= f.input :ends_at, :label => "Event End Date", :as => :string, :input_html => { :class => "datepicker input-small" } %>
-  <%= f.input :estimated_attendance, :input_html => { :class => "input-small" } %>
+<span class="help-block"><strong>*</strong> Conference, Strategic Planning for leadership, Church Services, School of Ministry, Regional Meeting with Local Pastors, etc.</span>
+
+  <%= f.input :theme, :label => "What would you like Paul to speak on?", :input_html => { :rows => "4", :class => "span8" } %>
+<span class="help-block"><strong>*</strong> Suggested Themes: Hope & Glory, Glory & Honor, Heavens Government & Justice, Discovering your Sphere of Influence, Supernatural Strategy, Culture & Transition.</span>
+
+<div class="row">
+	<div class="span6">
+	<%= f.input :starts_at, :label => "Event Start Date", :required => true, :as => :string, :input_html => { :class => "datepicker input-small" } %>
+	</div>
+	<div class="span5">	
+	  <%= f.input :ends_at, :label => "Event End Date (if multi-day)", :as => :string, :input_html => { :class => "datepicker input-small" } %>
+	</div>
+</div>
+  <%= f.input :non_specific_date_info, :label => "If you do not have a specific date, please specify the number of days you would like to host Paul, and if this would be a mid-week or weekend event:", :input_html => { :class => "input-xlarge" } %>
+
+
+  <%= f.input :estimated_attendance, :label => "Number of People Expected to Attend Meetings", :input_html => { :class => "input-small" } %>
   <%= f.input :other_speakers, :label => "Other confirmed speakers" %>
-  <%= f.input :budget_for_additional_traveller, :label => "Whenever possible, Paul prefers to travel with his wife or a companion. Would your budget cover someone traveling with Paul?", :as => :radio_buttons, :item_wrapper_class => 'inline' %>
-  <%= f.input :housing, :label => "Where will Paul be staying?" %>
-  <%= f.input :bethel_students, :as => :radio_buttons, :label => "Would you also like a team of Bethel students?", :item_wrapper_class => 'inline' %>
-  <%= f.input :bethel_students_total, :label => "If so, how many students?", :input_html => { :class => "input-small" } %>
-  <%= f.input :bethel_student_housing, :as => :radio_buttons, :label => "Can you provide host homes for Bethel students?", :item_wrapper_class => 'inline' %>
+  
+</fieldset>
+<fieldset>
+<legend class="label-pad">Event Location</legend>
 
+	<div class="control-group radio_buttons optional"><label class="radio_buttons optional control-label">Event location same as Address of Church/Ministry?</label><div class="controls"><label class="radio inline"><input class="radio_buttons optional" id="copy_org_true" name="copy_org_false" type="radio" value="true" />Yes</label><label class="radio inline"><input class="radio_buttons optional" id="copy_org_false" name="copy_org_false" type="radio" value="false" />No</label></div></div>
 
-
-	<div class="control-group radio_buttons optional"><label class="radio_buttons optional control-label">Copy event location from my organization address above?</label><div class="controls"><label class="radio inline"><input class="radio_buttons optional" id="copy_org_true" name="copy_org_false" type="radio" value="true" />Yes</label><label class="radio inline"><input class="radio_buttons optional" id="copy_org_false" name="copy_org_false" type="radio" value="false" />No</label></div></div>
-
-	  <%= f.input :location_name, :label => "Location of the event" %>
+	  <%= f.input :location_name, :label => "Location of the event", :label_html => { :class => "label-pad" } %>
 	  <%= f.input :address %>
 	  <%= f.input :address2 %>
 	  <%= f.input :city %>
 	  <%= f.input :state %>
 	  <%= f.input :zip %>
 	  <%= f.input :country, :input_html => { :class => "chzn-select" } %>
-	  <%= f.input :airport, :label => "What airport would Paul fly into?" %>
 
-	</fieldset>
-
+</fieldset>
 	  <div class="form-actions">
-	    <%= f.submit nil, :class => "btn btn-primary" %>
-	    <%= link_to "Cancel", events_path, :class => "btn" %>
+	    <%= f.submit "Submit Invitation", :class => "btn" %>
 	  </div>
 	<% end %>
+</div>	
 </div>	

@@ -1,6 +1,16 @@
 <% title "Friends" %>
 
-<h1><%= @title %></h1>
+<div class="row">
+  <div class="span6">
+
+	<h1><%= @title %></h1>
+  </div>
+  <div class="span6">
+	<%= link_to "New Friend", new_admin_friend_path, :class => "btn btn-primary pull-right" %>
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
 
 <table class="table table-striped">
   <thead>
@@ -31,8 +41,4 @@
 
 <%= paginate @friends %>
 
-<%= link_to "New Friend", new_admin_friend_path, :class => "btn btn-primary" %>
-
-<%= content_for(:side) do %>
-
-<% end %>
+</div></div>

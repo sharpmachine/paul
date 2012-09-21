@@ -10,7 +10,7 @@
 	  <dt><strong>Status:</strong></dt>
 	  <dd><%= status_label(@event.status) %></dd>	
 	  <dt><strong>Dates:</strong></dt>
-	  <dd><%= nice_date(@event.starts_at, @event.ends_at, true) %></dd>
+	  <dd><%= nice_date(@event.starts_at, @event.ends_at, true) %><% if @event.non_specific? %><br /><%= @event.non_specific_date_info %><% end %></dd>
 	  <dt><strong>Organization:</strong></dt>
 	  <dd><%= @event.organization %></dd>
 	  <dt><strong>Name:</strong></dt>

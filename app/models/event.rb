@@ -3,17 +3,17 @@ class Event < ActiveRecord::Base
                   :organization_state, :organization_zip, :organization_country, :url, :event_type, :theme, :starts_at, :ends_at, 
                   :estimated_attendance, :other_speakers, :budget_for_additional_traveller, :housing, :bethel_students, 
                   :bethel_students_total, :bethel_student_housing, :location_name, :address, :address2, :city, :state, 
-                  :zip, :country, :country_code, :information, :airport, :banner
+                  :zip, :country, :information, :airport, :non_specific_date_info
 
   attr_accessible :organization, :name, :phone, :email, :organization_address, :organization_address2, :organization_city, 
                   :organization_state, :organization_zip, :organization_country, :url, :event_type, :theme, :starts_at, :ends_at, 
                   :estimated_attendance, :other_speakers, :budget_for_additional_traveller, :housing, :bethel_students, 
                   :bethel_students_total, :bethel_student_housing, :location_name, :address, :address2, :city, :state, 
-                  :zip, :country, :country_code, :information, :airport, :status, :title, :banner, :as => :admin      
+                  :zip, :country, :information, :airport, :status, :title, :banner, :non_specific_date_info, :as => :admin      
   
-  validates :organization, :name, :phone, :email, :presence => true
+  validates :organization, :name, :phone, :email, :address, :city, :state, :zip, :country, :location_name, :presence => true
   validates_presence_of :title, :if => :published?
-  validates_date :starts_at, :after => :today, :allow_nil => false, :allow_blank => false, :after_message => "must be a date in the future"
+  validates_date :starts_at, :after => :today, :allow_nil => false, :allow_blank => false, :after_message => "must be a date in the future", :unless => :non_specific?
   validates_date :ends_at, :on_or_after => :starts_at, :allow_nil => true, :allow_blank => true, :after => "must be on or after start date"
   validates_format_of :url, :with => /^(((http|https?):\/\/)?((?:[-a-z0-9]+\.)+[a-z]{2,})).*/i, :message => "has an invalid format", :if => :url_filled?
   validates_numericality_of :estimated_attendance, :only_integer => true, :allow_nil => true, :greater_than => 0
@@ -66,7 +66,10 @@ class Event < ActiveRecord::Base
   def location
     [city, state, country].compact.reject { |s| s.blank? }.join(', ')
   end
-
+  
+  def non_specific?
+    non_specific_date_info.present? && !accepted?
+  end
 end
 # == Schema Information
 #
@@ -112,5 +115,5 @@ end
 #  banner_content_type             :string(255)
 #  banner_file_size                :integer
 #  banner_updated_at               :datetime
-#
+#  non_specific_date_info          :string(255)
 

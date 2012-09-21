@@ -103,5 +103,6 @@ end
 #  banner_content_type             :string(255)
 #  banner_file_size                :integer
 #  banner_updated_at               :datetime
+#  non_specific_date_info          :string(255)
 #
 

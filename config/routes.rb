@@ -42,6 +42,8 @@ Paulmanwaring::Application.routes.draw do
   match 'contact' => 'contacts#index', :as => :contact
   match 'privacy' => 'home#privacy', :as => :privacy
   match 'terms' => 'home#terms', :as => :terms    
+  match 'kisses' => 'splashes#index', :as => :kisses
+  match 'kisses-from-a-good-god' => 'splashes#index'        
     
   root :to => 'home#index'
   match '*a', :to => 'errors#routing', :format => false  

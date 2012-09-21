@@ -27,6 +27,7 @@ class EventsController < ApplicationController
       UserMailer.event_notification(@event).deliver
       redirect_to events_path, notice: "Thank you for inviting Paul to minister. We will be in touch with you soon."
     else
+      @selected_nav = "invite"      
       @intro = Page.find("why-invite-paul") 
       @how = Page.find("how-to-invite-paul")           
       render :new

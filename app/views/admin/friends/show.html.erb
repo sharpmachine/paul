@@ -1,5 +1,7 @@
 <% title "Friend" %>
 
+<div class="row">
+  <div class="span12">
 <h1><%= @title %></h1>
 
 <dl class="dl-horizontal">
@@ -20,6 +22,4 @@
   <%= link_to "Edit", edit_admin_friend_path(@friend), :class => "btn" %>
   <%= link_to "Destroy", admin_friend_path(@friend), :confirm => "Are you sure?", :method => :delete, :class => "btn btn-danger" %>
 
-<%= content_for(:side) do %>
-
-<% end %>
+</div></div>

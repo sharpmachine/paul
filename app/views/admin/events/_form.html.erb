@@ -37,8 +37,15 @@
   <%= f.input :banner, :label => "Event Graphic. Resizes to 310px by 206px." %>
 
   <%= f.input :theme, :label => "What would you like Paul to speak on?", :input_html => { :rows => "3" } %>
-  <%= f.input :starts_at, :label => "Event Start Date", :required => true, :as => :string, :input_html => { :class => "datepicker input-small" } %>
-  <%= f.input :ends_at, :label => "Event End Date", :as => :string, :input_html => { :class => "datepicker input-small" } %>
+<div class="row">
+	<div class="span4">
+	<%= f.input :starts_at, :label => "Event Start Date", :required => true, :as => :string, :input_html => { :class => "datepicker input-small" } %>
+	</div>
+	<div class="span5">	
+	  <%= f.input :ends_at, :label => "Event End Date (if multi-day)", :as => :string, :input_html => { :class => "datepicker input-small" } %>
+	</div>
+</div>
+  <%= f.input :non_specific_date_info, :label => "If you do not have a specific date, please specify the number of days you would like to host Paul, and if this would be a mid-week or weekend event:", :input_html => { :class => "input-xlarge" } %>
   <%= f.input :estimated_attendance, :input_html => { :class => "input-small" } %>
   <%= f.input :other_speakers, :label => "Other confirmed speakers" %>
   <%= f.input :budget_for_additional_traveller, :label => "Would your budget cover someone traveling with Paul?", :as => :radio_buttons %>

@@ -871,6 +871,15 @@ p.post-month {
 // FORMS
 
 // Set font for forms
+.help-block {
+	color:#767267;	
+	font-size:11px;
+	font-family: $altFontFamily;	
+}
+
+.help-inline {
+	font-family: $altFontFamily;	
+}
 .chzn-single, 
 .chzn-results,
 label,
@@ -892,6 +901,10 @@ legend {
 	text-transform:uppercase;
 	margin-bottom:0;
 }
+.label-pad {
+	margin-top:30px;
+}
+
 .control-group {
 	margin-bottom:0;
 }
@@ -915,4 +928,18 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   color: $black;
+}
+abbr[title] {
+	color:$red;
+	border-bottom:0;	
+}
+
+fieldset {
+	margin-bottom:30px;
+}
+
+.form-actions {
+	padding:0;
+	margin-top:40px;
+	border-top:0;
 }
