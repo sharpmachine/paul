@@ -6,7 +6,7 @@ class Contact
 
   attr_accessor :firstname, :lastname, :email, :content, :inquiry_id
   
-  validates_presence_of :firstname, :lastname, :content
+  validates_presence_of :firstname, :lastname, :content, :email
   validates_presence_of :inquiry_id, :message => "needs to be selected"  
   validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
   

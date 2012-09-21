@@ -17,7 +17,6 @@ class ContactsController < ApplicationController
       @inquiry = Inquiry.find(@contact.inquiry_id)
 
       UserMailer.contact_form(@inquiry, @contact).deliver
-      flash[:notice] = "Your message has been sent."
       redirect_to :action => :index, :sent => true
 
     else  

@@ -7,37 +7,67 @@
 			<div class="nav-intro">
 				<h1>Our Heart</h2>
 				<%= raw(@our_heart.content) %>
-				
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_s-xclick">
 				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
 				">
 				<input class="btn btn-primary" name="commit" type="submit" value="Donate to Paul" />
 				</form>
-				
-				
 			</div>	
 		</div>	
 	</div>	
 </div>
 
+<div class="container">
 <div class="row">
-  <div class="span3">
-  	<h1>Chloe and Stu's Orphanage</h1>
-	<%= markdown(@chloe_and_stu.content) %>
+			<div class="span24 pad"></div>
+</div>			
+<div class="row">
+  <div class="span8">
+	<h5>Chloe and Stu's Orphanage</h5>
+	<div class="page-box home">
+		<%= image_tag "stu_and_chloe.jpg", :class => "post-thumbnail" %>
+		<div class="container">						
+			<%= raw(@chloe_and_stu.content) %>
+		</div>	
+	</div>
+	<div class="read-more">
+		<%= link_to "Donate Now", "https://uk.virginmoneygiving.com/fundraiser-web/donate/makeDonationForCharityDisplay.action?charityId=1001621&frequencyType=S", :class => "btn" %>
+	</div>
+	
   </div>
-  <div class="span3">
-  	<h1>John and Sarah's Orphanage</h1>
-	<%= markdown(@john_and_sarah.content) %>
+  <div class="span8">
+  	<h5>John and Sarah's Orphanage</h5>
+	<div class="page-box home">
+		<%= image_tag "john_and_sarah.jpg", :class => "post-thumbnail" %>
+		<div class="container">						
+			<%= raw(@john_and_sarah.content) %>
+		</div>	
+	</div>
+	<div class="read-more">
+		<%= link_to "Donate Now", "http://www.lighttothenationsfellowship.com/one-time-gift/", :class => "btn" %>
+	</div>	
   </div>
-  <div class="span3">
-  	<h1>Down Syndrome Charity</h1>
-	<%= markdown(@down_syndrome.content) %>
+  <div class="span8">
+  	<h5>Erica Greve</h5>
+	<div class="page-box home">
+		<%= image_tag "erica_greve.jpg", :class => "post-thumbnail" %>
+		<div class="container">						
+			<%= raw(@erica.content) %>
+		</div>	
+	</div>
+	<div class="read-more">
+		<%= link_to "Donate Now", "http://www.lighttothenationsfellowship.com/one-time-gift/", :class => "btn" %>
+	</div>
   </div>
+</div>
+<div class="row">
+  <div class="span24">
+  	<h5 class="pull-right"><%= image_tag "cards.jpg" %> Payments are securely processed by <%= image_tag "paypal.jpg", :alt => "PayPal", :title => "PayPal" %></h5>
+  </div>
+</div>
+<div class="row">
+	<div class="span24 pad"></div>
+</div>
 </div>
 
-<div class="row">
-  <div class="span12">
-  	<h1>Payments are securely processed by paypal</h1>
-  </div>
-</div>

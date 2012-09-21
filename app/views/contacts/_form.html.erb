@@ -6,9 +6,9 @@
   <%= f.input :lastname %>
   <%= f.input :email %>
   <%= f.input :inquiry_id, :label => "About", :collection => @inquiries.map { |i| [i.description, i.id] }, :include_blank => "Please select..." %>
-  <%= f.input :content, :label => "Your Message", :as => :text %>
+  <%= f.input :content, :label => "Your Message", :as => :text, :input_html => { :rows => 6, :class => "span12"} %>
 
   <div class="form-actions">
-    <%= f.submit "Send", :class => "btn btn-primary" %>
+    <%= f.submit "Send", :class => "btn" %>
   </div>
 <% end %>
