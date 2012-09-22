@@ -42,6 +42,7 @@ $purple:                #7a43b6 !default;
 // Scaffolding
 // -------------------------
 $bodyBackground:        $pageColor !default;
+$bodyBackgroundSplash:	#892121 !default;
 $textColor:             $grayLight !default;
 
 
@@ -987,4 +988,86 @@ fieldset {
 	margin-top:40px;
 	border-top:0;
 	background-color:transparent;
+}
+
+body#splash {
+	background:$bodyBackgroundSplash url(image-path('bg_splash.gif')) top center no-repeat;	
+}
+
+.splash-content {
+	margin-top:50px;
+	padding-top:60px;
+	background-color:$white;
+}
+
+.splash-content h1 {
+	font-size:20px;
+	color:#982223;
+	margin-top:0;
+	line-height:24px;
+}
+
+.splash-content h2 {
+	font-family:$serifFontFamily;
+	font-size:18px;
+	color:#333333;
+	text-transform:none;
+	margin-top:0;	
+	line-height:34px;
+	margin-bottom:30px;
+	border-bottom:1px solid #CCC;
+	padding-bottom:24px;
+}
+
+.splash-content h3 {
+	font-family:$serifFontFamily;
+	font-size:14px;
+	font-style:italic;
+	color: #982223;
+	line-height:0;
+	margin:14px 0 30px 0;	
+}
+	
+.splash-content p {
+	font-family:$serifFontFamily;
+	font-size:12px;
+	color:#666666;
+}
+.endorsement {
+	width:330px;
+	height:107px;	
+	background:url(image-path('splash_endorsement.jpg'));	
+	font-family:$serifFontFamily;
+	font-size:12px;
+	color:#333333;
+	padding:20px 30px 10px 30px;		
+}
+.promo-video {
+	margin-top:27px;
+	border-top:1px solid #CCC;
+	text-align:center;
+	padding:10px 0 40px 0;
+}
+
+.splash-content h4 { 
+	font-family:$sansFontFamily;
+	font-size:16px;
+	color:#333333;
+	text-transform:uppercase;
+	margin-bottom:24px;
+}
+.back-button {
+	display:block;
+	width: 230px;
+	height:48px;
+	background:$white url(image-path('theres_more.png')) left no-repeat;
+	margin:0 0 40px 0;
+	@include border-bottom-left-radius(5px);	
+	@include border-bottom-right-radius(5px);			
+}
+
+.back-button h5 { 
+	margin:0;
+	line-height:0;
+	padding:0;
 }

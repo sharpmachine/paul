@@ -73,18 +73,25 @@ jQuery( function($) {
 	    });
 	});
 	
-	// Support for AJAX loaded modal window.
-	// Focuses on first input textbox after it loads the window.
-	$('[data-toggle="modal"]').click(function(e) {
-		e.preventDefault();
-		var href = $(this).attr('href');
-		if (href.indexOf('#') == 0) {
-			$(href).modal('open');
-		} else {
-			$.get(href, function(data) {
-				$('<div class="modal fade" >' + data + '</div>').modal();
-			}).success(function() { $('input:text:visible:first').focus(); });
-		}
-	});	
 	
+	// Fire fancybox video popups
+	$("#video_1").click(function() {
+		$.fancybox({
+			'padding'		: 0,
+			'autoScale'		: false,
+			'transitionIn'	: 'none',
+			'transitionOut'	: 'none',
+			'title'			: this.title,
+			'width'			: 596,
+			'height'		: 335,
+			'href'			: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+			'type'			: 'swf',
+			'swf'			: {
+				'wmode'				:'transparent',
+				'allowfullscreen'	:'true'
+			}
+		});
+
+		return false;
+	});
 });
