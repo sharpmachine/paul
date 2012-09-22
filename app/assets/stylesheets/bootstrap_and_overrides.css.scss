@@ -998,6 +998,7 @@ body#splash {
 	margin-top:50px;
 	padding-top:60px;
 	background-color:$white;
+	@include border-radius(5px);		
 }
 
 .splash-content h1 {
