@@ -1058,15 +1058,23 @@ body#splash {
 .back-button {
 	display:block;
 	width: 230px;
-	height:48px;
-	background:$white url(image-path('theres_more.png')) left no-repeat;
+	height:44px;
+	background:$white url(image-path('theres_more.png')) 9px 9px no-repeat;
 	margin:0 0 40px 0;
 	@include border-bottom-left-radius(5px);	
-	@include border-bottom-right-radius(5px);			
+	@include border-bottom-right-radius(5px);
+	padding-top:4px;			
 }
 
 .back-button h5 { 
-	margin:0;
-	line-height:0;
+	margin:0 0 0 35px;
+	line-height:20px;
 	padding:0;
+	font-size:16px;
+	&:hover {
+		text-decoration:none;
+	}
+}
+.back-button h5 small { 
+	font-size: 12px;
 }
