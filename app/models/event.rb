@@ -20,10 +20,16 @@ class Event < ActiveRecord::Base
   
   
   has_attached_file :banner, :styles => { :small => "310x206#" },
-                    :url  => "/assets/banners/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/banners/:id/:style/:basename.:extension"  
+                    :storage => :s3,
+                    :s3_permissions => :public_read,                    
+                    :s3_credentials => {
+                      :bucket            => ENV['S3_BUCKET_NAME'],
+                      :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+                      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+                    },
+                    :path => "/:class/:id/:attachment/:style/:filename"
   
-  validates_attachment_size :banner, :less_than => 5.megabytes
+  validates_attachment_size :banner, :less_than => 10.megabytes
   validates_attachment_content_type :banner, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"
   
   validates_attachment_presence :banner, :if => :published?

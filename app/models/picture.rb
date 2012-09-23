@@ -2,12 +2,19 @@ class Picture < ActiveRecord::Base
   
   has_many :posts
   
-  has_attached_file :image, :styles => { :thumb => { :geometry => "308x116#", :processors => [:cropper]}, :small => "308x206#", :medium => { :geometry => "628x235#", :processors => [:cropper]}, :large => "950x660>" },
-                    :url  => "/assets/pictures/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/pictures/:id/:style/:basename.:extension"
+  has_attached_file :image, 
+                    :styles => { :thumb => { :geometry => "308x116#", :processors => [:cropper]}, :small => "308x206#", :medium => { :geometry => "628x235#", :processors => [:cropper]}, :large => "950x660>" },
+                    :storage => :s3,
+                    :s3_permissions => :public_read,                    
+                    :s3_credentials => {
+                      :bucket            => ENV['S3_BUCKET_NAME'],
+                      :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+                      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+                    },
+                    :path => "/:class/:id/:attachment/:style/:filename"
 
   validates_attachment_presence :image
-  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_size :image, :less_than => 10.megabytes
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"
   
   validates_presence_of :title

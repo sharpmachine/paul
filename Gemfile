@@ -17,6 +17,8 @@ gem 'jquery-rails'
 
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'carmen'
+gem 'aws-s3'
+gem 'aws-sdk'
 gem 'paperclip'
 gem 'kaminari'
 gem 'devise'

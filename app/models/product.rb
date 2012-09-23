@@ -5,12 +5,19 @@ class Product < ActiveRecord::Base
   
   validates_length_of :short_description, :maximum => 50, :too_long => "must be 50 words maximum.", :tokenizer => lambda {|str| str.scan(/\w+/) }
   
-  has_attached_file :image, :styles => { :small => "158x200#" },
-                    :url  => "/assets/products/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+  has_attached_file :image, 
+                    :styles => { :small => "158x200#" },
+                    :storage => :s3,
+                    :s3_permissions => :public_read,                    
+                    :s3_credentials => {
+                      :bucket            => ENV['S3_BUCKET_NAME'],
+                      :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+                      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+                    },
+                    :path => "/:class/:id/:attachment/:style/:filename"
 
   validates_attachment_presence :image
-  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_size :image, :less_than => 10.megabytes
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"   
   
   PRODUCT_TYPES = %w[book teaching_series toolkit]  
