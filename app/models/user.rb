@@ -9,19 +9,19 @@ class User < ActiveRecord::Base
   
   has_many :posts
   
-  has_attached_file :avatar, 
-                    :styles => { :thumb => "75x75>", :small => "150x150>" },
-                    :storage => :s3,
-                    :s3_permissions => :public_read,                    
-                    :s3_credentials => {
-                      :bucket            => ENV['S3_BUCKET_NAME'],
-                      :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
-                      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-                    },
-                    :path => "/:class/:id/:attachment/:style/:filename"
-
-  validates_attachment_size :avatar, :less_than => 10.megabytes
-  validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"  
+  # has_attached_file :avatar, 
+  #                   :styles => { :thumb => "75x75>", :small => "150x150>" },
+  #                   :storage => :s3,
+  #                   :s3_permissions => :public_read,                    
+  #                   :s3_credentials => {
+  #                     :bucket            => ENV['S3_BUCKET_NAME'],
+  #                     :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
+  #                     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  #                   },
+  #                   :path => "/:class/:id/:attachment/:style/:filename"
+  # 
+  # validates_attachment_size :avatar, :less_than => 10.megabytes
+  # validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"  
   validates_format_of :url, :with => /^(((http|https?):\/\/)?((?:[-a-z0-9]+\.)+[a-z]{2,})).*/i, :message => "has an invalid format", :if => :url_filled?  
       
   # ADMIN_ROLES are any ROLE that has access to the /admin/ namespace. So the ROLES list may be longer than the ADMIN_ROLES list.

@@ -2,20 +2,17 @@
 #
 # Table name: products
 #
-#  id                 :integer         not null, primary key
-#  title              :string(255)
-#  author             :string(255)
-#  url                :string(255)
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  image_file_name    :string(255)
-#  image_content_type :string(255)
-#  image_file_size    :integer
-#  image_updated_at   :datetime
-#  product_type       :string(255)
-#  slug               :string(255)
-#  featured           :boolean         default(FALSE), not null
-#  short_description  :text
+#  id                :integer         not null, primary key
+#  title             :string(255)
+#  author            :string(255)
+#  url               :string(255)
+#  created_at        :datetime        not null
+#  updated_at        :datetime        not null
+#  product_type      :string(255)
+#  slug              :string(255)
+#  featured          :boolean         default(FALSE), not null
+#  short_description :text
+#  image             :string(255)
 #
 
 require File.dirname(__FILE__) + '/../spec_helper'

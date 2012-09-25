@@ -3,7 +3,7 @@
 <% if home_page %>
 	<div class="page-box home">
 		<div class="container">	
-			<%= image_tag product.image.url(:small), :class => "product-image" %>	
+			<%= image_tag product.image_url(:small), :class => "product-image" %>	
 		
 			
 			<h6><%= product.title %></h6>
@@ -17,7 +17,7 @@
 
 	<h3 class="theres-more"><%= product.product_type %></h3>
 
-	<div class="product-box"><%= image_tag product.image.url(:small), :class => "product-image" %></div>
+	<div class="product-box"><%= image_tag product.image_url(:small), :class => "product-image" %></div>
 	<div class="product-description">
 		<h6><%= product.title %></h6>
 		<p><%= markdown(product.short_description) %></p>

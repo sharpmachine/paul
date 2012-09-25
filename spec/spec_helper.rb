@@ -11,7 +11,6 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'factory_girl'
-  require 'paperclip/matchers'
   #require 'webrat'
   require 'email_spec/helpers'
   require 'email_spec/matchers'
@@ -42,8 +41,6 @@ Spork.prefork do
     # Load Devise Test Helpers
     config.include Devise::TestHelpers, :type => :controller
 
-    # Load Paperclip test helpers
-    config.include Paperclip::Shoulda::Matchers
     # Load controller Macros
     #config.extend ControllerMacros, :type => :controller
 

@@ -8,8 +8,11 @@
   <%= f.input :title %>
   <%= f.input :author %>
   <%= f.input :short_description, :input_html => { :rows => 6, :style => "width:500px;" } %>
-  <%= f.input :url %>
-  <%= f.input :image %>		
+  <%= image_tag(@product.image_url(:small), :class => "pull-right") if @product.image? %>
+  <%= f.input :url, :label => "URL of link to the Bethel Store" %>
+  <%= f.input :image, :label => "Image file for product" %>	
+  <%= f.input :remote_image_url, :label => "or specify a URL for the image" %>
+  <%= f.input :image_cache, :as => "hidden" %>	
 
 </fieldset>
 

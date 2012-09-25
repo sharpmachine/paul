@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921163625) do
+ActiveRecord::Schema.define(:version => 20120925162840) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -135,16 +135,13 @@ ActiveRecord::Schema.define(:version => 20120921163625) do
     t.string   "title"
     t.string   "author"
     t.string   "url"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "product_type"
     t.string   "slug"
-    t.boolean  "featured",           :default => false, :null => false
+    t.boolean  "featured",          :default => false, :null => false
     t.text     "short_description"
+    t.string   "image"
   end
 
   add_index "products", ["slug"], :name => "index_products_on_slug", :unique => true
