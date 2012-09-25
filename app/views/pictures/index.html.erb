@@ -14,7 +14,7 @@
 						<div class="<%= picture.has_post? ? "blog-white" : "pm-white" %>"> 
 						
 							<h4><%= picture.title %><% if picture.has_post? %>&nbsp;&nbsp;<small><%= link_to "see blog post", post_path(picture.posts.first) %></small><% end %></h4>
-							<p><%= picture.description %></p>
+							<p><% if picture.description.present? %><%= picture.description %><% else %>&nbsp;<% end %></p>
 						</div>
 					</div>	
 				</div>

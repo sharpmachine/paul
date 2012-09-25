@@ -2,20 +2,16 @@ class Picture < ActiveRecord::Base
   
   has_many :posts
   
-  validates_presence_of :title, :photo, :photo_cache
+  validates_presence_of :title, :photo
   attr_accessible :photo, :title, :published, :description, :crop_x, :crop_y, :crop_w, :crop_h, :photo_cache
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   
-  after_update :crop_photo, :if => :cropping?
+  after_update :crop_photo
   
   mount_uploader :photo, PhotoUploader
   
   def crop_photo
-    photo.recreate_versions!
-  end
-  
-  def cropping?
-    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+    photo.recreate_versions! if crop_x.present?
   end
   
   extend FriendlyId

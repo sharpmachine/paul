@@ -30,10 +30,10 @@ class Admin::PicturesController < Admin::BaseController
     @picture = Picture.new(params[:picture])
 
     if @picture.save
-      if params[:picture][:photo].blank?
-        redirect_to admin_picture_path(@picture), notice: 'Picture was successfully saved.'  
+      if params[:picture][:photo].present?
+        render :crop
       else  
-        render :action => 'crop'  
+        redirect_to admin_picture_path(@picture), notice: 'Picture was successfully saved.'    
       end
     else
       render action: "new"
@@ -49,10 +49,10 @@ class Admin::PicturesController < Admin::BaseController
     @picture = Picture.find(params[:id])
 
     if @picture.update_attributes(params[:picture])
-      if params[:picture][:photo].blank?
-        redirect_to admin_picture_path(@picture), notice: 'Picture was successfully saved.'  
-      else  
+      if params[:picture][:photo].present?
         render :action => 'crop'  
+      else  
+        redirect_to admin_picture_path(@picture), notice: 'Picture was successfully saved.'          
       end  
     else
       render action: "edit"

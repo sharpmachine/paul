@@ -1,5 +1,5 @@
 <%= simple_form_for [:admin, @picture], :html => { :multipart => true, :class => 'form-horizontal upload_form' } do |f| %>
-  
+
 <fieldset>
 <legend><%= controller.action_name.capitalize %> Picture</legend>
 	<%= image_tag(@picture.photo_url(:small), :class => "pull-right") if @picture.photo? %>		

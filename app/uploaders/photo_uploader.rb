@@ -8,7 +8,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process :resize_to_limit => [950, 660]
+    process :resize_to_limit => [950, 671]
   end
   
   version :medium, :from_version => :large do
@@ -20,7 +20,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [308, 206]
   end
   
-  version :thumb, :from_version => :small do
+  version :thumb, :from_version => :large do
     process :crop
     process :resize_to_fill => [308, 116]
   end  
@@ -30,8 +30,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
   
   def crop
-    if model.cropping?
-      resize_to_limit(950, 660)
+    if model.crop_x.present?
       manipulate! do |img|
         x = model.crop_x.to_i
         y = model.crop_y.to_i
