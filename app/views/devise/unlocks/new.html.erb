@@ -1,4 +1,7 @@
-<h2>Resend unlock instructions</h2>
+<div class="container">
+	<div class="row">
+		<div class="span20 offset4">
+			<h2>Resend unlock instructions</h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :class => 'form-horizontal', :method => :post }) do |f| %>
   <%= f.error_notification %>
@@ -11,5 +14,5 @@
     <%= f.button :submit, "Resend unlock instructions" %>
   </div>
 <% end %>
-
+</div></div></div>
 <%= render "devise/shared/links" %>

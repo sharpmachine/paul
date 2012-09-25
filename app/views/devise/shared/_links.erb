@@ -1,3 +1,8 @@
+<div class="white-bg">
+<div class="container">
+<div class="row">
+
+<div class="span24">
 <%- if controller_name != 'sessions' %>
   <%= link_to "Sign in", new_session_path(resource_name) %><br />
 <% end -%>
@@ -23,3 +28,7 @@
     <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
 <% end -%>
+</div>
+</div>
+</div>
+</div>
