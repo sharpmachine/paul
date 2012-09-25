@@ -25,7 +25,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
     
     respond_to do |format|
       format.html # new.html.erb
