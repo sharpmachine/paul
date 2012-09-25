@@ -12,7 +12,7 @@
 	      <% pictures.each do |picture| %>  
 			<div class="span8" style="margin-bottom:10px; ">
 				
-				<%= link_to image_tag(picture.image.url(:small)), picture.image.url(:large), :title => picture.title + " - " + picture.description, :class => "fancybox" %>
+				<%= link_to image_tag(picture.photo_url(:small)), picture.photo_url(:large), :title => picture.title + " - " + picture.description, :class => "fancybox" %>
 													
 			</div>	
 	      <% end %>  

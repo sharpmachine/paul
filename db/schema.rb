@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925162840) do
+ActiveRecord::Schema.define(:version => 20120925185103) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -60,11 +60,8 @@ ActiveRecord::Schema.define(:version => 20120925162840) do
     t.datetime "created_at",                                         :null => false
     t.datetime "updated_at",                                         :null => false
     t.string   "title"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
     t.string   "non_specific_date_info"
+    t.string   "banner"
   end
 
   create_table "friends", :force => true do |t|
@@ -76,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20120925162840) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.boolean  "featured"
+    t.string   "friendimage"
   end
 
   create_table "inquiries", :force => true do |t|
@@ -102,16 +100,13 @@ ActiveRecord::Schema.define(:version => 20120925162840) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "title"
     t.text     "description"
-    t.boolean  "published",          :default => false
+    t.boolean  "published",   :default => false
     t.string   "slug"
+    t.string   "photo"
   end
 
   add_index "pictures", ["slug"], :name => "index_pictures_on_slug", :unique => true
@@ -185,11 +180,8 @@ ActiveRecord::Schema.define(:version => 20120925162840) do
     t.datetime "updated_at",                                 :null => false
     t.string   "slug"
     t.text     "description"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "url"
+    t.string   "avatar"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

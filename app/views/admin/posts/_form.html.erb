@@ -3,7 +3,7 @@
 <fieldset>
 <legend><%= controller.action_name.capitalize %> Post</legend>
 
-		<%= f.input :published, :collection => [['Yes - Show post in website', true] ,['No - Hide post', false]], :as => :radio %>
+		<%= f.input :published, :collection => [['Yes - Show post in website', true] ,['No - Hide post', false]], :as => :radio_buttons %>
 		
 		<%= f.association :category, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Choose a category...' } %>
 		

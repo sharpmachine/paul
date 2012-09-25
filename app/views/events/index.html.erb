@@ -18,7 +18,7 @@
 				</div>
 			</div>
 				<div class="span8">
-					<%= image_tag event.banner.url(:small) %>	
+					<%= image_tag(event.banner_url(:small)) if event.banner? %>	
 				</div>	
 				<div class="span13 event-box">
 					<h6><%= event.title %></h6>

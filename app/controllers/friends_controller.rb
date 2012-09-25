@@ -4,7 +4,7 @@ class FriendsController < ApplicationController
   
   def index
     @selected_nav = "friends"   
-    @friends = Friend.includes(:picture).all
+    @friends = Friend.all
   end
   
 end

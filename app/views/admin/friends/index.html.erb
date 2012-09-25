@@ -25,7 +25,7 @@
   <tbody>
     <% @friends.each do |friend| %>
       <tr>
-	      <td><%= image_tag friend.picture.image.url(:thumb) if friend.picture %></td>
+	      <td><%= image_tag(friend.friendimage_url(:small)) if friend.friendimage? %></td>
 	      <td><%= friend.name %></td>
 	      <td><%= friend.featured? ? status_label("featured") : status_label("link") %></td>	
         <td>

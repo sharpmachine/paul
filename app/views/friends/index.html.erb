@@ -18,7 +18,7 @@
 	  <div class="span8">
 	  	<h3><%= friend.title %></h3>
 		<div class="page-box small">		
-		<%= image_tag friend.picture.image.url(:thumb) %>
+		<%= image_tag(friend.friendimage_url(:small)) if friend.friendimage? %>
 			<div class="container">			
 				<h6><%= friend.name %></h6>			
 				<%= markdown(friend.description, 280) %>

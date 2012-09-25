@@ -1,8 +1,8 @@
 var tinyMCEImageList = new Array(
         <% @pictures.each do |picture| %>
-			["<%= picture.title %> (Large - <%= picture.image_geometry(:large).width.to_i %> x <%= picture.image_geometry(:large).height.to_i %>px)", "<%= picture.image.url(:large) %>"],						
-			["<%= picture.title %> (Medium - <%= picture.image_geometry(:medium).width.to_i %> x <%= picture.image_geometry(:medium).height.to_i %>px)", "<%= picture.image.url(:medium) %>"],			
-			["<%= picture.title %> (Small - <%= picture.image_geometry(:small).width.to_i %> x <%= picture.image_geometry(:small).height.to_i %>px)", "<%= picture.image.url(:small) %>"],						
-			["<%= picture.title %> (Thumb - <%= picture.image_geometry(:thumb).width.to_i %> x <%= picture.image_geometry(:thumb).height.to_i %>px)", "<%= picture.image.url(:thumb) %>"]<% unless picture == @pictures.last %>,<% end %>									
+			["<%= picture.title %> (Large)", "<%= picture.photo_url(:large) %>"],						
+			["<%= picture.title %> (Medium)", "<%= picture.photo_url(:medium) %>"],			
+			["<%= picture.title %> (Small)", "<%= picture.photo_url(:small) %>"],						
+			["<%= picture.title %> (Thumb)", "<%= picture.photo_url(:thumb) %>"]<% unless picture == @pictures.last %>,<% end %>									
         <% end %>
 );

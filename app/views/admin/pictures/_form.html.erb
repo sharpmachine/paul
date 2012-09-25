@@ -2,13 +2,14 @@
   
 <fieldset>
 <legend><%= controller.action_name.capitalize %> Picture</legend>
-
-	<%= f.input :image %>
+	<%= image_tag(@picture.photo_url(:small), :class => "pull-right") if @picture.photo? %>		
+<%= f.input :photo, :label => "Image file" %>	
+<%= f.input :photo_cache, :as => "hidden" %>
 	
 	<%= f.input :title %>	
 	<%= f.input :description, :input_html => { :rows => 4 } %>		
 	
-	<%= f.input :published, :collection => [['Yes - Show photo in website', true] ,['No - Hide photo', false]], :as => :radio %>	
+	<%= f.input :published, :collection => [['Yes - Show photo in website', true] ,['No - Hide photo', false]], :as => :radio_buttons %>	
 	
 </fieldset>
 

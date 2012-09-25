@@ -15,7 +15,7 @@
 <% end %>
 
 <div class="page-box <%= home_page ? "home" : "" %>">
-	<%= image_tag post.picture.image.url(:thumb), :class => "post-thumbnail" if post.picture.present? %>
+	<%= image_tag post.picture.photo_url(:thumb), :class => "post-thumbnail" if post.picture.present? %>
 	<div class="container">	
 		<h6><%= link_to post.title, post_path(post) %></h6>
 

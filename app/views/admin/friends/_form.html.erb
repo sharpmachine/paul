@@ -3,12 +3,15 @@
 <fieldset>
 <legend><%= controller.action_name.capitalize %> Friend</legend>
 
-<%= f.input :featured, :collection => [['Yes - Show on friends page', true] ,['No - Just show button to website', false]], :as => :radio %>
+<%= f.input :featured, :collection => [['Yes - Show on friends page', true] ,['No - Just show button to website', false]], :as => :radio_buttons %>
   <%= f.input :title, :label => "Title e.g. 'Athlete'" %>
   <%= f.input :name %>
   <%= f.input :description, :as => :text, :input_html => { :rows => 6 } %>
+	<%= image_tag(@friend.friendimage_url(:small), :class => "pull-right") if @friend.friendimage? %>		
   <%= f.input :url %>
-  <%= f.association :picture, :collection => Picture.order('updated_at desc'), :input_html => { :class => 'chzn-select', 'data-placeholder' => "Choose a picture..." } %>	
+	<%= f.input :friendimage, :label => "Picture of friend, resizes to 308 x 116" %>	
+	<%= f.input :remote_friendimage_url, :label => "or specify a URL for the image" %>
+	<%= f.input :friendimage_cache, :as => "hidden" %>
 
 </fieldset>
 

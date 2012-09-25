@@ -7,14 +7,14 @@
 	<dl class="dl-horizontal">
 	  <dt><strong>Description</strong></dt>
 	  <dd><%= @picture.description %></dd>
-	  <dt><strong>Large <%= @picture.image_geometry(:large).width.to_i %> x <%= @picture.image_geometry(:large).height.to_i %></strong></dt>
-	  <dd><%= image_tag @picture.image.url(:large) %></dd>
-	  <dt><strong>Medium <%= @picture.image_geometry(:medium).width.to_i %> x <%= @picture.image_geometry(:medium).height.to_i %></strong></dt>
-	  <dd><%= image_tag @picture.image.url(:medium) %></dd>
-	  <dt><strong>Small <%= @picture.image_geometry(:small).width.to_i %> x <%= @picture.image_geometry(:small).height.to_i %></strong></dt>
-	  <dd><%= image_tag @picture.image.url(:small) %></dd>
-	  <dt><strong>Thumb <%= @picture.image_geometry(:thumb).width.to_i %> x <%= @picture.image_geometry(:thumb).height.to_i %></strong></dt>
-	  <dd><%= image_tag @picture.image.url(:thumb) %></dd>
+	  <dt><strong>Large</strong></dt>
+	  <dd><%= image_tag @picture.photo_url(:large) %></dd>
+	  <dt><strong>Medium</strong></dt>
+	  <dd><%= image_tag @picture.photo_url(:medium) %></dd>
+	  <dt><strong>Small</strong></dt>
+	  <dd><%= image_tag @picture.photo_url(:small) %></dd>
+	  <dt><strong>Thumb</strong></dt>
+	  <dd><%= image_tag @picture.photo_url(:thumb) %></dd>
 	</dl>
 
 	<div class="form-actions">

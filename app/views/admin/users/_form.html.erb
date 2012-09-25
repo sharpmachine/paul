@@ -7,9 +7,12 @@
 	<%= f.input :lastname %>
 	<%= f.input :role, :collection => User::ROLES, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Choose a role...' } %>		
 	<%= f.input :email %>
-	<%= f.input :description %>	
-	<%= f.input :url, :label => "Website URL" %>		
-	<%= f.input :avatar %>		
+	<%= f.input :description %>
+	<%= image_tag(@user.avatar_url(:small), :class => "pull-right") if @user.avatar? %>		
+	<%= f.input :url, :label => "Website URL" %>	
+	<%= f.input :avatar, :label => "Profile picture" %>	
+	<%= f.input :remote_avatar_url, :label => "or specify a URL for the image" %>
+	<%= f.input :avatar_cache, :as => "hidden" %>	
 	
 </fieldset>
 

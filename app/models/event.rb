@@ -9,30 +9,16 @@ class Event < ActiveRecord::Base
                   :organization_state, :organization_zip, :organization_country, :url, :event_type, :theme, :starts_at, :ends_at, 
                   :estimated_attendance, :other_speakers, :budget_for_additional_traveller, :housing, :bethel_students, 
                   :bethel_students_total, :bethel_student_housing, :location_name, :address, :address2, :city, :state, 
-                  :zip, :country, :information, :airport, :status, :title, :banner, :non_specific_date_info, :as => :admin      
+                  :zip, :country, :information, :airport, :status, :title, :banner, :remote_banner_url, :banner_cache, :non_specific_date_info, :as => :admin      
   
   validates :organization, :name, :phone, :email, :address, :city, :state, :zip, :country, :location_name, :presence => true
-  validates_presence_of :title, :if => :published?
+  validates_presence_of :title, :banner, :if => :published?
   validates_date :starts_at, :after => :today, :allow_nil => false, :allow_blank => false, :after_message => "must be a date in the future", :unless => :non_specific?
   validates_date :ends_at, :on_or_after => :starts_at, :allow_nil => true, :allow_blank => true, :after => "must be on or after start date"
   validates_format_of :url, :with => /^(((http|https?):\/\/)?((?:[-a-z0-9]+\.)+[a-z]{2,})).*/i, :message => "has an invalid format", :if => :url_filled?
   validates_numericality_of :estimated_attendance, :only_integer => true, :allow_nil => true, :greater_than => 0
   
-  
-  # has_attached_file :banner, :styles => { :small => "310x206#" },
-  #                   :storage => :s3,
-  #                   :s3_permissions => :public_read,                    
-  #                   :s3_credentials => {
-  #                     :bucket            => ENV['S3_BUCKET_NAME'],
-  #                     :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
-  #                     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  #                   },
-  #                   :path => "/:class/:id/:attachment/:style/:filename"
-  # 
-  # validates_attachment_size :banner, :less_than => 10.megabytes
-  # validates_attachment_content_type :banner, :content_type => ['image/jpeg', 'image/png', 'image/gif'], :message => "must be JPG, GIF or PNG"
-  # 
-  # validates_attachment_presence :banner, :if => :published?
+  mount_uploader :banner, BannerUploader
   
   STATUS_LIST = %w[new processing declined accepted published_to_website]
   
@@ -117,9 +103,7 @@ end
 #  created_at                      :datetime        not null
 #  updated_at                      :datetime        not null
 #  title                           :string(255)
-#  banner_file_name                :string(255)
-#  banner_content_type             :string(255)
-#  banner_file_size                :integer
-#  banner_updated_at               :datetime
 #  non_specific_date_info          :string(255)
+#  banner                          :string(255)
+#
 

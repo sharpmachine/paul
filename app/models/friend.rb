@@ -1,15 +1,15 @@
 class Friend < ActiveRecord::Base
-  attr_accessible :title, :name, :description, :url, :picture_id, :featured
+  attr_accessible :title, :name, :description, :url, :featured, :friendimage, :friendimage_cache, :remote_friendimage_url
   
-  belongs_to :picture
-  
-  validates_presence_of :name, :url
-  validates_presence_of :title, :description, :picture_id, :if => :featured?
+  validates_presence_of :name, :url 
+  validates_presence_of :title, :description, :friendimage, :if => :featured?
   
   validates_format_of :url, :with => /^(((http|https?):\/\/)?((?:[-a-z0-9]+\.)+[a-z]{2,})).*/i, :message => "has an invalid format"
   
   after_save :set_featured, :if => :featured?
   
+  mount_uploader :friendimage, FriendimageUploader
+    
   def featured?
     featured
   end
@@ -42,5 +42,6 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #  featured    :boolean
+#  friendimage :string(255)
 #
 

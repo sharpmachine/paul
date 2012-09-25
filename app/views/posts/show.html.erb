@@ -53,7 +53,7 @@
 				</div>
 				<div class="row">
 					<div class="span16">
-						<%= image_tag @post.picture.image.url(:medium) if @post.picture.present? %>	
+						<%= image_tag @post.picture.photo_url(:medium) if @post.picture.present? %>	
 						<div class="post-content">					
 							<%= raw(@post.content) %>
 						</div>
@@ -75,7 +75,7 @@
 			</div>
 		</div>
 		<div class="row">	
-			<div class="span5"><%= image_tag @post.user.avatar.url(:small) %></div>
+			<div class="span5"><%= image_tag(@post.user.avatar_url(:small)) if @post.user.avatar? %></div>
 			<div class="span10"><%= raw(@post.user.description) %></div>
 			<div class="span7 offset2">
 				<p><%= link_to "All posts by this author", posts_path(:author => @post.user.id), :class => "btn" %></p>

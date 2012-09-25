@@ -26,7 +26,7 @@
 	  <tbody>
 		<% @pictures.each do |picture| %>
 		  <tr>
-		    <td><%= image_tag picture.image.url(:thumb) %></td>
+		    <td><%= image_tag picture.photo_url(:thumb) if picture.photo? %></td>
 		    <td><%= picture.title %></td>
 		    <td><%= picture.updated_at.strftime("%D") %></td>	
 		    <td><% if picture.published? %><span class="label label-success">Published</span><% else %><span class="label">Unpublished</span><% end %></td>	

@@ -24,11 +24,8 @@
 #  updated_at             :datetime        not null
 #  slug                   :string(255)
 #  description            :text
-#  avatar_file_name       :string(255)
-#  avatar_content_type    :string(255)
-#  avatar_file_size       :integer
-#  avatar_updated_at      :datetime
 #  url                    :string(255)
+#  avatar                 :string(255)
 #
 
 require 'spec_helper'

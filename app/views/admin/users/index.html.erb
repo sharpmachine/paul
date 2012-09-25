@@ -25,7 +25,7 @@
   <tbody>
 	<% @users.each do |user| %>
 	  <tr>
-	    <td><%= user.avatar.present? ? image_tag(user.avatar.url(:thumb)) : "no avatar" %></td>
+	    <td><%= user.avatar? ? image_tag(user.avatar_url(:thumb)) : "no avatar" %></td>
 	    <td><%= link_to user.firstname, [:admin, user] %></td>
 	    <td><%= link_to user.lastname, [:admin, user] %></td>	
 	    <% if can? :manage, :roles %><td><span class="label label-info"><%= user.role %></span></td><% end %>

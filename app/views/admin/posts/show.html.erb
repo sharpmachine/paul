@@ -10,7 +10,7 @@
 	  <dt><strong>Tags:</strong></dt>
 	  <dd><%= @post.tags.collect {|t| t.tagstring }.join(", ") %></dd>
 	  <dt><strong>Picture:</strong></dt>
-	  <dd><%= image_tag @post.picture.image.url(:medium) if @post.picture.present? %></dd>	
+	  <dd><%= image_tag @post.photo_url(:medium) if @post.photo? %></dd>	
 	  <dt><strong>Post:</strong></dt>
 	  <dd><%= raw(@post.content) %></dd>
 	</dl>

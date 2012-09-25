@@ -4,10 +4,6 @@ describe Friend do
   after(:each) do
     ActiveRecord::Base.logger = nil
   end
-  
-  before(:each) do
-    FactoryGirl.create(:friend)
-  end
 
   let(:show_sql) { ActiveRecord::Base.logger = Logger.new(STDOUT) }
 
@@ -21,7 +17,7 @@ describe Friend do
       it { should have_db_column(:name).of_type(:string) }
       it { should have_db_column(:description).of_type(:string) }
       it { should have_db_column(:url).of_type(:string) }
-      it { should have_db_column(:picture_id).of_type(:integer) }
+      it { should have_db_column(:friendimage).of_type(:string) }
     
   end
 
@@ -43,5 +39,6 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #  featured    :boolean
+#  friendimage :string(255)
 #
 

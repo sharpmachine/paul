@@ -9,7 +9,7 @@
 		
 			<% @pictures.each do |picture| %>  
 				<div class="item <%= params[:picture].to_i == picture.id ? "active" : "" %>">
-					<%= image_tag picture.image.url(:large) %>
+					<%= image_tag picture.photo_url(:large) %>
 					<div class="carousel-caption">
 						<div class="<%= picture.has_post? ? "blog-white" : "pm-white" %>"> 
 						
@@ -41,7 +41,7 @@
 
 	
 		<div class="span8" style="position:relative; margin-bottom:10px; ">
-			<%= image_tag picture.image.url(:small), :width => "308", :height => "206" %>
+			<%= image_tag picture.photo_url(:small), :width => "308", :height => "206" %>
 			<%- if picture.has_post? -%>
 				<%= link_to "", "#", :class => "carousel-select post-link",  "data-slide" =>  @pictures.index(picture) %>										
 			<%- else -%>

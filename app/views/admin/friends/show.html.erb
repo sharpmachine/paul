@@ -14,7 +14,7 @@
   <dt><strong>Url:</strong></dt>
   <dd><%= @friend.url %></dd>
   <dt><strong>Picture:</strong></dt>
-  <dd><%= @friend.picture_id %></dd>
+  <dd><%= image_tag(@friend.friendimage_url(:small)) if @friend.friendimage? %></dd>
 	
 </dl>	
 

@@ -1,4 +1,4 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   storage :fog
@@ -8,8 +8,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   version :small do
-    process :resize_to_limit => [158, 200]
+    process :resize_to_limit => [150, 150]
   end
+  
+  version :thumb, :from_version => :small do
+    process :resize_to_limit => [75, 75]
+  end  
 
   def extension_white_list
     %w(jpg jpeg gif png)

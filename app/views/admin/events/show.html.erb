@@ -37,6 +37,10 @@
 	</div>
 	<div class="span6">
 	<dl class="dl-horizontal">
+		<% if @event.banner? %>
+		<dt><strong>Event Banner:</strong></dt>		
+		 <dd><%= image_tag(@event.banner_url(:small)) %></dd>
+		<% end %>
 		<dt><strong>Event Title:</strong></dt>
 		  <dd><%= @event.title.present? ? @event.title : status_label("No Title Entered") %></dd>
 		  <dt><strong>Event Type:</strong></dt>
