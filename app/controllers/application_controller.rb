@@ -56,12 +56,11 @@ class ApplicationController < ActionController::Base
   end  
   
   def render_not_found(exception)
-    logger.info exception
     render :template => "errors/404", :status => 404, :layout => "application"
   end
 
   def render_error(exception)
-    logger.info exception    
+    notify_airbrake(exception)
     render :template => "errors/500", :status => 500, :layout => "application"
   end
   
