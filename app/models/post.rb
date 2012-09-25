@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   
   validates_presence_of :picture_id, :if => :published?
   
-  attr_accessible :title, :content, :tag_ids, :category_id, :published_at, :picture_id, :published
+  attr_accessible :title, :content, :tag_ids, :category_id, :published_at, :picture_id, :published, :user_id
   
   after_save :cache_post_counts
   after_destroy :cache_post_counts  

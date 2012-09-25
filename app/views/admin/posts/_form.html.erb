@@ -4,7 +4,9 @@
 <legend><%= controller.action_name.capitalize %> Post</legend>
 
 		<%= f.input :published, :collection => [['Yes - Show post in website', true] ,['No - Hide post', false]], :as => :radio_buttons %>
-		
+
+		<%= f.association :user, :label => "Author", :collection => User.order("lastname desc"), :input_html => { :class => 'chzn-select', 'data-placeholder' => "Choose author..." } %>	
+				
 		<%= f.association :category, :input_html => { :class => 'chzn-select', 'data-placeholder' => 'Choose a category...' } %>
 		
 		<%= f.association :picture, :collection => Picture.order('updated_at desc'), :input_html => { :class => 'chzn-select', 'data-placeholder' => "Choose a picture..." } %>		
