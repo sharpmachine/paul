@@ -9,6 +9,8 @@ class Product < ActiveRecord::Base
   
   PRODUCT_TYPES = %w[book teaching_series toolkit]  
   
+  before_save :add_ref_to_url
+  
   after_save :set_featured_flag, :if => :featured_changed?
   
   extend FriendlyId
@@ -19,6 +21,10 @@ class Product < ActiveRecord::Base
   end
   
   private
+  
+  def add_ref_to_url
+    self.url = url + "?ref=123" unless url.end_with?("?ref=123")
+  end
   
   def set_featured_flag
     if featured?
