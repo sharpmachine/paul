@@ -46,7 +46,7 @@
 		<div class="row">
 			<% @pictures.each do |picture| %>  
 			<div class="span8" style="position:relative; ">
-				<%= image_tag picture.photo_url(:small), :width => "308", :height => "206" %>
+				<%= image_tag picture.photo_url(:small), :width => "310", :height => "206" %>
 				<%- if picture.has_post? -%>
 					<%= link_to "", post_path(picture.posts.first), :class => "post-link" %>					
 				<%- else -%>

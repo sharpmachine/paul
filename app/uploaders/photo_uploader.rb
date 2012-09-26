@@ -8,7 +8,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process :resize_to_limit => [950, 671]
+    process :resize_to_fit => [950, 671]
   end
   
   version :medium, :from_version => :large do
@@ -17,12 +17,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end 
   
   version :small, :from_version => :large do
-    process :resize_to_fill => [308, 206]
+    process :resize_to_fill => [310, 206]
   end
   
   version :thumb, :from_version => :large do
     process :crop
-    process :resize_to_fill => [308, 116]
+    process :resize_to_fill => [310, 116]
   end  
 
   def extension_white_list

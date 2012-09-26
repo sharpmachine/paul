@@ -22,9 +22,11 @@
 			<div class="container">			
 				<h6><%= friend.name %></h6>			
 				<%= markdown(friend.description, 280) %>
-				<p><%= link_to friend.url, friend.url %></p>
 			</div>	
-		</div>		
+		</div>
+		<div class="read-more">
+			<%= link_to friend.url, friend.url %>
+		</div>				
 	  </div>
 	<% end %>
 	<% end %>

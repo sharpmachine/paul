@@ -41,15 +41,13 @@
 
 	
 		<div class="span8" style="position:relative; margin-bottom:10px; ">
-			<%= image_tag picture.photo_url(:small), :width => "308", :height => "206" %>
+			<%= image_tag picture.photo_url(:small), :width => "310", :height => "206" %>
 			<%- if picture.has_post? -%>
-				<%= link_to "", "#", :class => "carousel-select post-link",  "data-slide" =>  @pictures.index(picture) %>										
+				<%= link_to "", "#photoCarousel", :class => "carousel-select post-link",  "data-slide" =>  @pictures.index(picture) %>										
 			<%- else -%>
-				<%= link_to "", "#", :class => "carousel-select picture-link",  "data-slide" =>  @pictures.index(picture) %>				
+				<%= link_to "", "#photoCarousel", :class => "carousel-select picture-link",  "data-slide" =>  @pictures.index(picture) %>				
 			<%- end -%>
 		</div>	
-	
-	
 	      <% end %>  
 		</div>
 	<% end %>

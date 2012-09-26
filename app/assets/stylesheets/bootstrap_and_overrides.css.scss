@@ -43,7 +43,7 @@ $purple:                #7a43b6 !default;
 // -------------------------
 $bodyBackground:        $pageColor !default;
 $bodyBackgroundSplash:	#892121 !default;
-$textColor:             $grayLight !default;
+$textColor:             #999 !default;
 
 
 // Links
@@ -517,9 +517,7 @@ h2 strong {
 	margin:0;
 	padding:27px 40px 27px 40px;		
 }    
-.page-box img {
-	border: 1px solid $grayLighter;
-}
+
 img.product-image {
 	border:none;
 	display: block;
@@ -539,7 +537,7 @@ a.post-link {
 	top:0;
 	z-index:1;
 	display:block;
-	width:306px;
+	width:308px;
 	height:204px;
 	background:transparent url(image-path('blog.png')) 267px 172px no-repeat;			
 	border: 1px solid $grayLighter;	
@@ -554,7 +552,7 @@ a.picture-link {
 	top:0;
 	z-index:1;
 	display:block;
-	width:306px;
+	width:308px;
 	height:204px;
 	background:transparent url(image-path('pm.png')) 267px 171px no-repeat;			
 	border: 1px solid $grayLighter;		
@@ -897,20 +895,18 @@ a.tag-btn {
 	height:110px;	
 	text-align:center;
 	background-color:$eventDateColor;
-	border:1px solid $grayLight;
 }
 p.post-day {
 	color:#F7F6F2;
 	font-family:$altFontFamily;
 	font-size:48px;
 	font-weight:bold;
-	margin-top:35px;
+	padding-top:35px;
 }
 p.post-month {
 	font-family:$headingsFontFamily;
 	color:#D3D1CB;
-	font-size:24px;
-	margin-top:12px;		
+	font-size:24px;	
 }
 .post-content {
 	background-color:$white;

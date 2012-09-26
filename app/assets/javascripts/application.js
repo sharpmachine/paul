@@ -19,6 +19,7 @@
 //= require jquery.mousewheel-3.0.6.pack
 //= require jquery.fancybox.pack
 //= require jquery-ui
+//= require jquery.scrollTo-1.4.3.1-min
 //= require_directory .
 
 jQuery( function($) {
@@ -70,7 +71,10 @@ jQuery( function($) {
 	    var index = $(this).data("slide");
 	    $this.click(function() {
 	        $myCarousel.carousel(index);
+			$.scrollTo("#photoCarousel", 400);	
+			return false;
 	    });
+		
 	});
 	
 	
