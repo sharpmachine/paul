@@ -2,7 +2,17 @@
 
 <div class="container">
 	<div class="row">
-		<div class="span24 pad"></div>
+		<div class="span18">	
+		<% if params[:q].present? %>	
+			<h3><%= link_to image_tag("search_icon.png"), products_path, :title => "Back to Blog Home" %>&nbsp;Search / <strong><%= params[:q] %></strong></h3>
+		<% else %>
+			&nbsp;
+		<% end %>
+		</div>
+		<div class="span6">	
+		<%= form_tag(products_path, :method => "get", :class => "form-search pull-right", :style => "margin-top:40px; ") do %>
+			<%= text_field_tag(:q, params[:q], :class => "search-query", :placeholder => "SEARCH PRODUCTS") %><%= submit_tag("", :name => nil, :class => "search-btn") %><% end %>
+		</div>
 	</div>
 	<% @products.in_groups_of(3, false) do |products| %>  
 		<div class="row">

@@ -5,11 +5,9 @@ class ProductsController < ApplicationController
   before_filter :set_active_nav  
 
   def index
-    @products = Product.order("created_at").page(params[:page]).per(6)
-    
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    @products = Product.order("featured desc, created_at")
+    @products = @products.text_search(params[:q]) if params[:q].present?
+    @products = @products.page(params[:page]).per(6)
   end
   
   private

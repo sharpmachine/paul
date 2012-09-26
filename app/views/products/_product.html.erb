@@ -15,7 +15,7 @@
 	</div>
 <% else %>
 
-	<h3 class="theres-more"><%= product.product_type %></h3>
+	<h3 class="product-heading"><%= product.product_type.humanize %></h3>
 
 	<div class="product-box"><%= image_tag product.image_url(:small), :class => "product-image" %></div>
 	<div class="product-description">

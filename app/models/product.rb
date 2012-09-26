@@ -13,6 +13,18 @@ class Product < ActiveRecord::Base
   
   after_save :set_featured_flag, :if => :featured_changed?
   
+  include PgSearch
+  pg_search_scope :search, against: [:title, :author, :short_description, :product_type],
+   using: {tsearch: { dictionary: "english" }} 
+  
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
+  
   extend FriendlyId
     friendly_id :title, use: :slugged
   
