@@ -1055,19 +1055,16 @@ body#splash {
 	text-transform:uppercase;
 	margin-bottom:24px;
 }
-.back-button {
-			
-}
 
 a.back-button  { 
 	display:block;
 	font-family:$headingsFontFamily;
 	text-transform:uppercase;
-	width: 200px;
+	width: 220px;
 	height:44px;
-	background:$white url(image-path('theres_more.png')) 9px 9px no-repeat;
+	background:$white url(image-path('theres_more_dark.png')) 203px 9px no-repeat;
 	margin:0 0 40px 0;
-	padding:4px 0 0 40px;	
+	padding:4px 0 0 10px;	
 	@include border-bottom-left-radius(5px);	
 	@include border-bottom-right-radius(5px);
 	font-size:16px;
@@ -1075,8 +1072,9 @@ a.back-button  {
 	&:hover {
 		text-decoration:none;
 		color:#000000;		
+		background:$white url(image-path('theres_more_black.png')) 203px 9px no-repeat;		
 	}
 }
-a.back-button a small { 
-	font-size: 12px;
+a.back-button small { 
+	font-size: 11px;
 }
