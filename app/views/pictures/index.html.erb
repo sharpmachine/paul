@@ -41,7 +41,7 @@
 
 	
 		<div class="span8" style="position:relative; margin-bottom:10px; ">
-			<%= image_tag picture.photo_url(:small), :width => "310", :height => "206" %>
+			<%= image_tag picture.photo_url(:small) %>
 			<%- if picture.has_post? -%>
 				<%= link_to "", "#photoCarousel", :class => "carousel-select post-link",  "data-slide" =>  @pictures.index(picture) %>										
 			<%- else -%>
