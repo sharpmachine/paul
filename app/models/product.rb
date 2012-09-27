@@ -35,7 +35,7 @@ class Product < ActiveRecord::Base
   private
   
   def add_ref_to_url
-    self.url = url + "?ref=123" unless url.end_with?("?ref=123")
+    self.url = url + "?ref=12" unless url.end_with?("?ref=12")
   end
   
   def set_featured_flag
