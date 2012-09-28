@@ -27,7 +27,7 @@
 
 		<p class="tags"><%= render post.tags %></p>
 
-		<p class="comments"><%= link_to post.title, post_path(post) + "#disqus_thread", "data-disqus-identifier" => post.id %></p>
+		<p class="comments"><%= link_to "View Comments", post_path(post) + "#disqus_thread", "data-disqus-identifier" => post.id %></p>
 
 		<hr>
 
