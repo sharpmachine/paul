@@ -34,7 +34,7 @@
 <% end %>
 </head>
 <body id="<%= @selected_nav %>">
-
+<div id="surrounder">
 <div class="nav-bg">
 <div class="container">		
 <div class="navbar">
@@ -95,7 +95,8 @@
 <%- end -%>	
 
   <%= yield %>
-
+<div class="clearfooter"></div>
+</div>
   <footer class="footer">
     <div class="container">
 		<% if user_signed_in? && current_user.is_admin? %>	

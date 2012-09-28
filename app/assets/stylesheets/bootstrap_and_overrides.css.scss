@@ -135,6 +135,21 @@ $paginationActiveBackground:          $eventDateColor;
 //@import "bootstrap-responsive";                                                                           
 @import "font-awesome"; 
 
+html, body {
+	height: 100%;
+}
+
+#surrounder {
+  min-height: 100%;
+  margin-bottom: -38px;
+  position: relative;
+}
+
+.clearfooter {
+  height: 38px;
+  clear: both;
+}
+
 // Typography
 // Headings
 // -------------------------
@@ -589,6 +604,7 @@ a.instagram-link {
 } 
 
 .footer {
+	position: relative;	
 	background-color:$grayDarker;
 	border-bottom:1px solid $grayDarker;
 	height:27px;
