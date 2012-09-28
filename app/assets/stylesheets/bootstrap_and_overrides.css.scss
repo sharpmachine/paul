@@ -775,10 +775,11 @@ h3.product-heading {
 .darkgray-bg {
 	background-color:$grayDarker;
 }
-.darkgray-bg h1 {
-	color:$white;
-}
-.darkgray-bg p {
+.darkgray-bg h1,
+.darkgray-bg h6,
+.darkgray-bg p,
+.darkgray-bg li
+{
 	color:$white;
 }
 .darkgray-bg a {
