@@ -425,6 +425,7 @@ h2 strong {
 	float:left;		
 }              
 #home .nav-intro p {
+	font-family:$serifFontFamily;
 	color:$white;
 	font-size:14px;	
 }     
@@ -453,6 +454,7 @@ h2 strong {
 }       
 #invite .nav-intro p {
 	color:$white;
+	font-family:$serifFontFamily;	
 	font-size:12px;	
 	margin-bottom:18px;
 }   
@@ -469,6 +471,7 @@ h2 strong {
 	font-size:30px;
 }       
 #give .nav-intro p {
+	font-family:$serifFontFamily;
 	color:$white;
 	font-size:12px;	
 	margin-bottom:18px;
