@@ -12,7 +12,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
   
   version :medium, :from_version => :large do
-    process :crop
     process :resize_to_fill => [628, 235]
   end 
   
@@ -20,7 +19,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [310, 208]
   end
   
-  version :thumb, :from_version => :large do
+  version :thumb, :from_version => :medium do
     process :crop
     process :resize_to_fill => [310, 116]
   end  
