@@ -36,7 +36,7 @@ end
 #  id          :integer         not null, primary key
 #  title       :string(255)
 #  name        :string(255)
-#  description :string(255)
+#  description :text
 #  url         :string(255)
 #  picture_id  :integer
 #  created_at  :datetime        not null
