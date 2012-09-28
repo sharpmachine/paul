@@ -337,7 +337,7 @@ h2 strong {
   font-size: 80px;
   font-weight: 100;
   line-height: 630px;
-  color: $black;
+  color: $grayDarker;
   text-align: center;
   background: transparent;
   border: none;
@@ -461,7 +461,7 @@ h2 strong {
 
 .page-box {
 	width: 310px;
-	height: 425px;
+	height: 450px;
 	background-color:$white;
 	overflow:hidden;
 	padding-bottom:27px;	
@@ -590,7 +590,7 @@ a.instagram-link {
 
 .footer {
 	background-color:$grayDarker;
-	border-bottom:1px solid $grayLight;
+	border-bottom:1px solid $grayDarker;
 	height:27px;
 	padding-top:10px;	
 } 
