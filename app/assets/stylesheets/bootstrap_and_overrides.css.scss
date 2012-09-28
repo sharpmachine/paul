@@ -484,6 +484,16 @@ h2 strong {
 	height: 376px;
 }
 
+.relative {
+	position:relative;
+}
+
+.bottom-link {
+	display:block;
+	position:absolute;
+	bottom:0;
+}
+
 .mini-event-box {
 	width: 230px;
 	height: 84px;
