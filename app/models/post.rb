@@ -53,6 +53,10 @@ class Post < ActiveRecord::Base
     published_at.present?
   end
   
+  def photo?
+    picture.present?
+  end  
+  
   private
   
   def cache_post_counts
