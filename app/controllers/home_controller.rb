@@ -28,7 +28,7 @@ class HomeController < ApplicationController
   def give
     @selected_nav = "give"
     @our_heart = Page.find("give-our-heart")
-    @chloe_and_stu = Page.find("give-chloe-and-stu-s-orphanage")
+    @chloe_and_stu = Page.find("give-chloe-and-stu-s-kids-homes")
     @erica = Page.find("give-erica-greve")
     @john_and_sarah = Page.find("give-john-and-sarah-s-orphanage")    
   end  
