@@ -24,7 +24,11 @@
 					<h6><%= event.title %></h6>
 					<p class="place"><%= event.location_name %><br /><%= event.location %></p>
 					<p class="date"><%= nice_date(event.starts_at, event.ends_at, true) %></p>
-					<%= link_to "Event Website", event.url, :class => "btn" %>										
+					<% if event.url_filled? %> 
+					  <%= link_to "Event Website", event.url, :class => "btn" %> 
+					<% else %>
+					  <%= link_to "Contact us for Event Information", contact_path(:inquiry_id => 5) %>
+					<% end %>										
 				</div>
 		</div>	
 	<% end %>	

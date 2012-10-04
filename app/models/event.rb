@@ -9,9 +9,13 @@ class Event < ActiveRecord::Base
                   :organization_state, :organization_zip, :organization_country, :url, :event_type, :theme, :starts_at, :ends_at, 
                   :estimated_attendance, :other_speakers, :budget_for_additional_traveller, :housing, :bethel_students, 
                   :bethel_students_total, :bethel_student_housing, :location_name, :address, :address2, :city, :state, 
-                  :zip, :country, :information, :airport, :status, :title, :banner, :remote_banner_url, :banner_cache, :non_specific_date_info, :as => :admin      
+                  :zip, :country, :information, :airport, :status, :title, :banner, :remote_banner_url, :banner_cache, :non_specific_date_info, :admin_editor, :as => :admin      
   
-  validates :organization, :name, :phone, :email, :address, :city, :state, :zip, :country, :location_name, :presence => true
+  attr_accessor :admin_editor
+
+  validates :organization, :name, :phone, :email, :presence => true
+  validates :address, :city, :state, :zip, :country, :location_name, :presence => true, :unless => :is_admin?
+
   validates_presence_of :title, :banner, :if => :published?
   validates_date :starts_at, :after => :today, :allow_nil => false, :allow_blank => false, :after_message => "must be a date in the future", :unless => :non_specific?
   validates_date :ends_at, :on_or_after => :starts_at, :allow_nil => true, :allow_blank => true, :after => "must be on or after start date"
@@ -56,11 +60,15 @@ class Event < ActiveRecord::Base
   end
   
   def location
-    [city, state, country].compact.reject { |s| s.blank? }.join(', ')
+    [address, address2, city, state, zip, country].compact.reject { |s| s.blank? }.join(', ')
   end
   
   def non_specific?
     non_specific_date_info.present? && !accepted?
+  end
+
+  def is_admin?
+    admin_editor.present?
   end
 end
 # == Schema Information

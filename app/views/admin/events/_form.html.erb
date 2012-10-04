@@ -1,5 +1,6 @@
 <%= simple_form_for [:admin, @event], :html => { :multipart => true, :class => 'form-horizontal upload_form' } do |f| %>
-  
+
+  <%= f.input :admin_editor, :as => :hidden, :input_html => { :value => '1' } %>  
 <fieldset>
 
 <legend>Event Status</legend>

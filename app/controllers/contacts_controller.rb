@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
     
   def index
     @contact = Contact.new
+    @contact.inquiry_id = params[:inquiry_id]
     @inquiries = Inquiry.all
   end
   

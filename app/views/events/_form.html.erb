@@ -71,12 +71,12 @@
 	<div class="control-group radio_buttons optional"><label class="radio_buttons optional control-label">Event location same as Address of Church/Ministry?</label><div class="controls"><label class="radio inline"><input class="radio_buttons optional" id="copy_org_true" name="copy_org_false" type="radio" value="true" />Yes</label><label class="radio inline"><input class="radio_buttons optional" id="copy_org_false" name="copy_org_false" type="radio" value="false" />No</label></div></div>
 
 	  <%= f.input :location_name, :label => "Location of the event", :label_html => { :class => "label-pad" } %>
-	  <%= f.input :address %>
+	  <%= f.input :address, :required => true %>
 	  <%= f.input :address2 %>
-	  <%= f.input :city %>
-	  <%= f.input :state %>
-	  <%= f.input :zip %>
-	  <%= f.input :country, :input_html => { :class => "chzn-select" } %>
+	  <%= f.input :city, :required => true %>
+	  <%= f.input :state, :required => true %>
+	  <%= f.input :zip, :required => true %>
+	  <%= f.input :country, :input_html => { :class => "chzn-select" }, :required => true %>
 
 </fieldset>
 	  <div class="form-actions">
