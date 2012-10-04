@@ -568,7 +568,6 @@ a.post-link {
 	width:308px;
 	height:206px;
 	background:transparent url(image-path('blog.png')) 267px 172px no-repeat;			
-	border: 1px solid $grayLighter;	
 	&:hover {		
 		background-image:url(image-path('blog_hover.png'));	
 	}  	
@@ -582,7 +581,6 @@ a.picture-link {
 	width:308px;
 	height:206px;
 	background:transparent url(image-path('pm.png')) 267px 171px no-repeat;			
-	border: 1px solid $grayLighter;		
 	&:hover {
 		background-image:url(image-path('pm_hover.png'));
 	}  	
