@@ -62,6 +62,10 @@ class Event < ActiveRecord::Base
   def location
     [address, address2, city, state, zip, country].compact.reject { |s| s.blank? }.join(', ')
   end
+
+  def short_location
+    [city, state, country].compact.reject { |s| s.blank? }.join(', ')
+  end
   
   def non_specific?
     non_specific_date_info.present? && !accepted?
