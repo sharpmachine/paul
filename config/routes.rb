@@ -44,8 +44,8 @@ Paulmanwaring::Application.routes.draw do
   match 'terms' => 'home#terms', :as => :terms    
   match 'kisses' => 'splashes#index', :as => :kisses
   match 'kisses-from-a-good-god' => 'splashes#index'        
-  match 'home' => 'home#index'  
-  
+  match 'home' => 'home#index', :as => :home  
+
   root :to => 'splashes#index'
   match '*a', :to => 'errors#routing', :format => false  
 end
