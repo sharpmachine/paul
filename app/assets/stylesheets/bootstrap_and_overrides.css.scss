@@ -501,12 +501,20 @@ h2 strong {
 	padding:10px 40px 27px 40px;
 }
 
-.page-box.small {
+.read-more-308 {
+	width: 228px;
+
+	background-color:$white;
+	margin-bottom:18px;
+	padding:10px 40px 27px 40px;
+}
+
+.page-box.small, .page-box-308.small {
 	height: 344px;
 	margin-bottom:0;		
 }
 
-.page-box.home {
+.page-box.home, .page-box-308.home {
 	height: 376px;
 }
 
@@ -548,11 +556,11 @@ h2 strong {
 	width:440px;
 }
 
-.page-box .container {
+.page-box .container, .page-box-308 .container  {
 	width: 230px;
 	margin:0;
 	padding:27px 40px 27px 40px;		
-}    
+}   
 
 img.product-image {
 	border:none;
