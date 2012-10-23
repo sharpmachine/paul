@@ -48,9 +48,10 @@
 						<p>
 							<span class="category"><%= link_to @post.category.name, category_path(@post.category), :class => "tag-link" %></span>
 							&nbsp;&nbsp;
+							<span class="comments"><%= link_to "View Comments", post_path(@post) + "#disqus_thread", "data-disqus-identifier" => @post.id %></span>	
+							<br>
 							<span class="tags"><%= render @post.tags %></span>
-							&nbsp;&nbsp;
-							<span class="comments"><%= link_to "View Comments", post_path(@post) + "#disqus_thread", "data-disqus-identifier" => @post.id %></span>							
+													
 						</p>
 						
 					</div>							
