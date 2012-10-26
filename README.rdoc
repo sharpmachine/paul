@@ -1,3 +1,3 @@
-== Clean Rails App
+== Simple Blog Site
 
-Simple Blog site.
+Nice Rails 3 blog site, using Twitter Bootstrap modified CSS.
