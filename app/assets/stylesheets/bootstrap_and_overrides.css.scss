@@ -661,6 +661,17 @@ a.facebook {
 		background-image:url(image-path('facebook_hover.png'));	
 	}	
 }
+a.amazon {
+	margin-top:-9px;
+	padding:0;
+	display:block;
+	width:25px;
+	height:35px;
+	background:transparent url(image-path('amazon.png')) 0 9px no-repeat;	
+	&:hover {
+		background-image:url(image-path('amazon_hover.png'));	
+	}	
+}
 p.place {
 	font-size:14px;
 	font-style:italic;
