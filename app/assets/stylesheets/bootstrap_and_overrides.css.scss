@@ -43,7 +43,7 @@ $purple:                #7a43b6 !default;
 // -------------------------
 $bodyBackground:        $pageColor !default;
 $bodyBackgroundSplash:	#892121 !default;
-$textColor:             #999 !default;
+$textColor:             #525252 !default;
 
 
 // Links
@@ -164,7 +164,7 @@ h1, h2, h3, h4, h5, h6 {
   small {
     font-weight: normal;
     line-height: 1;
-    color: $grayLight;
+    color:$headingsColor;
   }
 }
 
