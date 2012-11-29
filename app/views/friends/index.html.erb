@@ -38,7 +38,7 @@
 	  <div class="span24">
 		<% @friends.each do |friend| %>	
 		<% unless friend.featured? %>
-			<%= link_to friend.name, friend.url, :class => "btn" %>&nbsp;&nbsp;
+			<%= link_to friend.name, friend.url, :class => "btn", :style => "margin-bottom:10px; " %>&nbsp;&nbsp;
 		<% end %>	
 		<% end %>
 	  </div>	
