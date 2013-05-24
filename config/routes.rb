@@ -6,7 +6,11 @@ Paulmanwaring::Application.routes.draw do
   resources :pictures, :only => :index
   resources :friends, :only => :index  
   resources :posts, :only => [:index, :show]
-  resources :events, :only => [:index, :new, :create]
+  resources :events, :only => [:index, :new, :create] do
+    collection do
+      get :travel_test
+    end
+  end
   resources :contacts, :only => [:create, :index]  
     
   # Namespace for Admin Section

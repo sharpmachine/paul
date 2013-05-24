@@ -33,6 +33,9 @@ class EventsController < ApplicationController
       render :new
     end
   end
+
+  def travel_test
+  end
   
   private
   
