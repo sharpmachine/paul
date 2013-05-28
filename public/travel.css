@@ -1,2 +1,76 @@
 /* Custom Styles for the Travel App form */
 h1.page-header { display: none; }
+
+.help-block {
+  color:#767267;  
+  font-size:11px;
+  font-family: Helvetica, Arial, sans-serif;  
+}
+
+.help-inline {
+  font-family: Helvetica, Arial, sans-serif;  
+}
+.chzn-single, 
+.chzn-results,
+label,
+input,
+button,
+select,
+textarea {
+  font-family: Helvetica, Arial, sans-serif;
+  color:#000;
+}
+
+label {
+  color:#767267;
+}
+legend {
+  font-size:14px;
+  color: #7A776D;
+  font-family: "Helvetica Neue Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  text-transform:uppercase;
+  margin-bottom:0;
+}
+.label-pad {
+  margin-top:30px;
+}
+
+.control-group {
+  margin-bottom:0;
+}
+
+// Shared size and type resets
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  color: #000;
+}
+abbr[title] {
+  color:#9d261d;
+  border-bottom:0;  
+}
+
+fieldset {
+  margin-bottom:30px;
+}
+
+.form-actions {
+  padding:0;
+  margin-top:40px;
+  border-top:0;
+  background-color:transparent;
+}
