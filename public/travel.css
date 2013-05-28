@@ -46,7 +46,7 @@ input[type="submit"] {
 }
 
 /* line 285, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
-.btn {
+#request-trip .btn, .simple_form .btn, .btn {
   font-family: "Helvetica Neue Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   text-decoration: underline;
@@ -255,24 +255,4 @@ fieldset {
   border-color: #c5c5c5;
   border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
 }
-
-/* line 135, ../../../../.rvm/gems/ruby-1.9.3-p194/gems/bootstrap-sass-2.1.0.1/vendor/assets/stylesheets/bootstrap/_buttons.scss */
-.form-actions .btn {
-  color: white;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #36342e;
-  background-image: -moz-linear-gradient(top, #36332e, #36362e);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#36332e), to(#36362e));
-  background-image: -webkit-linear-gradient(top, #36332e, #36362e);
-  background-image: -o-linear-gradient(top, #36332e, #36362e);
-  background-image: linear-gradient(to bottom, #36332e, #36362e);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF36332E', endColorstr='#FF36362E', GradientType=0);
-  border-color: #36362e #36362e #0d0d0b;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) fadein(rgba(0, 0, 0, 0.1), 15%);
-  *background-color: #36362e;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-}
-
 
