@@ -1,5 +1,7 @@
 /* Custom Styles for the Travel App form */
-h1.page-header { display: none; }
+#request-trip h1.page-header { display: none; }
+#request-trip h2 { display: none; }
+#new_trip > ul { display: none; }
 
 .help-block {
   color:#767267;  
