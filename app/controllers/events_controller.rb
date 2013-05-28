@@ -35,6 +35,9 @@ class EventsController < ApplicationController
   end
 
   def travel_test
+    @selected_nav = "invite"
+    @intro = Page.find("why-invite-paul")  
+    @how = Page.find("how-to-invite-paul")     
   end
   
   private
